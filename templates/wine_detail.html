@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Details</title>
+</head>
+<body>
+    <h1 id="wine-name">Wine Details</h1>
+    <p><strong>Vintage ID:</strong> <span id="vintage-id"></span></p>
+    <p><strong>와인명:</strong> <span id="wine-name1"></span></p>
+    <p><strong>Average Rating:</strong> <span id="average-rating"></span></p>
+    <p><strong>Price Type ID:</strong> <span id="price-type-id"></span></p>
+    
+
+    <script>
+        // URL 경로에서 pk를 추출하는 함수
+        function getPkFromUrl() {
+            const path = window.location.pathname;
+            const parts = path.split('/').filter(part => part !== "");
+            return parts[parts.length - 1]; // URL의 마지막 부분을 반환
+        }
+
+        // API로부터 특정 와인의 세부 정보를 가져오는 함수
+        async function fetchWineDetails(pk) {
+            try {
+                // API 경로에서 '/wine/' 부분을 제거하여 올바른 경로 사용
+                const response = await fetch(`/wine/api/wines/${pk}/`);
+                
+                // 응답이 성공적으로 도착했는지 확인
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const wine = await response.json();
+                
+                // HTML 요소에 데이터 추가
+                document.getElementById('wine-name').textContent = wine.vintage_name;
+                document.getElementById('wine-name1').textContent = wine.vintage_name;
+                document.getElementById('vintage-id').textContent = wine.vintage_id;
+                document.getElementById('average-rating').textContent = wine.ratings_average;
+                document.getElementById('price-type-id').textContent = wine.type_id;
+
+            } catch (error) {
+                console.error('Error fetching wine details:', error);
+            }
+        }
+
+        // 페이지 로드 시 와인 세부 정보 가져오기
+        window.onload = () => {
+            const pk = getPkFromUrl(); 
+            if (pk) {
+                fetchWineDetails(pk);
+            } else {
+                console.error('No pk found in URL'); //url 에서 pk 값 가져오고 url 에 pk 가 없으면 에러 표시
+            }
+        };
+    </script>
+</body>
+</html>
