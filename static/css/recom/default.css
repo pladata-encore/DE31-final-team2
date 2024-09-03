@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+@font-face {
+    font-family: 'DefaultFont';
+    src: url('/static/fonts/AppleSDGothicNeoSB.ttf') format('truetype');
+}
+
+* {
+    font-family: "DefaultFont", sans-serif;
+}

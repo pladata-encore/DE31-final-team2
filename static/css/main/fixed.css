@@ -1,0 +1,176 @@
+/* 사용할 폰트 호출*/
+@font-face {
+    font-family: 'H1Font';
+    src: url('/static/fonts/KimjungchulScript-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'DetailFont';
+    src: url('/static/fonts/AppleSDGothicNeoM.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'UserMenuFont';
+    src: url('/static/fonts/AppleSDGothicNeoSB.ttf') format('truetype');
+}
+
+/* 상단 고정 배너 배경 관련 css */
+.wrap {
+    width: 100%; /* 화면 채우기라고 생각하면 될 듯 */
+    background-color: rgb(146, 0, 0); /* 배경색 지정 */
+    padding: 0 10px; /* 왼쪽 여백 10px 지정 */
+    align-items: center; /* 아이템 중앙 배치 */
+    justify-content: space-between; /* 좌측과 우측 끝으로 정렬 */
+    box-sizing: border-box; /* 패딩과 보더를 포함한 너비 계산 */
+    display: flex;/* 내부 콘텐츠를 중앙 정렬 */
+}
+
+/* h1 요소 내부의 텍스트와 아이콘을 한 줄로 배치 */
+.wrap h1 {
+    margin: 0;
+    display: flex;
+    align-items: center; /* 텍스트와 아이콘을 수직으로 중앙 정렬 */
+}
+
+/* 로고 스타일 */
+.wrap h1 a {
+    color: white; /* 링크 텍스트 색상 */
+    font-size: 35px; /* 글꼴 크기 설정 */
+    text-decoration: none; /* 링크 텍스트 밑줄 제거 */
+    font-family: 'H1Font', sans-serif; /* 폰트 설정 */
+    display: flex;
+    align-items: center; /* 텍스트와 아이콘을 수직으로 중앙 정렬 */
+    white-space: nowrap; /* 텍스트와 아이콘이 줄바꿈되지 않도록 */
+}
+
+/* 사이드 메뉴 */
+.user_menu {
+    width: 100%;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box; /* 패딩과 보더를 포함한 너비 계산 */;
+    justify-content: flex-end; /* 요소를 오른쪽 끝으로 정렬 */
+}
+
+/* 햄버거 버튼(사이드메뉴 열기) 디자인 */
+.burger em {
+    display: block;
+    width: 25px;        /* 가로줄의 길이 */
+    height: 3px;        /* 가로줄의 두께 */
+    background-color: #ffffff; /* 가로줄 색상 */
+    margin: 5px 0;      /* 각 가로줄 사이의 간격 */
+}
+
+/* 사이드메뉴 열기 버튼 기본 스타일 제거 */
+.sideMenu {
+    background: none; /* 배경 제거 */
+    border: none;     /* 테두리 제거 */
+    padding: 0;       /* 여백 제거 */
+    margin: 0;        /* 마진 제거 */
+    cursor: pointer;  /* 클릭 가능한 커서 유지 */
+    display: flex;    /* 내부 콘텐츠를 중앙 정렬 */
+    align-items: center;
+    justify-content: center;
+}
+
+/* 사이드메뉴 배치 설정 */
+.detail_user_menu {
+    position: fixed; /* 화면에 고정 */
+    top: 0;
+    right: -250px; /* 처음에는 화면 밖에 위치 */
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease; /* 애니메이션 효과 */
+    z-index: 1000; /* 다른 요소들보다 위에 위치 */
+}
+
+/* 사이드메뉴 열림 상태 변경 */
+.detail_user_menu.active {
+    right: 0; /* 화면 안으로 이동 */
+}
+
+/* 사이드메뉴 닫기 버튼 디자인 */
+.cross em {
+    display: block;
+    width: 25px;        /* 사선의 길이 */
+    height: 3px;        /* 사선의 두께 */
+    background-color: #000; /* 사선의 색상 */
+    position: absolute; 
+    transform-origin: center; /* 중심을 기준으로 회전 */
+    left: -15px; /* 왼쪽으로 15px 이동 */
+    top: 10px /* 위에서 10px 만큼 떨어지기 */
+}
+
+.cross em:first-child {
+    transform: rotate(45deg); /* 45도 회전 */
+}
+
+.cross em:last-child {
+    transform: rotate(-45deg); /* -45도 회전 */
+}
+
+/* 사이드메뉴 닫기 버튼 기본 스타일 제거 */
+.sideClose {
+    background: none; /* 배경 제거 */
+    border: none;     /* 테두리 제거 */
+    position: absolute; /* 절대 위치 */
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    border: none; /* 테두리 제거 */
+    cursor: pointer; /* 사용자가 커서를 올렸을 때 손가락 모양으로 변경*/
+}
+
+/* 사이드바 속 메뉴 폰트 변경 */
+.row a {
+    font-family: 'DetailFont', sans-serif;
+}
+
+/* 사이드바 속 메뉴 정렬 */
+.detail_user_menu a {
+    display: block; /* 각 요소 블럭으로 지정 */
+    padding: 10px 0;
+    color: #000000;
+    text-decoration: none; /* <a> 에 적용되는 기본 데코 제거 */
+}
+
+/* 마우스 커서 올릴 경우 색상 변경 */
+.detail_user_menu a:hover {
+    color: rgb(146, 0, 0);
+}
+
+/* 사이드메뉴 내부 스타일링 */
+.detail_user_menu .row {
+    padding: 20px;
+}
+
+/* main_menu 스타일 */
+.main_menu {
+    display: flex;
+    justify-content: center; /* nav를 중앙에 배치 */
+    padding: 10px 0; /* 위아래 간격을 조절 */
+    background-color: #f8f8f8; /* 배경색 설정, 필요에 따라 변경 */
+}
+
+/* 네비게이션 메뉴 배치 설정 */
+.main_menu nav {
+    display: flex;
+    gap: 150px; /* a 요소 간의 간격 설정 */
+}
+
+/* 네비게이션 메뉴 a 요소 설정 변경 */
+.main_menu a {
+    text-decoration: none; /* 링크의 기본 밑줄 제거 */
+    color: #000000; /* 링크 색상 설정 */
+    font-size: 18px; /* 글꼴 크기 설정 */
+    padding: 0 10px; /* 링크의 패딩 설정 */
+    font-family: 'UserMenuFont', sans-serif;
+}
+
+/* 커서 올렸을 때 색상 변경 */
+.main_menu a:hover {
+    color: rgb(146, 0, 0)
+}

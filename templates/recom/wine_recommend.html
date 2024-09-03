@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>와인 추천</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/recom/default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/recom/rc_main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/recom/rc_question.css' %}">
+</head>
+<body>
+    <section class="start">
+        <h1 class="title">나에게 어울리는 와인은?</h1>
+        <img src="https://img.freepik.com/free-vector/hand-drawn-facepalm-illustration_23-2150189575.jpg?t=st=1724764504~exp=1724768104~hmac=640f238fa34e1ebfa422f80f93d7e0bbc5631b1e380f4e511187eb38eb605938&w=740" alt="mainImage" class="mainImage"><br>
+        <p class="intro">
+            오늘 같은 날엔 와인이 딱이지!<br>
+            하지만, 어떤 와인을 먹어야할까?<br>
+            나의 취향을 입력하여 딱 맞는 와인을 추천받자!
+        </p>
+        <input type="button" class="start_bt" value="시작하기" onclick="begin()"></input>
+    </section>
+
+    <section class="qna">
+        <div class="main_info">
+            <div class="wine_type">
+                <h1 class="chapter">와인의 기본 정보에 대한 페이지</h1>
+                <h2 class="question">마시고 싶은 와인의 종류 선택 문항</h2>
+                <p class="explain">
+                    레드 와인 : 껍질을 벗기지 않은 포도로 제작된 와인<br>
+                    화이트 와인 : 껍질을 벗긴 청포도의 주스로 제작된 와인<br>
+                    스파클링 와인 : 탄산이 포함된 와인<br>
+                    디저트 와인 : 주로 후식 때 마시는 달달한 와인<br>
+                    주정강화 와인 : 주정을 넣어 알코올 도수를 높인 와인<br>
+                </p>
+                <input type="radio" name="type" value="1">레드 와인
+                <input type="radio" name="type" value="2">화이트 와인
+                <input type="radio" name="type" value="3">스파클링 와인
+                <input type="radio" name="type" value="7">디저트 와인
+                <input type="radio" name="type" value="24">주정강화 와인
+            </div>
+            <br>
+            <div class="wine_alcohol">
+                <h2 class="question">도수 선택 문항</h2>
+                <p class="explain">도수별 간단 설명</p>
+                <input type="radio" name="alcohol">상관 없음
+                <input type="radio" name="alcohol">12.5% 미만
+                <input type="radio" name="alcohol">12.5% 이상 13.5% 미만
+                <input type="radio" name="alcohol">13.5% 이상 16.0% 미만
+                <input type="radio" name="alcohol">16.0% 이상
+            </div>
+            <br>
+            <div class="wine_price">
+                <h2 class="question">가격대 선택 문항</h1>
+                <input type="radio" name="price">상관 없음
+                <input type="radio" name="price">어쩌고
+                <input type="radio" name="price">저쩌고
+            </div>
+            <input type="button" class="next_bt" value="넘어가기" onclick="next1()">
+        </div>
+
+        <div class="food_info">
+            <h1 class="chapter">페어링</h1>
+            <h2 class="question">함께 곁들일 음식을 종류를 선택해 주세요</h2>
+            <p class="explain">여러 종류의 음식을 함께 곁들일 경우,<br>가장 메인이 되는 음식을 선택해 주세요</p>
+            <input type="radio" name="food" value="Poultry">가금류 (닭, 오리 등)
+            <input type="radio" name="food" value="Appetizers and snacks">에피타이저와 스낵 (간단한 전채 요리 및 간식)
+            <input type="radio" name="food" value="Cured Meat">염장육 (훈제, 건조, 소금에 절인 고기)
+            <input type="radio" name="food" value="Pasta">파스타 (이탈리아식 면 요리)
+            <input type="radio" name="food" value="Spicy food">매운 음식 (고추나 향신료가 많이 들어간 음식)
+            <input type="radio" name="food" value="Mature and hard cheese">숙성된 단단한 치즈 (체다, 파르미지아노 레지아노 등)
+            <input type="radio" name="food" value="Veal">송아지 고기
+            <input type="radio" name="food" value="Vegetarian">채식 (고기를 제외한 채소 기반의 음식)
+            <input type="radio" name="food" value="Game">사냥 고기 (사슴, 사슴고기 등)
+            <input type="radio" name="food" value="Lamb">양고기
+            <input type="radio" name="food" value="Sweet desserts">단 디저트 (케이크, 쿠키, 아이스크림 등)
+            <input type="radio" name="food" value="Rich fish">기름진 생선 (연어, 참치 등)
+            <input type="radio" name="food" value="Fruity desserts">과일 디저트 (과일 타르트, 과일 샐러드 등)
+            <input type="radio" name="food" value="Aperitif">아페리티프 (식전 음료 또는 간단한 식전 요리)
+            <input type="radio" name="food" value="Goat's Milk Cheese">염소젖 치즈
+            <input type="radio" name="food" value="Lean fish">살코기가 적은 생선 (대구, 송어 등)
+            <input type="radio" name="food" value="Mild and soft cheese">부드럽고 순한 치즈 (브리, 카망베르 등)
+            <input type="radio" name="food" value="Beef">소고기
+            <input type="radio" name="food" value="Mushrooms">버섯
+            <input type="radio" name="food" value="Shellfish">조개류 (홍합, 굴, 새우 등)
+            <input type="radio" name="food" value="Pork">돼지고기
+            <input type="radio" name="food" value="Blue cheese">블루 치즈 (고르곤졸라, 로크포르 등)
+            <br>
+            <input type="button" class="next_bt" value="넘어가기" onclick="next2()">
+        </div>
+
+        <div class="flavor_info">
+            <h1 class="chapter">와인의 맛에 대한 페이지1</h1>
+            <h2 class="question">flavor 선택해</h2>
+            <p class="explain">혀로 느끼는 맛은 물론 시각적 요소, 향기, 식감까지 포함된 것</p>
+            <input type="checkbox" name="flavor" value="" onclick="handleCheckboxChange(this)">상관 없음
+            <input type="checkbox" name="flavor" value="ageing" onclick="handleCheckboxChange(this)">논오크향
+            <input type="checkbox" name="flavor" value="dried_fruit" onclick="handleCheckboxChange(this)">드라이드 프룻향
+            <input type="checkbox" name="flavor" value="microbio" onclick="handleCheckboxChange(this)">마이크로바이오향
+            <input type="checkbox" name="flavor" value="black_fruit" onclick="handleCheckboxChange(this)">블랙 프룻향
+            <input type="checkbox" name="flavor" value="red_fruit" onclick="handleCheckboxChange(this)">레드 프룻향
+            <input type="checkbox" name="flavor" value="spices" onclick="handleCheckboxChange(this)">스파이시향
+            <input type="checkbox" name="flavor" value="citrus_fruit" onclick="handleCheckboxChange()">시트러스 프룻향
+            <input type="checkbox" name="flavor" value="oak" onclick="handleCheckboxChange(this)">오크향
+            <input type="checkbox" name="flavor" value="tree_fruit" onclick="handleCheckboxChange(this)">나무 과일향
+            <input type="checkbox" name="flavor" value="tropical_fruit" onclick="handleCheckboxChange(this)">열대 과일향
+            <input type="checkbox" name="flavor" value="vegetal" onclick="handleCheckboxChange(this)">채소향
+            <input type="checkbox" name="flavor" value="floral" onclick="handleCheckboxChange(this)">플로럴향
+            <input type="checkbox" name="flavor" value="earth" onclick="handleCheckboxChange(this)">흙향
+
+            <br>
+            <input type="button" class="next_bt" value="넘어가기" onclick="next3()">
+        </div>
+
+        <div class="taste_info">
+            <h1 class="chapter">와인의 맛에 대한 페이지2</h1>
+            <p class="explain">단순히 혀로 느끼는 맛</p>
+            <h2 class="question">산도 선택</h2>
+            <input type="radio" name="acidity">1
+            <input type="radio" name="acidity">2
+            <input type="radio" name="acidity">3
+            <input type="radio" name="acidity">4
+            <input type="radio" name="acidity">상관 없음
+            <h2 class="question">강도 선택</h2>
+            <input type="radio" name="intensity">2
+            <input type="radio" name="intensity">3
+            <input type="radio" name="intensity">4
+            <input type="radio" name="intensity">상관 없음
+            <h2 class="question">단맛 선택</h2>
+            <input type="radio" name="sweetness">1
+            <input type="radio" name="sweetness">2
+            <input type="radio" name="sweetness">3
+            <input type="radio" name="sweetness">4
+            <input type="radio" name="sweetness">상관 없음
+            <h2 class="question">쓴맛 선택</h2>
+            <input type="radio" name="tannin">1
+            <input type="radio" name="tannin">2
+            <input type="radio" name="tannin">3
+            <input type="radio" name="tannin">4
+            <input type="radio" name="tannin">상관 없음
+            <h2 class="question">바디감 선택</h2>
+            <input type="radio" name="body">Light-bodied
+            <input type="radio" name="body">Medium-bodied
+            <input type="radio" name="body">Light-bodied
+            <input type="radio" name="body">Very full-bodied
+        </div>
+    </section>
+
+    <section class="result_pg">
+
+    </section>
+<script src="{% static 'js/recom/wine_recommend.js' %}"></script>
+</body>
+</html>

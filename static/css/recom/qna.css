@@ -1,0 +1,44 @@
+.qna {
+    display: none;
+}
+
+.qBox{
+    background-color: whitesmoke;
+    text-align: center;
+    border-radius: 20px;
+    margin: 15px;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.answerList{
+    background-color: whitesmoke;
+    border-radius: 20px;
+    display: block;
+    width: calc(100% - 30px); /* 15px + 15px의 마진을 뺀 실제 너비 */
+    border: 0px;
+    margin: 15px;
+    padding: 20px;
+    box-sizing: border-box; /* padding이 width에 포함됨 */
+    font-size: 20px;
+}
+
+.answerList:hover, .answerList:focus{
+    background-color: pink;
+    color: rgb(146, 0, 0);
+}
+
+.status{
+    height: 25px;
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.statusBar{
+    height: 100%;
+    background-color: black;
+    border-radius: 15px;
+}

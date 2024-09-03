@@ -1,0 +1,65 @@
+.main_info {
+    display: none;
+}
+
+.food_info {
+    display: none;
+}
+
+.flavor_info {
+    display: none;
+}
+
+.taste_info {
+    display: none;
+}
+
+.main_info ,
+.food_info ,
+.flavor_info ,
+.taste_info {
+    background-color: whitesmoke;
+    width: 90%;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    border-radius: 20px;
+    padding-bottom: 25px;
+}
+
+.chapter {
+    padding-top: 15px;
+    font-size: 35px;
+}
+
+.question {
+    
+}
+
+.explain {
+    background-color: rgb(232, 232, 232);
+    width: 40%;
+    margin: 0 auto; /* 박스를 부모 요소 안에서 중앙 정렬 */
+    display: flex; /* 플렉스 박스 사용 */
+    flex-direction: column; /* 요소를 수직으로 정렬 */
+    align-items: center; /* 내용물의 중앙 정렬 */
+    text-align: left;
+    padding: 10px;
+    box-sizing: border-box; /* padding을 포함한 전체 너비를 유지 */
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.next_bt {
+    cursor: pointer;
+    cursor: pointer;
+    width: 550px;
+    border-radius: 5px;
+    font-size: 30px;
+    margin-top: 15px;
+    padding: 10px;
+    border: 0;
+    background-color: rgb(146, 0, 0);
+    color: white;
+}
