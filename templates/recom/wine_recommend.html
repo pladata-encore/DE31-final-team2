@@ -11,7 +11,7 @@
 </head>
 <body>
     <section class="start">
-        <h1 class="title">나에게 어울리는 와인은?</h1>
+        <h1 class="title">나에게 어울리는 와인은 무엇일까?</h1>
         <img src="https://img.freepik.com/free-vector/hand-drawn-facepalm-illustration_23-2150189575.jpg?t=st=1724764504~exp=1724768104~hmac=640f238fa34e1ebfa422f80f93d7e0bbc5631b1e380f4e511187eb38eb605938&w=740" alt="mainImage" class="mainImage"><br>
         <p class="intro">
             오늘 같은 날엔 와인이 딱이지!<br>
@@ -24,8 +24,8 @@
     <section class="qna">
         <div class="main_info">
             <div class="wine_type">
-                <h1 class="chapter">와인의 기본 정보에 대한 페이지</h1>
-                <h2 class="question">마시고 싶은 와인의 종류 선택 문항</h2>
+                <h1 class="chapter">main information</h1>
+                <h2 class="question">마시고 싶은 와인의 종류를 선택해 주세요</h2>
                 <p class="explain">
                     레드 와인 : 껍질을 벗기지 않은 포도로 제작된 와인<br>
                     화이트 와인 : 껍질을 벗긴 청포도의 주스로 제작된 와인<br>
@@ -33,21 +33,71 @@
                     디저트 와인 : 주로 후식 때 마시는 달달한 와인<br>
                     주정강화 와인 : 주정을 넣어 알코올 도수를 높인 와인<br>
                 </p>
-                <input type="radio" name="type" value="1">레드 와인
-                <input type="radio" name="type" value="2">화이트 와인
-                <input type="radio" name="type" value="3">스파클링 와인
-                <input type="radio" name="type" value="7">디저트 와인
-                <input type="radio" name="type" value="24">주정강화 와인
+                <div class="div_box">
+                    <span>
+                        <input type="radio" name="type" id="red_wine" value="1">
+                        <label for="red_wine">레드 와인</label>
+                    </span>
+                </div>
+                <div class="div_box">
+                    <span>
+                        <input type="radio" name="type" id="white_wine" value="2">
+                        <label for="white_wine">화이트 와인</label>
+                    </span>
+                </div>
+                <div class="div_box">
+                    <span>
+                        <input type="radio" name="type" id="sparkling_wine" value="3">
+                        <label for="sparkling_wine">스파클링 와인</label>
+                    </span>
+                </div>
+                <div class="div_box">
+                    <span>
+                        <input type="radio" name="type" id="desert_wine" value="7">
+                        <label for="desert_wine">디저트 와인</label>
+                    </span>
+                </div>
+                <div class="div_box">
+                    <span>
+                        <input type="radio" name="type" id="fortified_wine" value="24">
+                        <label for="fortified_wine">주정강화 와인</label>
+                    </span>
+                </div>
             </div>
             <br>
             <div class="wine_alcohol">
                 <h2 class="question">도수 선택 문항</h2>
                 <p class="explain">도수별 간단 설명</p>
-                <input type="radio" name="alcohol">상관 없음
-                <input type="radio" name="alcohol">12.5% 미만
-                <input type="radio" name="alcohol">12.5% 이상 13.5% 미만
-                <input type="radio" name="alcohol">13.5% 이상 16.0% 미만
-                <input type="radio" name="alcohol">16.0% 이상
+                <div class="div_box">
+                    <span>
+                        <input type="radio" name="alcohol" id="all_alch">
+                        <label for="all_alch">상관 없음</label>
+                    </span>
+                </div>
+                <div class="div_box">
+                    <span>
+                        <input type="radio" name="alcohol" id="low_alch">
+                        <label for="low_alch">12.5% 미만</label>
+                    </span>
+                </div>
+                <div class="div_box">
+                    <span>
+                        <input type="radio" name="alcohol" id="mediLow_alch">
+                        <label for="mediLow_alch">12.5% 이상 13.5% 미만</label>
+                    </span>
+                </div>
+                <div class="div_box">
+                    <span>
+                        <input type="radio" name="alcohol" id="mediHigh_alch">
+                        <label for="mediHigh_alch">13.5% 이상 16.0% 미만</label>
+                    </span>
+                </div>
+                <div class="div_box">
+                    <span>
+                        <input type="radio" name="alcohol" id="high_alch">
+                        <label for="high_alch">16.0% 이상</label>
+                    </span>
+                </div>
             </div>
             <br>
             <div class="wine_price">
@@ -100,7 +150,7 @@
             <input type="checkbox" name="flavor" value="black_fruit" onclick="handleCheckboxChange(this)">블랙 프룻향
             <input type="checkbox" name="flavor" value="red_fruit" onclick="handleCheckboxChange(this)">레드 프룻향
             <input type="checkbox" name="flavor" value="spices" onclick="handleCheckboxChange(this)">스파이시향
-            <input type="checkbox" name="flavor" value="citrus_fruit" onclick="handleCheckboxChange()">시트러스 프룻향
+            <input type="checkbox" name="flavor" value="citrus_fruit" onclick="handleCheckboxChange(this)">시트러스 프룻향
             <input type="checkbox" name="flavor" value="oak" onclick="handleCheckboxChange(this)">오크향
             <input type="checkbox" name="flavor" value="tree_fruit" onclick="handleCheckboxChange(this)">나무 과일향
             <input type="checkbox" name="flavor" value="tropical_fruit" onclick="handleCheckboxChange(this)">열대 과일향
@@ -143,11 +193,14 @@
             <input type="radio" name="body">Medium-bodied
             <input type="radio" name="body">Light-bodied
             <input type="radio" name="body">Very full-bodied
+
+            <br>
+            <input type="button" class="next_bt" value="넘어가기" onclick="next4()">
         </div>
     </section>
 
-    <section class="result_pg">
-
+    <section class="result">
+        결과 페이지~
     </section>
 <script src="{% static 'js/recom/wine_recommend.js' %}"></script>
 </body>

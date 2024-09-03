@@ -7,6 +7,16 @@ body {
     src: url('/static/fonts/AppleSDGothicNeoSB.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'titleFont';
+    src: url('/static/fonts/KimjungchulScript-Bold.ttf') format('truetype');
+}
+
 * {
     font-family: "DefaultFont", sans-serif;
+}
+
+h1 {
+    font-family: "titleFont", sans-serif;
+    color: rgb(146, 0, 0);
 }

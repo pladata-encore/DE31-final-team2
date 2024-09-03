@@ -4,11 +4,11 @@ const main = document.querySelector(".main_info");
 const food = document.querySelector(".food_info");
 const flavor = document.querySelector(".flavor_info");
 const taste = document.querySelector(".taste_info");
-
+const result = document.querySelector(".result");
 // start -> qna
 function begin(){
     start.style.display = "none";
-    main.style.display= "block";
+    main.style.display = "block";
 }
 
 // qna 내에서 main_info -> flavor_info
@@ -29,6 +29,12 @@ function next3(){
     flavor.style.display = "none";
     taste.style.display = "block";
     
+}
+
+// qna 에서 result 로 이동
+function next4(){
+    taste.style.display = "none";
+    result.style.display = "block";
 }
 
 // .flavor_info 관련 js
