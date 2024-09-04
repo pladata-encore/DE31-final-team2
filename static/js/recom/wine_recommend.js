@@ -1,39 +1,41 @@
 const start = document.querySelector(".start");
 const qna = document.querySelector(".qna");
-const main = document.querySelector(".main_info");
 const food = document.querySelector(".food_info");
 const flavor = document.querySelector(".flavor_info");
 const taste = document.querySelector(".taste_info");
+const main = document.querySelector(".main_info");
 const result = document.querySelector(".result");
-// start -> qna
+
+
+
+
+// start -> food
 function begin(){
     start.style.display = "none";
-    main.style.display = "block";
-}
-
-// qna 내에서 main_info -> flavor_info
-function next1(){
-    main.style.display = "none";
     food.style.display = "block";
 }
 
-// qna 내에서 flavor_info -> taste_info
-function next2(){
+// food -> flavor
+function next1(){
     food.style.display = "none";
     flavor.style.display = "block";
-    
 }
 
-// qna 내에서 flavor_info -> taste_info
-function next3(){
+// flavor -> taste
+function next2(){
     flavor.style.display = "none";
     taste.style.display = "block";
-    
 }
 
-// qna 에서 result 로 이동
-function next4(){
+// taste -> main
+function next3(){
     taste.style.display = "none";
+    main.style.display = "block";
+}
+
+// main -> result
+function end(){
+    main.style.display = "none";
     result.style.display = "block";
 }
 
