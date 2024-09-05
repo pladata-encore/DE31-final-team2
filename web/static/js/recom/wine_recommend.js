@@ -26,6 +26,16 @@ function next1(){
     });
 }
 
+// food <- flavor
+function pre1(){
+    flavor.style.display = "none";
+    food.style.display = "block";
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
 // flavor -> taste
 function next2(){
     flavor.style.display = "none";
@@ -36,10 +46,30 @@ function next2(){
     });
 }
 
+// flavor <- taste
+function pre2(){
+    taste.style.display = "none";
+    flavor.style.display = "block";
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
 // taste -> main
 function next3(){
     taste.style.display = "none";
     main.style.display = "block";
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// taste <- main
+function pre3(){
+    main.style.display = "none";
+    taste.style.display = "block";
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
