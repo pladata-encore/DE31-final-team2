@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>와인 추천</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/recom/default.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/recom/rc_main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/recom/rc_question.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/recom/recom.css' %}">
 </head>
 <body>
     <section class="start">
@@ -23,10 +21,25 @@
 
     <section class="qna">
         <div class="food_info">
-            <h1 class="chapter">페어링</h1>
+            <h1 class="chapter">about pairing🍷</h1>
             <div class="quest_box">
-                <h2 class="question">함께 곁들일 음식을 종류를 선택해 주세요</h2>
-                <p class="explain">여러 종류의 음식을 함께 곁들일 경우,<br>가장 메인이 되는 음식을 선택해 주세요</p>
+                <h2 class="question">와인과 함께 곁들일 음식 종류를 선택해 주세요</h2>
+                <p class="explain">
+                    여러 종류의 음식을 함께 곁들일 경우,<br>
+                    가장 메인이 되는 음식을 선택해 주세요
+                </p>
+               <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Beef" value="Beef">
+                        <label for="Beef">소고기</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Pork" value="Pork">
+                        <label for="Pork">돼지고기</label>
+                    </span>
+                </div>
                 <div class="answer_box">
                     <span>
                         <input type="radio" name="food" id="Poultry" value="Poultry">
@@ -35,14 +48,56 @@
                 </div>
                 <div class="answer_box">
                     <span>
-                        <input type="radio" name="food" id="Appetizers_and_snacks" value="Appetizers and snacks">
-                        <label for="Appetizers_and_snacks">에피타이저와 스낵(간단한 전채 요리 및 간식)</label>
+                        <input type="radio" name="food" id="Lamb" value="Lamb">
+                        <label for="Lamb">양고기</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Veal" value="Veal">
+                        <label for="Veal">송아지 고기</label>
                     </span>
                 </div>
                 <div class="answer_box">
                     <span>
                         <input type="radio" name="food" id="Cured_Meat" value="Cured Meat">
                         <label for="Cured_Meat">염장육(훈제, 건조, 소금에 절인 고기)</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Game" value="Game">
+                        <label for="Game">사냥 고기(사슴고기 등)</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Rich_fish" value="Rich fish">
+                        <label for="Rich_fish">기름진 생선(연어, 참치 등)</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Lean_fish" value="Lean fish">
+                        <label for="Lean_fish">살코기가 적은 생선(대구, 송어 등)</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Shellfish" value="Shellfish">
+                        <label for="Shellfish">갑각류(조개, 새우 등)</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Vegetarian" value="Vegetarian">
+                        <label for="Vegetarian">배지테리언</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Mushrooms" value="Mushrooms">
+                        <label for="Mushrooms">버섯</label>
                     </span>
                 </div>
                 <div class="answer_box">
@@ -59,56 +114,14 @@
                 </div>
                 <div class="answer_box">
                     <span>
+                        <input type="radio" name="food" id="Mild_and_soft_cheese" value="Mild and soft cheese">
+                        <label for="Mild_and_soft_cheese">부드럽고 순한 치즈(브리, 카망베르 등)</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
                         <input type="radio" name="food" id="Mature_and_hard_cheese" value="Mature and hard cheese">
                         <label for="Mature_and_hard_cheese">숙성된 단단한 치즈(체다, 파르미지아노 레지아노 등)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Veal" value="Veal">
-                        <label for="Veal">송아지 고기</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Vegetarian" value="Vegetarian">
-                        <label for="Vegetarian">배지테리언</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Game" value="Game">
-                        <label for="Game">사냥 고기(사슴고기 등)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Lamb" value="Lamb">
-                        <label for="Lamb">양고기</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Sweet_desserts" value="Sweet desserts">
-                        <label for="Sweet_desserts">단 디저트(케이크, 쿠키, 아이스크림 등)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Rich_fish" value="Rich fish">
-                        <label for="Rich_fish">기름진 생선(연어, 참치 등)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Fruity_desserts" value="Fruity desserts">
-                        <label for="Fruity_desserts">과일 디저트(과일 타르트, 과일 샐러드 등)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Aperitif" value="Aperitif">
-                        <label for="Aperitif">아페리티프(식전 음료 또는 간단한 식전 요리)</label>
                     </span>
                 </div>
                 <div class="answer_box">
@@ -119,56 +132,49 @@
                 </div>
                 <div class="answer_box">
                     <span>
-                        <input type="radio" name="food" id="Lean_fish" value="Lean fish">
-                        <label for="Lean_fish">살코기가 적은 생선(대구, 송어 등)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Mild_and_soft_cheese" value="Mild and soft cheese">
-                        <label for="Mild_and_soft_cheese">부드럽고 순한 치즈(브리, 카망베르 등)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Beef" value="Beef">
-                        <label for="Beef">소고기</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Mushrooms" value="Mushrooms">
-                        <label for="Mushrooms">버섯</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Shellfish" value="Shellfish">
-                        <label for="Shellfish">갑각류(조개, 새우 등)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="food" id="Pork" value="Pork">
-                        <label for="Pork">돼지고기</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
                         <input type="radio" name="food" id="Blue_cheese" value="Blue cheese">
                         <label for="Blue_cheese">블루 치즈(고르곤졸라, 로크포르 등)</label>
                     </span>
                 </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Appetizers_and_snacks" value="Appetizers and snacks">
+                        <label for="Appetizers_and_snacks">에피타이저와 스낵(간단한 전채 요리 및 간식)</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Aperitif" value="Aperitif">
+                        <label for="Aperitif">아페리티프(식전 음료 또는 간단한 식전 요리)</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Fruity_desserts" value="Fruity desserts">
+                        <label for="Fruity_desserts">과일 디저트(과일 타르트, 과일 샐러드 등)</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="food" id="Sweet_desserts" value="Sweet desserts">
+                        <label for="Sweet_desserts">단 디저트(케이크, 쿠키, 아이스크림 등)</label>
+                    </span>
+                </div>
+
             </div>
             <br>
             <input type="button" class="next_bt" value="다음으로" onclick="next1()">
         </div>
 
         <div class="flavor_info">
-            <h1 class="chapter">와인의 맛에 대한 페이지1</h1>
+            <h1 class="chapter">about flavor🍷</h1>
             <div class="quest_box">
-                <h2 class="question">flavor 선택해</h2>
-                <p class="explain">혀로 느끼는 맛은 물론 시각적 요소, 향기, 식감까지 포함된 것<br>뭔지 감 안 오면 향명 옆 예시 보삼</p>
+                <h2 class="question">원하는 와인의 향(flavor)을 자유롭게 선택해 주세요</h2>
+                <p class="explain">
+                    flavor은 와인의 향과 관련된 모든 복합적인 느낌으로,<br>
+                    와인을 마시기 전 코로 느끼는 향은 물론이고<br>
+                    입에 머금고 있을 때 느껴지는 다양한 향과 맛의 조화라고 할 수 있습니다
+                </p>
                 <div class="answer_box">
                     <span>
                         <input type="checkbox" name="flavor" id="allFlavor" value="" onclick="handleCheckboxChange(this)">
@@ -259,216 +265,258 @@
         </div>
 
         <div class="taste_info">
-            <h1 class="chapter">와인의 맛에 대한 페이지2</h1>
-            <p class="explain">단순히 혀로 느끼는 맛</p>
+            <h1 class="chapter">about taste🍷</h1>
             <div class="quest_box">
-                <h2 class="question">산도 선택</h2>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="acidity" id="acidity1" value="1">
-                        <label for="acidity1">Low(낮음): 와인의 산도가 낮아 부드럽고 덜 상쾌한 맛을 가진다.</label>
-                    </span>
+                <h2 class="title">원하는 와인의 맛(taste)을 각 항목별로 하나씩 선택해 주세요</h2>
+                <p class="explain">
+                    taste는 와인을 마실 때 입안에서 혀로 느끼는 단순한 맛의 감각으로,<br>
+                    주로 단맛, 산도, 탄닌, 강도가 포함되는 와인의 기본적인 구조적 요소입니다.
+                </p>
+                <div class="taste_box">
+                    <h2 class="question">sweetness</h2>
+                    <p class="explain">와인의 당도에 대한 문항입니다</p>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="sweetness" id="sweetness1" value="1">
+                            <label for="sweetness1">Dry(드라이): 단맛이 거의 느껴지지 않는 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="sweetness" id="sweetness2" value="2">
+                            <label for="sweetness2">Off-Dry(약간 단): 약간의 단맛으로 입안을 살짝 달게 하는 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="sweetness" id="sweetness3" value="3">
+                            <label for="sweetness3">Medium(중간): 과하지 않아 균형잡힌 단맛이 느껴지는 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="sweetness" id="sweetness4" value="4">
+                            <label for="sweetness4">Sweet(단): 디저트 같은 강한 단맛이 느껴지는 정도</label>
+                        </span>
+                    </div>
+                    <!-- <div class="answer_box">
+                        <span>
+                            <input type="radio" name="sweetness" id="all_sweetness" value="">
+                            <label for="all_sweetness">상관 없음</label>
+                        </span>
+                    </div> -->
                 </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="acidity" id="acidity2" value="2">
-                        <label for="acidity2">Medium-Low(중간-낮음): 적당히 산도가 있으며, 약간의 상쾌함을 제공하지만 지나치게 신맛은 아니다.</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="acidity" id="acidity3" value="3">
-                        <label for="acidity3">Medium-High(중간-높음): 산도가 중간 이상으로, 와인에 뚜렷한 상쾌함과 입안을 깨끗하게 하는 효과를 준다.</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="acidity" id="acidity4" value="4">
-                        <label for="acidity4">High(높음): 산도가 매우 높아 신맛이 강하게 느껴지며, 와인이 매우 상쾌하고 신선한 느낌을 준다.</label>
-                    </span>
-                </div>
-                <!-- <div class="answer_box">
-                    <span>
-                        <input type="radio" name="acidity" id="all_acidity" value="">
-                        <label for="all_acidity">상관 없음</label>
-                    </span>
-                </div> -->
-            </div>
 
-            <div class="quest_box">
-                <h2 class="question">강도 선택</h2>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="intensity" id="intensity2" value="2">
-                        <label for="intensity2">Medium-Light(중간-가벼움): 와인의 맛과 향이 적당히 강렬하지만 여전히 부드럽다.</label>
-                    </span>
+                <div class="taste_box">
+                    <h2 class="question">acidity</h2>
+                    <p class="explain">와인의 산도(신맛)에 대한 문항입니다</p>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="acidity" id="acidity1" value="1">
+                            <label for="acidity1">Low(낮음): 산도가 적어 부드러운 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="acidity" id="acidity2" value="2">
+                            <label for="acidity2">Medium-Low(중간-낮음): 산도가 적당히 있어 약간의 상쾌함이 있는 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="acidity" id="acidity3" value="3">
+                            <label for="acidity3">Medium-High(중간-높음): 중간 이상의 산도로 적당한 상쾌함으로 입 안이 깔끔해지는 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="acidity" id="acidity4" value="4">
+                            <label for="acidity4">High(높음): 산도가 매우 높아 신맛이 강하게 느껴지는 가장 상쾌하고 신선한 정도</label>
+                        </span>
+                    </div>
+                    <!-- <div class="answer_box">
+                        <span>
+                            <input type="radio" name="acidity" id="all_acidity" value="">
+                            <label for="all_acidity">상관 없음</label>
+                        </span>
+                    </div> -->
                 </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="intensity" id="intensity3" value="3">
-                        <label for="intensity3">Medium-High(중간-강함): 와인의 맛과 향이 강하고 명확하게 느껴지며, 뚜렷한 특성을 가진다</label>
-                    </span>
+                <div class="taste_box">
+                    <h2 class="question">tannin</h2>
+                    <p class="explain">와인의 쓴맛에 대한 문항입니다</p>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="tannin" id="tannin1" value="1">
+                            <label for="tannin1">Low(낮음): 쓴맛이 거의 없어 부드럽고 매끄러운 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="tannin" id="tannin2" value="2">
+                            <label for="tannin2">Medium-Low(중간-낮음): 약간의 쓴맛이 있지만 전체적으로 부드러운 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>                  
+                            <input type="radio" name="tannin" id="tannin3" value="3">
+                            <label for="tannin3">Medium-High(중간-높음): 쓴맛이 뚜렷해서 와인의 맛이 좀 더 강한 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="tannin" id="tannin4" value="4">
+                            <label for="tannin4">High(높음): 쓴맛이 강해 때로는 떫은 정도</label>
+                        </span>
+                    </div>
+                    <!-- <div class="answer_box">
+                        <span>
+                            <input type="radio" name="tannin" id="all_tannin" value="">
+                            <label for="all_tannin">상관 없음</label>
+                        </span>
+                    </div> -->
                 </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="intensity" id="intensity4" value="4">
-                        <label for="intensity4">Full(강함): 매우 강렬한 맛과 향을 가지며, 와인의 특성이 뚜렷하고 두드러진다.</label>
-                    </span>
-                </div>
-                <!-- <div class="answer_box">
-                    <span>
-                        <input type="radio" name="intensity" id="all_intensity" value="">
-                        <label for="all_intensity">상관 없음</label>
-                    </span>
-                </div> -->
-            </div>
 
-            <div class="quest_box">
-                <h2 class="question">단맛 선택</h2>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="sweetness" id="sweetness1" value="1">
-                        <label for="sweetness1">Dry(드라이): 당도가 거의 없거나 매우 낮아서 단맛이 전혀 느껴지지 않는다.</label>
-                    </span>
+                <div class="taste_box">
+                    <h2 class="question">intensity</h2>
+                    <p class="explain">와인의 강도(맛과 향)에 대한 문항입니다</p>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="intensity" id="intensity2" value="2">
+                            <label for="intensity2">Medium-Light(중간-가벼움): 맛과 향이 적당히 강렬하고 부드러운 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="intensity" id="intensity3" value="3">
+                            <label for="intensity3">Medium-High(중간-강함): 맛과 향이 명확하게 느껴지며 뚜렷한 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="intensity" id="intensity4" value="4">
+                            <label for="intensity4">Full(강함): 맛과 향이 매우 강렬하며 와인 만의 특성이 뚜렷하게 두드려지는 정도</label>
+                        </span>
+                    </div>
+                    <!-- <div class="answer_box">
+                        <span>
+                            <input type="radio" name="intensity" id="all_intensity" value="">
+                            <label for="all_intensity">상관 없음</label>
+                        </span>
+                    </div> -->
                 </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="sweetness" id="sweetness2" value="2">
-                        <label for="sweetness2">Off-Dry(약간 단): 아주 약간의 단맛이 느껴지며, 일반적으로 입맛을 약간 달콤하게 만든다.</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="sweetness" id="sweetness3" value="3">
-                        <label for="sweetness3">Medium(중간): 명확한 단맛이 있지만 과도하지 않고 균형 잡힌 맛을 제공한다.</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="sweetness" id="sweetness4" value="4">
-                        <label for="sweetness4">Sweet(단): 강한 단맛이 느껴지며, 디저트와 같은 단맛을 가진다.</label>
-                    </span>
-                </div>
-                <!-- <div class="answer_box">
-                    <span>
-                        <input type="radio" name="sweetness" id="all_sweetness" value="">
-                        <label for="all_sweetness">상관 없음</label>
-                    </span>
-                </div> -->
-            </div>
-                <div class="quest_box">
-                <h2 class="question">쓴맛 선택</h2>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="tannin" id="tannin1" value="1">
-                        <label for="tannin1">Low(낮음): 와인이 쓴맛이 거의 없거나 아주 미미하다. 부드럽고 매끄러운 느낌이 있다.</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="tannin" id="tannin2" value="2">
-                        <label for="tannin2">Medium-Low(중간-낮음): 약간의 쓴맛이 있지만, 전체적으로 부드럽고 수월한 느낌이 있다.</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>                  
-                        <input type="radio" name="tannin" id="tannin3" value="3">
-                        <label for="tannin3">Medium-High(중간-높음): 쓴맛이 뚜렷하게 느껴지며, 와인이 좀 더 강하고 구조적인 느낌을 준다.</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="tannin" id="tannin4" value="4">
-                        <label for="tannin4">High(높음): 강한 쓴맛이 느껴지며, 와인이 매우 구조적이고 때로는 떫은 느낌을 줄 수 있다.</label>
-                    </span>
-                </div>
-                <!-- <div class="answer_box">
-                    <span>
-                        <input type="radio" name="tannin" id="all_tannin" value="">
-                        <label for="all_tannin">상관 없음</label>
-                    </span>
-                </div> -->
-            </div>
-            <div class="quest_box">
-                <h2 class="question">바디감 선택</h2>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="body" id="body2" value="2">
-                        <label for="body2">Light-bodied</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="body" id="body3" value="3">
-                        <label for="body3">Medium-bodied</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="body" id="body4" value="4">
-                        <label for="body4">Light-bodied</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="body" id="body5" value="5">
-                        <label for="body5">Very full-bodied</label>
-                    </span>
+
+                <div class="taste_box">
+                    <h2 class="question">body</h2>
+                    <p class="explain">와인의 무게감과 밀도에 대한 문항입니다</p>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="body" id="body2" value="2">
+                            <label for="body2">Light-bodied: 가벼운 무게감과 섬세한 질감</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="body" id="body3" value="3">
+                            <label for="body3">Medium-bodied: 중간 정도의 무게감과 균형 잡힌 질감</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="body" id="body4" value="4">
+                            <label for="body4">Full-bodied: 무겁고 풍부한 무게감과 강렬한 질감</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
+                            <input type="radio" name="body" id="body5" value="5">
+                            <label for="body5">Very full-bodied: 가장 무거운 무게감과 두꺼운 질감</label>
+                        </span>
+                    </div>
                 </div>
             </div>
             <br>
             <input type="button" class="next_bt" value="다음으로" onclick="next3()">
         </div>
+
+        <div class="main_info">
+            <h1 class="chapter">main information</h1>
+            <div class="quest_box">
+                <h2 class="question">도수 선택 문항</h2>
+                <p class="explain">도수별 간단 설명</p>
+                <!-- <div class="answer_box">
+                    <span>
+                        <input type="radio" name="alcohol" id="all_alch">
+                        <label for="all_alch">상관 없음</label>
+                    </span>
+                </div> -->
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="alcohol" id="low_alch">
+                        <label for="low_alch">12.5% 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="alcohol" id="mediLow_alch">
+                        <label for="mediLow_alch">12.5% 이상 13.5% 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="alcohol" id="mediHigh_alch">
+                        <label for="mediHigh_alch">13.5% 이상 16.0% 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="alcohol" id="high_alch">
+                        <label for="high_alch">16.0% 이상</label>
+                    </span>
+                </div>
+            </div>
+            <br>
+            <div class="quest_box">
+                <h2 class="question">가격대 선택 문항</h1>
+                <p class="explain">최소 금액과 최대 금액을 설정하세요</p>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="price" id="price1">
+                        <label for="price1">5만 원 이상 15만 원 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="price" id="price2">
+                        <label for="price2">15만 원 이상 25만 원 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="price" id="price3">
+                        <label for="price3">25만 원 이상 50만 원 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="price" id="price4">
+                        <label for="price4">50만 원 이상 100만 원 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="price" id="price5">
+                        <label for="price5">100만 원 이상</label>
+                    </span>
+                </div>
+            </div>
+            <br>
+            <input type="button" class="next_bt" value="결과 보기" onclick="end()">
+        </div>
     </section>
-    <div class="main_info">
-        <h1 class="chapter">main information</h1>
-        <div class="quest_box">
-            <h2 class="question">도수 선택 문항</h2>
-            <p class="explain">도수별 간단 설명</p>
-            <!-- <div class="answer_box">
-                <span>
-                    <input type="radio" name="alcohol" id="all_alch">
-                    <label for="all_alch">상관 없음</label>
-                </span>
-            </div> -->
-            <div class="answer_box">
-                <span>
-                    <input type="radio" name="alcohol" id="low_alch">
-                    <label for="low_alch">12.5% 미만</label>
-                </span>
-            </div>
-            <div class="answer_box">
-                <span>
-                    <input type="radio" name="alcohol" id="mediLow_alch">
-                    <label for="mediLow_alch">12.5% 이상 13.5% 미만</label>
-                </span>
-            </div>
-            <div class="answer_box">
-                <span>
-                    <input type="radio" name="alcohol" id="mediHigh_alch">
-                    <label for="mediHigh_alch">13.5% 이상 16.0% 미만</label>
-                </span>
-            </div>
-            <div class="answer_box">
-                <span>
-                    <input type="radio" name="alcohol" id="high_alch">
-                    <label for="high_alch">16.0% 이상</label>
-                </span>
-            </div>
-        </div>
-        <br>
-        <div class="quest_box">
-            <h2 class="question">가격대 선택 문항</h1>
-            <p class="explain">최소 금액과 최대 금액을 설정하세요</p>
-        </div>
-        <br>
-        <input type="button" class="next_bt" value="결과 보기" onclick="end()">
-    </div>
 
     <section class="result">
         결과 페이지~
     </section>
 <script src="{% static 'js/recom/wine_recommend.js' %}"></script>
-<script src="{% static 'js/recom/reco_option.js' %}"></script>
 </body>
 </html>

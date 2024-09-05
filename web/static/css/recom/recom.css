@@ -1,0 +1,122 @@
+/* font 호출 */
+@font-face {
+    font-family: 'DefaultFont';
+    src: url('/static/fonts/AppleSDGothicNeoSB.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'titleFont';
+    src: url('/static/fonts/KimjungchulScript-Bold.ttf') format('truetype');
+}
+
+/* default 값 */
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+* {
+    font-family: "DefaultFont", sans-serif;
+}
+
+h1 {
+    font-family: "titleFont", sans-serif;
+    color: rgb(146, 0, 0);
+}
+
+/* start 섹션 */
+.start {
+    background-color: whitesmoke;
+    width: 90%;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    border-radius: 20px;
+    padding-bottom: 25px;
+}
+
+.title {
+    padding-top: 15px;
+    font-size: 35px;
+}
+
+.mainImage {
+    max-width: 100%;
+    width: 450px;
+}
+
+.intro{
+    font-size: 20px;
+}
+
+.start_bt {
+    cursor: pointer;
+    width: 550px;
+    border-radius: 5px;
+    font-size: 22px;
+    margin-top: 15px;
+    padding: 10px;
+    border: 0;
+    background-color: rgb(146, 0, 0);
+    color: white;
+}
+
+/* qna 섹션 */
+.main_info ,
+.food_info ,
+.flavor_info ,
+.taste_info {
+    display: none;
+    background-color: whitesmoke;
+    width: 90%;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    border-radius: 20px;
+    padding-bottom: 25px;
+}
+
+.chapter {
+    padding-top: 15px;
+    font-size: 35px;
+}
+
+.explain {
+    background-color: rgb(232, 232, 232);
+    width: 40%;
+    margin: 0 auto; /* 박스를 부모 요소 안에서 중앙 정렬 */
+    display: flex; /* 플렉스 박스 사용 */
+    flex-direction: column; /* 요소를 수직으로 정렬 */
+    align-items: center; /* 내용물의 중앙 정렬 */
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box; /* padding을 포함한 전체 너비를 유지 */
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.next_bt {
+    cursor: pointer;
+    width: 550px;
+    border-radius: 5px;
+    font-size: 22px;
+    margin-top: 15px;
+    padding: 10px;
+    border: 0;
+    background-color: rgb(146, 0, 0);
+    color: white;
+}
+
+/* result 섹션 */
+.result {
+    display: none;
+    background-color: whitesmoke;
+    width: 90%;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    border-radius: 20px;
+    padding-bottom: 25px;
+}

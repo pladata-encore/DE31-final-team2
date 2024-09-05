@@ -6,38 +6,56 @@ const taste = document.querySelector(".taste_info");
 const main = document.querySelector(".main_info");
 const result = document.querySelector(".result");
 
-
-
-
 // start -> food
 function begin(){
     start.style.display = "none";
     food.style.display = "block";
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
 // food -> flavor
 function next1(){
     food.style.display = "none";
     flavor.style.display = "block";
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
 // flavor -> taste
 function next2(){
     flavor.style.display = "none";
     taste.style.display = "block";
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
 // taste -> main
 function next3(){
     taste.style.display = "none";
     main.style.display = "block";
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
 // main -> result
 function end(){
     main.style.display = "none";
     result.style.display = "block";
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
+
 
 // .flavor_info 관련 js
 function handleCheckboxChange(checkbox) {
@@ -56,3 +74,4 @@ function handleCheckboxChange(checkbox) {
         }
     }
 }
+
