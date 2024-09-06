@@ -138,16 +138,34 @@ function pre3(){
 }
 
 // profile -> result
+// function end(){
+//     profile.style.display = "none";
+//     result.style.display = "block";
+
+//     window.scrollTo({
+//         top: 0,
+//         behavior: 'smooth'
+//     });
+// }
+
+// profile -> result : 답변 필수 선택하게 하는 코드
 function end(){
-    profile.style.display = "none";
-    result.style.display = "block";
+    const selectAlcohol = document.querySelector('input[name="alcohol"]:checked');
+    const selectPrice = document.querySelector('input[name="price"]:checked');
+    const selectType = document.querySelector('input[name="type"]:checked');
 
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    if (!selectAlcohol || !selectPrice || !selectType) {
+        alert("답변을 선택해 주세요")
+    } else {
+        profile.style.display = "none";
+        result.style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
 }
-
 
 // .flavor_info 관련 js
 function handleCheckboxChange(checkbox) {

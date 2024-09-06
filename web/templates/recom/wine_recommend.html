@@ -12,9 +12,10 @@
         <h1 class="title">나에게 어울리는 와인은 무엇일까?</h1>
         <img src="https://img.freepik.com/free-vector/hand-drawn-facepalm-illustration_23-2150189575.jpg?t=st=1724764504~exp=1724768104~hmac=640f238fa34e1ebfa422f80f93d7e0bbc5631b1e380f4e511187eb38eb605938&w=740" alt="mainImage" class="mainImage"><br>
         <p class="intro">
-            오늘 같은 날엔 와인이 딱이지!<br>
-            하지만, 어떤 와인을 먹어야할까?<br>
-            나의 취향을 입력하여 딱 맞는 와인을 추천받자!
+            와인이 생각나는 오늘,<br>
+            어떤 와인을 마셔야 할 지 모르시겠다구요?<br><br>
+            그렇다면 잘 찾아오셨답니다!<br>
+            wineasy 가 최적의 와인을 추천해 드릴게요🍷
         </p>
         <input type="button" class="start_bt" value="시작하기" onclick="begin()"></input>
     </section>
@@ -249,7 +250,7 @@
                 </div>
                 <div class="answer_box">
                     <span>
-                        <input type="checkbox" name="flavor" id="floral" value="floral" onclick="handleCheckboxChange(this)">플로럴향
+                        <input type="checkbox" name="flavor" id="floral" value="floral" onclick="handleCheckboxChange(this)">
                         <label for="floral">플로럴(바이올렛, 라벤더, 캐모마일, 라일락 )</label>
                     </span>
                 </div>
@@ -509,6 +510,54 @@
                     <span>
                         <input type="radio" name="price" id="price5">
                         <label for="price5">100만 원 이상</label>
+                    </span>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="quest_box">
+                <h2 class="question">마시고 싶은 와인의 종류 선택 문항</h2>
+                <p class="explain">
+                    레드 와인 : 껍질을 벗기지 않은 포도로 제작된 와인<br>
+                    화이트 와인 : 껍질을 벗긴 청포도의 주스로 제작된 와인<br>
+                    스파클링 와인 : 탄산이 포함된 와인<br>
+                    로제 와인 : 발효 시간을 줄인 가벼운 맛의 분홍색 와인<br>
+                    디저트 와인 : 주로 후식 때 마시는 달달한 와인<br>
+                    주정강화 와인 : 주정을 넣어 알코올 도수를 높인 와인<br>
+                </p>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="type" id="red" value="1">
+                        <label for="red">레드 와인</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="type" id="white" value="2">
+                        <label for="white">화이트 와인</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="type" id="sparkling" value="3">
+                        <label for="sparkling">스파클링 와인</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="type" id="rose" value="4">
+                        <label for="rose">로제 와인</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="type" id="dessert" value="7">
+                        <label for="dessert">디저트 와인</label>
+                    </span>
+                </div>
+                <div class="answer_box">
+                    <span>
+                        <input type="radio" name="type" id="fortified" value="24">
+                        <label for="fortified">주정강화 와인</label>
                     </span>
                 </div>
             </div>

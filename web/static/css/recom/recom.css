@@ -9,13 +9,20 @@
     src: url('/static/fonts/KimjungchulScript-Bold.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Ownglyph_meetme-Rg';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* default 값 */
 body {
     background-color: rgb(255, 255, 255);
 }
 
 * {
-    font-family: "DefaultFont", sans-serif;
+    font-family: "Ownglyph_meetme-Rg", sans-serif;
 }
 
 h1 {
@@ -46,7 +53,7 @@ h1 {
 }
 
 .intro{
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .start_bt {
@@ -79,7 +86,7 @@ h1 {
 
 .chapter {
     padding-top: 15px;
-    font-size: 35px;
+    font-size: 25px;
 }
 
 .question {
@@ -99,7 +106,7 @@ h1 {
     box-sizing: border-box; /* padding을 포함한 전체 너비를 유지 */
     border-radius: 15px;
     /* margin-bottom: 25px; */
-    font-size: 16px;
+    font-size: 21px;
 }
 
 .answer_box {
@@ -129,7 +136,7 @@ h1 {
 /* .answer_box ,  */
 label {
     cursor: pointer;
-    font-size: 17px;
+    font-size: 22px;
 }
 
 input[type="radio"],
