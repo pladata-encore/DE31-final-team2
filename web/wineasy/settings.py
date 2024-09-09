@@ -114,11 +114,11 @@ WSGI_APPLICATION = 'wineasy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',      
-        'NAME': 'wineasy',
-        'USER': 'wineasy',
-        'PASSWORD': '123',
-        'HOST': '192.168.0.207',
-        'PORT': '3306',
+        'NAME': os.getenv("DB_NAME"),
+        'USER': os.getenv("DB_NAME"),
+        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'HOST': os.getenv("DB_HOST"),
+        'PORT': os.getenv("DB_PORT"),
         
     }
 }
