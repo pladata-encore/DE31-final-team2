@@ -84,6 +84,11 @@ h1 {
     padding-bottom: 25px;
 }
 
+/* food child 기본적으로 숨기기 */
+.food_child {
+    display: none;
+}
+
 .chapter {
     padding-top: 15px;
     font-size: 25px;

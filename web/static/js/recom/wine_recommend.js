@@ -16,6 +16,67 @@ function begin(){
     });
 }
 
+// food parent, child 분류해서 선택할 수 있게 하는 방법
+document.addEventListener('DOMContentLoaded', function() {
+    const food_child = document.querySelector(".food_child");
+
+    const meatBtn = document.getElementById('meatBtn');
+    const seafoodBtn = document.getElementById('seafoodBtn');
+    const cheeseBtn = document.getElementById('cheeseBtn');
+    const appeDessertBtn = document.getElementById('appeDessertBtn');
+    const etcBtn = document.getElementById('etcBtn');
+
+    const meat = document.getElementById('meat');
+    const seafood = document.getElementById('seafood');
+    const cheese = document.getElementById('cheese');
+    const appeDessert = document.getElementById('appeDessert');
+    const etc = document.getElementById('etc');
+
+    meatBtn.addEventListener('click', function() {
+        showFoodChild();
+        hideAllCategories();
+        // food_child.style.display = 'block';
+        meat.style.display = 'block';
+    });
+
+    seafoodBtn.addEventListener('click', function() {
+        showFoodChild();
+        hideAllCategories();
+        seafood.style.display = 'block';
+    });
+
+    cheeseBtn.addEventListener('click', function() {
+        showFoodChild();
+        hideAllCategories();
+        cheese.style.display = 'block';
+    });
+
+    appeDessertBtn.addEventListener('click', function() {
+        showFoodChild();
+        hideAllCategories();
+        appeDessert.style.display = 'block';
+    });
+
+    etcBtn.addEventListener('click', function() {
+        showFoodChild();
+        hideAllCategories();
+        etc.style.display = 'block';
+    });
+
+    function showFoodChild() {
+        food_child.style.display = 'block';
+        food_child.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function hideAllCategories() {
+        meat.style.display = 'none';
+        seafood.style.display = 'none';
+        cheese.style.display = 'none';
+        appeDessert.style.display = 'none';
+        etc.style.display = 'none';
+    }
+});
+
 // food -> flavor
 // function next1(){
 //     food.style.display = "none";
