@@ -166,6 +166,42 @@ function pre2(){
 //     });
 // }
 
+// taste 자동 스크롤
+document.addEventListener('DOMContentLoaded', function() {
+    // sweetness -> acidity
+    const sweetnessRadios = document.querySelectorAll('input[name="sweetness"]');
+    sweetnessRadios.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.getElementById('acidity_box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+
+    // acidity -> tannin
+    const acidityRadios = document.querySelectorAll('input[name="acidity"]');
+    acidityRadios.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.getElementById('tannin_box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+
+    // tannin -> intensity
+    const tanninRadio = document.querySelectorAll('input[name="tannin"]');
+    tanninRadio.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.getElementById('intensity_box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+
+    // intensity -> body
+    const intensityRadio = document.querySelectorAll('input[name="intensity"]');
+    intensityRadio.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.getElementById('body_box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+
+});
+
 // taste -> profile : 답변 필수 선택하게 하는 코드
 function next3(){
     const selectSweetness = document.querySelector('input[name="sweetness"]:checked');
@@ -197,6 +233,25 @@ function pre3(){
         behavior: 'smooth'
     });
 }
+
+// profile 자동 스크롤
+document.addEventListener('DOMContentLoaded', function() {
+    // alcohol_box의 radio 버튼이 선택되면 price_box로 스크롤
+    const alcoholRadios = document.querySelectorAll('input[name="alcohol"]');
+    alcoholRadios.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.getElementById('price_box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+
+    // price_box의 radio 버튼이 선택되면 type_box로 스크롤
+    const priceRadios = document.querySelectorAll('input[name="price"]');
+    priceRadios.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.getElementById('type_box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+});
 
 // profile -> result
 // function end(){
@@ -238,6 +293,10 @@ function handleCheckboxChange(checkbox) {
                 cb.checked = false; // 다른 체크박스 해제
             }
         });
+        
+        // 페이지의 최하단으로 이동
+        document.documentElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+
     } else { // 다른 체크박스 선택 시
         const noneCheckbox = document.querySelector('input[name="flavor"][value=""]');
         if (noneCheckbox) {
@@ -245,4 +304,3 @@ function handleCheckboxChange(checkbox) {
         }
     }
 }
-

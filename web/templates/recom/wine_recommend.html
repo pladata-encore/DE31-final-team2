@@ -325,7 +325,7 @@
                     taste는 와인을 마실 때 입안에서 혀로 느끼는 단순한 맛의 감각으로,<br>
                     주로 단맛, 산도, 탄닌, 강도가 포함되는 와인의 기본적인 구조적 요소입니다.
                 </p>
-                <div class="taste_box">
+                <div class="taste_box" id="sweetness_box">
                     <h2 class="question">sweetness</h2>
                     <p class="explain">와인의 당도에 대한 문항입니다</p>
                     <div class="answer_box">
@@ -359,8 +359,10 @@
                         </span>
                     </div> -->
                 </div>
+
                 <div class="divider"></div>
-                <div class="taste_box">
+
+                <div class="taste_box" id="acidity_box">
                     <h2 class="question">acidity</h2>
                     <p class="explain">와인의 산도(신맛)에 대한 문항입니다</p>
                     <div class="answer_box">
@@ -394,10 +396,12 @@
                         </span>
                     </div> -->
                 </div>
+
                 <div class="divider"></div>
-                <div class="taste_box">
+
+                <div class="taste_box" id="tannin_box">
                     <h2 class="question">tannin</h2>
-                    <p class="explain">와인의 쓴맛에 대한 문항입니다</p>
+                    <p class="explain">와인의 탄닌(쓴맛)에 대한 문항입니다</p>
                     <div class="answer_box">
                         <span>
                             <input type="radio" name="tannin" id="tannin1" value="1">
@@ -429,8 +433,10 @@
                         </span>
                     </div> -->
                 </div>
+
                 <div class="divider"></div>
-                <div class="taste_box">
+
+                <div class="taste_box" id="intensity_box">
                     <h2 class="question">intensity</h2>
                     <p class="explain">와인의 강도(맛과 향)에 대한 문항입니다</p>
                     <div class="answer_box">
@@ -464,8 +470,10 @@
                         </span>
                     </div> -->
                 </div>
+
                 <div class="divider"></div>
-                <div class="taste_box">
+
+                <div class="taste_box" id="body_box">
                     <h2 class="question">body</h2>
                     <p class="explain">와인의 무게감과 밀도에 대한 문항입니다</p>
                     <div class="answer_box">
@@ -501,7 +509,7 @@
 
         <div class="profile_info">
             <h1 class="chapter">about wine profile🍷</h1>
-            <div class="quest_box">
+            <div class="quest_box" id="alcohol_box">
                 <h2 class="question">도수 선택 문항</h2>
                 <p class="explain">도수별 간단 설명</p>
                 <!-- <div class="answer_box">
@@ -535,8 +543,10 @@
                     </span>
                 </div>
             </div>
+
             <div class="divider"></div>
-            <div class="quest_box">
+
+            <div class="quest_box" id="price_box">
                 <h2 class="question">가격대 선택 문항</h1>
                 <p class="explain">최소 금액과 최대 금액을 설정하세요</p>
                 <div class="answer_box">
@@ -570,8 +580,10 @@
                     </span>
                 </div>
             </div>
+
             <div class="divider"></div>
-            <div class="quest_box">
+
+            <div class="quest_box" id="type_box">
                 <h2 class="question">마시고 싶은 와인의 종류 선택 문항</h2>
                 <p class="explain">
                     레드 와인 : 껍질을 벗기지 않은 포도로 제작된 와인<br>
