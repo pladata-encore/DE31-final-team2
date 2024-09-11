@@ -19,7 +19,8 @@
         </p>
         <input type="button" class="start_bt" value="시작하기" onclick="begin()"></input>
     </section>
-
+    <form id="wine_recommend" method="post" action="{% url 'recom' %}">
+        {% csrf_token %}
     <section class="qna">
         <div class="food_info">
             <h1 class="chapter">about pairing🍷</h1>
@@ -675,14 +676,61 @@
             </div>
             <br>
             <input type="button" class="pre_bt" value="이전으로" onclick="pre3()">
-            <input type="button" class="next_bt" value="결과 보기" onclick="end()">
+            <!--input type="button" class="next_bt" value="결과 보기" onclick="end()"-->
+            <button type="submit" class="next_bt" onclick="end()">결과 보기</button>
+
+        
         </div>
     </section>
-
+</form>
     <section class="result">
         <h1 class="chapter">try these Wine🍷</h1>
         <input type="button" class="restart_bt" value="다시하기" onclick="location.href='{% url 'recom' %}';"><!-- 에러 무시하세요 작동 잘 됩니다 -->
     </section>
 <script src="{% static 'js/recom/wine_recommend.js' %}"></script>
+<script>
+    //소영 추가 (나중에 이 부분은 js 로 빼도 됨)
+    // 추천 와인 결과를 결과창에 추가하는 script
+        document.getElementById('wine_recommend').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const formData = new FormData(this);
+
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+            fetch(`{% url 'recom' %}`, {
+                method: 'post',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest', 
+                    'X-CSRFToken': csrfToken 
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultSection = document.querySelector('.result');
+                resultSection.innerHTML = ''; 
+
+                if (data.recommendations) {
+                    data.recommendations.forEach(wine => {
+                        const wineElement = document.createElement('div');
+                        wineElement.innerHTML = `<h3>${wine.name}</h3>
+                        <p>평균 평점: ${wine.rating_average}</p>
+                        <p>유사도 점수: ${wine.similarity_score}</p>
+                        <p>가격: ${wine.price} 원</p>
+                        <p>도수: ${wine.alcohol}</p>
+                        `;
+                        resultSection.appendChild(wineElement);
+                    });
+                } else {
+                    resultSection.innerHTML = '<p>No recommendations found.</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+       
+</script>
 </body>
 </html>
