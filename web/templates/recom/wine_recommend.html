@@ -227,91 +227,134 @@
                     와인을 마시기 전 코로 느끼는 향은 물론이고<br>
                     입에 머금고 있을 때 느껴지는 다양한 향과 맛의 조화라고 할 수 있습니다
                 </p>
-                <div class="answer_box">
-                    <span>
+
+                <div class="flavor_container">
+                    <div class="flavor_box">
                         <input type="checkbox" name="flavor" id="allFlavor" value="" onclick="handleCheckboxChange(this)">
-                        <label for="allFlavor">상관 없음</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="ageing" value="ageing" onclick="handleCheckboxChange(this)">
-                        <label for="ageing">에이징(체스트넛, 호두, 구운 아몬드 등)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="dried_fruit" value="dried_fruit" onclick="handleCheckboxChange(this)">
-                        <label for="dried_fruit">드라이드 프룻(푸룬, 무화과, 건포도)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="microbio" value="microbio" onclick="handleCheckboxChange(this)">
-                        <label for="microbio">마이크로바이오(크림, 바나나, 치즈, 요거트)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="black_fruit" value="black_fruit" onclick="handleCheckboxChange(this)">
-                        <label for="black_fruit">블랙 프룻(블랙베리, 자두, 블랙체리)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="red_fruit" value="red_fruit" onclick="handleCheckboxChange(this)">
-                        <label for="red_fruit">레드 프룻(체리, 라즈베리, 딸기)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="spices" value="spices" onclick="handleCheckboxChange(this)">
-                        <label for="spices">스파이시(후추, 시나몬, 타임(허브), 감초, 유칼립투스)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="citrus_fruit" value="citrus_fruit" onclick="handleCheckboxChange(this)">
-                        <label for="citrus_fruit">시트러스(마말레이드, 오렌지, 레몬, 자몽 등 감귤류)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="oak" value="oak" onclick="handleCheckboxChange(this)">
-                        <label for="oak">오크(오크통, 초콜릿, 바닐라, 커피, 시가)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="tree_fruit" value="tree_fruit" onclick="handleCheckboxChange(this)">
-                        <label for="tree_fruit">나무 과일(배, 복숭아, 사과, 살구, 메론 )</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="tropical_fruit" value="tropical_fruit" onclick="handleCheckboxChange(this)">
-                        <label for="tropical_fruit">열대 과일(망고, 파인애플, 리치, 구아바, 패션후르츠)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="vegetal" value="vegetal" onclick="handleCheckboxChange(this)">
-                        <label for="vegetal">식물 및 채소(잔디, 건초, 토마토, 짚)</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="floral" value="floral" onclick="handleCheckboxChange(this)">
-                        <label for="floral">플로럴(바이올렛, 라벤더, 캐모마일, 라일락 )</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="checkbox" name="flavor" id="earth" value="earth" onclick="handleCheckboxChange(this)">
-                        <label for="earth">흙(비 온 뒤 땅의 냄새, 우디, 마른 흙, 꿀, 돌, 훈연)</label>
-                    </span>
+                        <label for="allFlavor">
+                            <p name="flavor_name">상관 없음</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="ageing" value="non_oak_count" onclick="handleCheckboxChange(this)">
+                        <label for="ageing">
+                            <p name="flavor_name">Ageing</p>
+                            <img src="/static/img/recom/678100.png">
+                            <p name="flavor_exp">체스트넛, 호두, 구운 아몬드 등</p>
+                      </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="dried_fruit" value="dried_fruit_count" onclick="handleCheckboxChange(this)">
+                        <label for="dried_fruit">
+                            <p name="flavor_name">Dried Fruit</p>
+                            <img src="/static/img/recom/678100.png" alt="Flavor 1 Image">
+                            <p name="flavor_exp">푸룬, 무화과, 건포도 등</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="microbio" value="microbio_count" onclick="handleCheckboxChange(this)">
+                        <label for="microbio">
+                            <p name="flavor_name">Microbio</p>
+                            <img src="/static/img/recom/678100.png">
+                            <p name="flavor_exp">크림, 바나나, 치즈, 요거트 등</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="black_fruit" value="black_fruit_count" onclick="handleCheckboxChange(this)">
+                        <label for="black_fruit">
+                            <p name="flavor_name">Black Fruit</p>
+                            <img src="/static/img/recom/678100.png">
+                            <p name="flavor_exp">블랙베리, 자두, 블랙체리 등</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="red_fruit" value="red_fruit_count" onclick="handleCheckboxChange(this)">
+                        <label for="red_fruit">
+                            <p name="flavor_name">Red Fruit</p>
+                            <img src="/static/img/recom/678100.png">
+                            <p name="flavor_exp">체리, 라즈베리, 딸기 등</p>
+                        </label>
+                      </div>
+  
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="spices" value="spices_count" onclick="handleCheckboxChange(this)">
+                        <label for="spices">
+                            <p name="flavor_name">Spices</p>
+                            <img src="/static/img/recom/678100.png">
+                            <p name="flavor_exp">후추, 시나몬, 허브, 감초, 유칼립투스 등</p>
+                        </label>
+                    </div>
+  
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="citrus_fruit" value="citrus_fruit_count" onclick="handleCheckboxChange(this)">
+                        <label for="citrus_fruit">
+                            <p name="flavor_name">Citrus Fruit</p>
+                            <img src="/static/img/recom/678100.png">
+                            <p name="flavor_exp">마말레이드, 오렌지, 레몬, 자몽 등 감귤류</p>
+                        </label>
+                    </div>
+  
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="oak" value="oak_count" onclick="handleCheckboxChange(this)">
+                        <label for="oak">
+                            <p name="flavor_name">Oak</p>
+                            <img src="/static/img/recom/678100.png">
+                            <p name="flavor_exp">오크통, 초콜릿, 바닐라, 커피, 시가 등</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="tree_fruit" value="tree_fruit_count" onclick="handleCheckboxChange(this)">
+                        <label for="tree_fruit">
+                            <p name="flavor_name">Tree Fruit</p>
+                            <img src="/static/img/recom/678100.png">
+                            <p name="flavor_exp">배, 복숭아, 사과, 살구, 메론 등</p>
+                        </label>
+                    </div>
+  
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="tropical_fruit" value="tropical_fruit_count" onclick="handleCheckboxChange(this)">
+                        <label for="tropical_fruit">
+                            <p name="flavor_name">Tropical Fruit</p>
+                            <img src="/static/img/recom/678100.png">
+                            <p name="flavor_exp">망고, 파인애플, 리치, 구아바, 패션후르츠 등</p>
+                        </label>
+                    </div>
+  
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="vegetal" value="vegetal_count" onclick="handleCheckboxChange(this)">
+                        <label for="vegetal">
+                            <p name="flavor_name">Vegetal</p>
+                            <img src="/static/img/recom/678100.png">
+                            <p name="flavor_exp">잔디, 건초, 토마토, 짚 등</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="floral" value="floral_count" onclick="handleCheckboxChange(this)">
+                        <label for="floral">
+                            <p name="flavor_name">Floral</p>
+                            <img src="/static/img/recom/678100.png">
+                            <p name="flavor_exp">바이올렛, 라벤더, 캐모마일, 라일락 등</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="earth" value="earth_count" onclick="handleCheckboxChange(this)">
+                        <label for="earth">
+                            <p name="flavor_name">Earth</p>
+                            <img src="/static/img/recom/678100.png">
+                            <p name="flavor_exp">비 온 뒤 땅의 냄새, 우디, 마른 흙, 꿀, 돌, 훈연 등</p>
+                        </label>
+                    </div>
                 </div>
             </div>
+            
             <br>
             <input type="button" class="pre_bt" value="이전으로" onclick="pre1()">
             <input type="button" class="next_bt" value="다음으로" onclick="next2()">
@@ -478,26 +521,26 @@
                     <p class="explain">와인의 무게감과 밀도에 대한 문항입니다</p>
                     <div class="answer_box">
                         <span>
+                            <input type="radio" name="body" id="body1" value="1">
+                            <label for="body1">Light-bodied: 가벼운 무게감과 섬세한 질감</label>
+                        </span>
+                    </div>
+                    <div class="answer_box">
+                        <span>
                             <input type="radio" name="body" id="body2" value="2">
-                            <label for="body2">Light-bodied: 가벼운 무게감과 섬세한 질감</label>
+                            <label for="body2">Medium-bodied: 중간 정도의 무게감과 균형 잡힌 질감</label>
                         </span>
                     </div>
                     <div class="answer_box">
                         <span>
                             <input type="radio" name="body" id="body3" value="3">
-                            <label for="body3">Medium-bodied: 중간 정도의 무게감과 균형 잡힌 질감</label>
+                            <label for="body3">Full-bodied: 무겁고 풍부한 무게감과 강렬한 질감</label>
                         </span>
                     </div>
                     <div class="answer_box">
                         <span>
                             <input type="radio" name="body" id="body4" value="4">
-                            <label for="body4">Full-bodied: 무겁고 풍부한 무게감과 강렬한 질감</label>
-                        </span>
-                    </div>
-                    <div class="answer_box">
-                        <span>
-                            <input type="radio" name="body" id="body5" value="5">
-                            <label for="body5">Very full-bodied: 가장 무거운 무게감과 두꺼운 질감</label>
+                            <label for="body4">Very full-bodied: 가장 무거운 무게감과 두꺼운 질감</label>
                         </span>
                     </div>
                 </div>
@@ -520,26 +563,26 @@
                 </div> -->
                 <div class="answer_box">
                     <span>
-                        <input type="radio" name="alcohol" id="low_alch">
-                        <label for="low_alch">12.5% 미만</label>
+                        <input type="radio" name="alcohol" id="alcohol1" value="1">
+                        <label for="alcohol1">12.5% 미만</label>
                     </span>
                 </div>
                 <div class="answer_box">
                     <span>
-                        <input type="radio" name="alcohol" id="mediLow_alch">
-                        <label for="mediLow_alch">12.5% 이상 14.0% 미만</label>
+                        <input type="radio" name="alcohol" id="alcohol2" value="2">
+                        <label for="alcohol2">12.5% 이상 14.0% 미만</label>
                     </span>
                 </div>
                 <div class="answer_box">
                     <span>
-                        <input type="radio" name="alcohol" id="mediHigh_alch">
-                        <label for="mediHigh_alch">14.0%도 이상 16.0%도 미만</label>
+                        <input type="radio" name="alcohol" id="alcohol3" value="3">
+                        <label for="alcohol3">14.0%도 이상 16.0%도 미만</label>
                     </span>
                 </div>
                 <div class="answer_box">
                     <span>
-                        <input type="radio" name="alcoㄴhol" id="high_alch">
-                        <label for="high_alch">16.0% 이상</label>
+                        <input type="radio" name="alcoㄴhol" id="alcohol4" value="4">
+                        <label for="alcohol4">16.0% 이상</label>
                     </span>
                 </div>
             </div>
@@ -551,31 +594,31 @@
                 <!-- <p class="explain">롸롸</p> -->
                 <div class="answer_box">
                     <span>
-                        <input type="radio" name="price" id="price1">
+                        <input type="radio" name="price" id="price1" value="1">
                         <label for="price1">15,000원 미만</label>
                     </span>
                 </div>
                 <div class="answer_box">
                     <span>
-                        <input type="radio" name="price" id="price2">
+                        <input type="radio" name="price" id="price2" value="2">
                         <label for="price2">15,000원 이상 25,000원 미만</label>
                     </span>
                 </div>
                 <div class="answer_box">
                     <span>
-                        <input type="radio" name="price" id="price3">
+                        <input type="radio" name="price" id="price3" value="3">
                         <label for="price3">25,000원 이상 35,000원 미만</label>
                     </span>
                 </div>
                 <div class="answer_box">
                     <span>
-                        <input type="radio" name="price" id="price4">
+                        <input type="radio" name="price" id="price4" value="4">
                         <label for="price4">35,000원 이상 60,000원 미만</label>
                     </span>
                 </div>
                 <div class="answer_box">
                     <span>
-                        <input type="radio" name="price" id="price5">
+                        <input type="radio" name="price" id="price5" value="5">
                         <label for="price5">60,000원 이상</label>
                     </span>
                 </div>
@@ -637,7 +680,8 @@
     </section>
 
     <section class="result">
-        결과 페이지~
+        <h1 class="chapter">try these Wine🍷</h1>
+        <input type="button" class="restart_bt" value="다시하기" onclick="location.href='{% url 'recom' %}';"><!-- 에러 무시하세요 작동 잘 됩니다 -->
     </section>
 <script src="{% static 'js/recom/wine_recommend.js' %}"></script>
 </body>

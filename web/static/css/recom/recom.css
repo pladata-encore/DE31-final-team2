@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: 'Ownglyph_meetme-Rg';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+    src: url('/static/fonts/온글잎 밑미.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -56,7 +56,8 @@ h1 {
     font-size: 22px;
 }
 
-.start_bt {
+.start_bt,
+.restart_bt {
     cursor: pointer;
     width: 550px;
     border-radius: 5px;
@@ -122,24 +123,27 @@ h1 {
     margin: auto;
     margin-bottom: 10px;
     text-align: left;
+    /* cursor: pointer; */
 }
 
 .answer_box:hover ,
-.answer_box:focus .answer_box:focus-within {
+.answer_box:focus .answer_box:focus-within,
+.flavor_box:hover,
+.flavor_box:focus .flavor_box-within  {
     background-color: rgb(146, 0, 0);
     border: 2px solid rgb(146, 0, 0);
     color: white;
 }
 
 .answer_box:has(input[type="radio"]:checked) ,
-.answer_box:has(input[type="checkbox"]:checked) {
+.flavor_box:has(input[type="checkbox"]:checked) {
     background-color: rgb(146, 0, 0);
     border: 2px solid rgb(146, 0, 0);
     color: white;
 }
 
 /* .answer_box ,  */
-label {
+.answer_box label {
     cursor: pointer;
     font-size: 22px;
 }
@@ -174,6 +178,58 @@ input[type="checkbox"] {
     margin-left: 20px; /* 필요 시 왼쪽에도 여유 공간을 추가할 수 있습니다 */
 }
 
+/* flavor 관련 */
+.flavor_container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 한 줄에 5개 배치 */
+    gap: 15px; /* 박스 간의 간격 */
+    justify-content: center; /* 그리드 항목을 수평으로 중앙 정렬 */
+    /* max-width: 100%; 컨테이너의 최대 너비를 100%로 설정 */
+    width: 80%; /* 내용에 맞춰 너비 조정 */
+    margin: 0 auto; /* 컨테이너를 수평으로 중앙 정렬 */
+}
+  
+.flavor_box {
+    position: relative;
+    width: 80%; /* 정사각형 크기 */
+    /* aspect-ratio: 1 / 1; */
+    /* box-sizing: border-box; */
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(160, 160, 160);
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer; /* 마우스를 올리면 클릭 가능하게 */
+}
+
+.flavor_box label {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* 전체 박스 클릭 가능하게 */
+}
+
+.flavor_box label img {
+    width: 40%; /* 이미지 크기 */
+    height: 40%;
+}
+
+/* .flavor_box label .flavor_name {
+    font-size: 25px;
+}
+
+.flavor_box label .flavor_exp {
+    font-size: 10px;
+} */
+
 /* 구분 선 */
 .divider {
     width: 70%;
@@ -192,4 +248,4 @@ input[type="checkbox"] {
     text-align: center;
     border-radius: 20px;
     padding-bottom: 25px;
-}
+}  
