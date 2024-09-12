@@ -224,13 +224,13 @@ input[type="checkbox"] {
 }
 
 .flavor_box label .flavor_name {
-    margin-top: 5px;
+    /* margin-top: 5px; */
     font-size: 25px;
 }
 
 .flavor_box label img {
-    width: 40%; /* 이미지 크기 */
-    height: 40%;
+    width: 55px; /* 이미지 크기 */
+    height: 55px;
 }
 
 .flavor_box label .flavor_exp {
