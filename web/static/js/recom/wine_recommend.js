@@ -75,6 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
         appeDessert.style.display = 'none';
         etc.style.display = 'none';
     }
+
+    // food_child 내의 radio 선택 시 페이지의 최하단으로 스크롤
+    const foodChildRadio = food_child.querySelectorAll('input[type="radio"]');
+    foodChildRadio.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.documentElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        });
+    });
 });
 
 // food -> flavor
@@ -169,16 +177,16 @@ function pre2(){
 // taste 자동 스크롤
 document.addEventListener('DOMContentLoaded', function() {
     // sweetness -> acidity
-    const sweetnessRadios = document.querySelectorAll('input[name="sweetness"]');
-    sweetnessRadios.forEach(function(radio) {
+    const sweetnessRadio = document.querySelectorAll('input[name="sweetness"]');
+    sweetnessRadio.forEach(function(radio) {
         radio.addEventListener('change', function() {
             document.getElementById('acidity_box').scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
     });
 
     // acidity -> tannin
-    const acidityRadios = document.querySelectorAll('input[name="acidity"]');
-    acidityRadios.forEach(function(radio) {
+    const acidityRadio = document.querySelectorAll('input[name="acidity"]');
+    acidityRadio.forEach(function(radio) {
         radio.addEventListener('change', function() {
             document.getElementById('tannin_box').scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
@@ -200,6 +208,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // body 내의 radio 선택 시 페이지의 최하단으로 스크롤
+    const bodyRadio = document.querySelectorAll('input[name="body"]');
+    bodyRadio.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.documentElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        })
+    })
 });
 
 // taste -> profile : 답변 필수 선택하게 하는 코드
@@ -237,18 +252,26 @@ function pre3(){
 // profile 자동 스크롤
 document.addEventListener('DOMContentLoaded', function() {
     // alcohol_box의 radio 버튼이 선택되면 price_box로 스크롤
-    const alcoholRadios = document.querySelectorAll('input[name="alcohol"]');
-    alcoholRadios.forEach(function(radio) {
+    const alcoholRadio = document.querySelectorAll('input[name="alcohol"]');
+    alcoholRadio.forEach(function(radio) {
         radio.addEventListener('change', function() {
             document.getElementById('price_box').scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
     });
 
     // price_box의 radio 버튼이 선택되면 type_box로 스크롤
-    const priceRadios = document.querySelectorAll('input[name="price"]');
-    priceRadios.forEach(function(radio) {
+    const priceRadio = document.querySelectorAll('input[name="price"]');
+    priceRadio.forEach(function(radio) {
         radio.addEventListener('change', function() {
             document.getElementById('type_box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+
+    // type_box의 radio 버튼이 선택되면 최하단으로 스크롤
+    const typeRadio = document.querySelectorAll('input[name="type"]');
+    typeRadio.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.documentElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
         });
     });
 });
@@ -286,6 +309,7 @@ function end(){
 // .flavor_info 관련 js
 function handleCheckboxChange(checkbox) {
     const checkboxes = document.querySelectorAll('input[name="flavor"]');
+    const maxSelections = 5; // 최대 선택 가능 수
 
     if (checkbox.value === "") { // "상관 없음" 선택 시
         checkboxes.forEach((cb) => {
@@ -301,6 +325,14 @@ function handleCheckboxChange(checkbox) {
         const noneCheckbox = document.querySelector('input[name="flavor"][value=""]');
         if (noneCheckbox) {
             noneCheckbox.checked = false; // "상관 없음" 체크 해제
+        }
+
+        // 선택된 checkbox 수 계산하는 변수
+        const checkboxes = document.querySelectorAll('input[name="flavor"]:checked');
+
+        if (checkboxes.length > maxSelections) {
+            checkbox.checked = false; // 6번째로 선택한 checkbox 해제
+            alert("최대 5개까지만 선택할 수 있습니다.");
         }
     }
 }
