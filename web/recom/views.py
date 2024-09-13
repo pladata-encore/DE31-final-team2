@@ -33,10 +33,59 @@ database = os.getenv("DB_NAME")
 engine = sqlalchemy.create_engine(f"mysql://{user}:{password}@{host}:{port}/{database}")
 
 
-df = pd.read_sql_query("SELECT * FROM final_items", engine)
+df = pd.read_sql_query("select * from final_items", engine)
 #--
 
+# 수치형 값을 범위로 변환하는 함수
+def body_range(body_value):
+    if 0 <= body_value < 2:
+        return 1
+    elif 2 <= body_value < 4:
+        return 2
+    elif 4 <= body_value < 6:
+        return 3
+    else:
+        return 4
 
+def acidity_range(acidity_y_value):
+    if 0 <= acidity_y_value < 2:
+        return 1
+    elif 2 <= acidity_y_value < 4:
+        return 2
+    elif 4 <= acidity_y_value < 6:
+        return 3
+    else:
+        return 4 
+        
+    
+def tannin_range(tannin_value):
+    if 0 <= tannin_value < 2:
+        return 1
+    elif 2 <= tannin_value < 4:
+        return 2
+    elif 4 <= tannin_value < 6:
+        return 3
+    else:
+        return 4 
+       
+def itensity_range(intensity_value):
+    if 0 <= intensity_value < 2:
+        return 1
+    elif 2 <= intensity_value < 4:
+        return 2
+    elif 4 <= intensity_value < 6:
+        return 3
+    else:
+        return 4        
+         
+def sweetness_range(sweetness_value):
+    if 0 <= sweetness_value < 2:
+        return 1
+    elif 2 <= sweetness_value < 4:
+        return 2
+    else:
+        return 3
+  
 
 # 와인 추천을 위한 뷰
 #@csrf_exempt
@@ -53,6 +102,7 @@ def recom(request):
             'sweetness': int(request.POST.get('sweetness')), 
         }
         
+        user_data = pd.DataFrame([user_preferences])
         
         #-- Step 3: alcohol & price
         alcohol_choice = int(request.POST.get('alcohol'))
@@ -103,11 +153,15 @@ def recom(request):
         selected_food = request.POST.get('food')      
         filtered_wines = filtered_wines[filtered_wines[selected_food] == 1]
 
-        # Step 9: Prepare the data for similarity comparison (wine attributes)
-        wine_features = filtered_wines[['body', 'acidity_y', 'tannin', 'intensity', 'sweetness']]
-
-        # Convert user preferences to a DataFrame
-        user_data = pd.DataFrame([user_preferences])
+        #수치데이터를 범위에 맞는 데이터로 칼럼 생성
+        filtered_wines['body_range'] = filtered_wines['body'].apply(body_range)
+        filtered_wines['acidity_range'] = filtered_wines['acidity_y'].apply(acidity_range)
+        filtered_wines['tannin_range'] = filtered_wines['tannin'].apply(tannin_range)
+        filtered_wines['intensity_range'] = filtered_wines['intensity'].apply(itensity_range)
+        filtered_wines['sweetness_range'] = filtered_wines['sweetness'].apply(sweetness_range)
+        
+        # Step 9
+        wine_features = filtered_wines[['body_range', 'acidity_range', 'tannin_range', 'intensity_range', 'sweetness_range']]
         
         # Step 10: Calculate similarity (Euclidean Distance)
         distances = euclidean_distances(wine_features, user_data)
@@ -134,7 +188,7 @@ def recom(request):
         filtered_wines['similarity_score'] = distances.flatten() - flavor_scores - food_scores
 
         
-        # 추천 기능 구현
+        # 추천 결과 추출
         def recommend_similar_wines_to_user(filtered_wines, df, n=5):
             top_wines = filtered_wines.sort_values(by='similarity_score').head(5)
 
@@ -147,6 +201,9 @@ def recom(request):
                     'alcohol': row['alcohol'],
                     'similarity_score': row['similarity_score'],
                     'price': row['Price'],
+                    #'brand_name': row['brand_name'],
+                    #'img': row['img_url'],
+                    
                     
                 }
                 recommendations.append(wine_info)
