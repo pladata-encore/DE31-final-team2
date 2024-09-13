@@ -685,6 +685,9 @@
 </form>
     <section class="result">
         <h1 class="chapter">try these Wine🍷</h1>
+        <div class="result_content">
+
+        </div>
         <input type="button" class="restart_bt" value="다시하기" onclick="location.href='{% url 'recom' %}';"><!-- 에러 무시하세요 작동 잘 됩니다 -->
     </section>
 <script src="{% static 'js/recom/wine_recommend.js' %}"></script>
@@ -708,7 +711,7 @@
             })
             .then(response => response.json())
             .then(data => {
-                const resultSection = document.querySelector('.result');
+                const resultSection = document.querySelector('.result_content');
                 resultSection.innerHTML = ''; 
 
                 if (data.recommendations) {
