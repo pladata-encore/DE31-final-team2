@@ -254,7 +254,7 @@
                         <input type="checkbox" name="flavor" id="dried_fruit" value="dried_fruit_count" onclick="handleCheckboxChange(this)">
                         <label for="dried_fruit">
                             <p class="flavor_name">Dried Fruit</p>
-                            <img src="/static/img/recom/driedFruit.png" alt="Flavor 1 Image">
+                            <img src="/static/img/recom/driedFruit.png">
                             <p class="flavor_exp">푸룬, 무화과, 건포도 등</p>
                         </label>
                     </div>
@@ -490,7 +490,7 @@
                     <div class="answer_box">
                         <span>
                             <input type="radio" name="intensity" id="intensity1" value="1">
-                            <label for="intensity2">Light(가벼움): 맛과 향이 부드럽고 은은한 정도</label>
+                            <label for="intensity1">Light(가벼움): 맛과 향이 부드럽고 은은한 정도</label>
                         </span>
                     </div>
                     <div class="answer_box">
@@ -586,7 +586,7 @@
                 </div>
                 <div class="answer_box">
                     <span>
-                        <input type="radio" name="alcoㄴhol" id="alcohol4" value="4">
+                        <input type="radio" name="alcohol" id="alcohol4" value="4">
                         <label for="alcohol4">16.0% 이상</label>
                     </span>
                 </div>
@@ -689,6 +689,13 @@
 </form>
     <section class="result">
         <h1 class="chapter">try these Wine🍷</h1>
+        <h2 class="question">당신을 위한 와인 추천 플랫폼, Wineasy🍷</h2>
+        <p class="explain">
+            와인의 이름을 클릭하시면 vivino 로 이동하실 수 있습니다<br>
+            평점과 가격은 vivino 기준으로 등록된 것입니다<br>
+            가격의 경우 9월 1일 기준으로 환전한 가격으로,<br>
+            실제 구매 가격과 다를 수 있습니다
+        </p>
         <div class="result_content">
 
         </div>
@@ -698,51 +705,99 @@
 <script>
     //소영 추가 (나중에 이 부분은 js 로 빼도 됨)
     // 추천 와인 결과를 결과창에 추가하는 script
-        document.getElementById('wine_recommend').addEventListener('submit', function(event) {
-            event.preventDefault(); 
+    // document.getElementById('wine_recommend').addEventListener('submit', function(event) {
+    //     event.preventDefault(); 
 
-            const formData = new FormData(this);
+    //     const formData = new FormData(this);
 
-            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    //     const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
-            fetch(`{% url 'recom' %}`, {
-                method: 'post',
-                body: formData,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest', 
-                    'X-CSRFToken': csrfToken 
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                const resultSection = document.querySelector('.result_content');
-                resultSection.innerHTML = ''; 
+    //     fetch(`{% url 'recom' %}`, {
+    //         method: 'post',
+    //         body: formData,
+    //         headers: {
+    //             'X-Requested-With': 'XMLHttpRequest', 
+    //             'X-CSRFToken': csrfToken 
+    //         }
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         const resultSection = document.querySelector('.result_content');
+    //         resultSection.innerHTML = ''; 
 
-                if (data.recommendations) {
-                    data.recommendations.forEach(wine => {
-                        const wineElement = document.createElement('div');
-                        wineElement.innerHTML = `
-                        <a href="${wine.url}">
-                            <h3>${wine.name}</h3>
-                        </a>
-                        <p>평균 평점: ${wine.rating_average}</p>
-                        <p>유사도 점수: ${wine.similarity_score}</p>
-                        <p>가격: ${wine.price} 원</p>
-                        <p>도수: ${wine.alcohol}</p>
-                        <p>와이너리명: ${wine.brand_name}</p>
-                        <img src="${wine.img}"/>
-                        `;
-                        resultSection.appendChild(wineElement);
-                    });
-                } else {
-                    resultSection.innerHTML = '<p>No recommendations found.</p>';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
+    //         if (data.recommendations) {
+    //             data.recommendations.forEach(wine => {
+    //                 const wineElement = document.createElement('div');
+    //                 wineElement.innerHTML = `
+    //                 <a href="${wine.url}">
+    //                     <h3>${wine.name}</h3>
+    //                 </a>
+    //                 <p>평균 평점: ${wine.rating_average}</p>
+    //                 <p>유사도 점수: ${wine.similarity_score}</p>
+    //                 <p>가격: ${wine.price} 원</p>
+    //                 <p>도수: ${wine.alcohol}</p>
+    //                 <p>와이너리명: ${wine.brand_name}</p>
+    //                 <img src="${wine.img}"/>
+    //                 `;
+    //                 resultSection.appendChild(wineElement);
+    //             });
+    //         } else {
+    //             resultSection.innerHTML = '<p>No recommendations found.</p>';
+    //         }
+    //     })
+    //     .catch(error => {
+    //         console.error('Error:', error);
+    //     });
+    // });
+
+    document.getElementById('wine_recommend').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    const formData = new FormData(this);
+    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+    fetch(`{% url 'recom' %}`, {
+        method: 'post',
+        body: formData,
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest', 
+            'X-CSRFToken': csrfToken 
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const resultSection = document.querySelector('.result_content');
+        resultSection.innerHTML = ''; 
+
+        if (data.recommendations) {
+            data.recommendations.forEach(wine => {
+                const wineElement = document.createElement('div');
+                wineElement.classList.add('result_box');
+                wineElement.innerHTML = `
+                <div class="img_box">
+                    <img src="${wine.img}" alt="${wine.name}"/>
+                </div>
+                <div class="info_box">
+                    <p class="result_brand">${wine.brand_name}</p>
+                    <p class="result_name">
+                        <a href="${wine.url}" target="_blank">${wine.name}</a>
+                    </p>
+                    <p class="result_alcohol">${wine.alcohol} %</p>
+                    <p class="result_rating">평점: ${wine.rating_average}</p>
+                    <p class="result_price">약 ${wine.price} 원</p>
+                </div>
+                `;
+                resultSection.appendChild(wineElement);
             });
-        });
-       
+        } else {
+            resultSection.innerHTML = '<p>No recommendations found.</p>';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
 </script>
 </body>
 </html>
