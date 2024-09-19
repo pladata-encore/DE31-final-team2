@@ -33,7 +33,7 @@ database = os.getenv("DB_NAME")
 engine = sqlalchemy.create_engine(f"mysql://{user}:{password}@{host}:{port}/{database}")
 
 
-df = pd.read_sql_query("select * from final_items", engine)
+df = pd.read_sql_query("select * from real_final_items", engine)
 #--
 
 # 수치형 값을 범위로 변환하는 함수
@@ -201,8 +201,8 @@ def recom(request):
                     'alcohol': row['alcohol'],
                     'similarity_score': row['similarity_score'],
                     'price': row['Price'],
-                    #'brand_name': row['brand_name'],
-                    #'img': row['img_url'],
+                    'brand_name': row['brand_name'],
+                    'img': row['img_url'],
                     
                     
                 }
