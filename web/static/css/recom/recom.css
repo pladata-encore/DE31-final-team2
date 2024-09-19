@@ -229,8 +229,8 @@ input[type="checkbox"] {
 }
 
 .flavor_box label img {
-    width: 55px; /* 이미지 크기 */
-    height: 55px;
+    width: 100px; /* 이미지 크기 */
+    height: 100px;
 }
 
 .flavor_box label .flavor_exp {
