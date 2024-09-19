@@ -692,7 +692,7 @@
         <div class="result_content">
 
         </div>
-        <input type="button" class="restart_bt" value="다시하기" onclick="location.href='{% url 'recom' %}';"><!-- 에러 무시하세요 작동 잘 됩니다 -->
+        <input type="button" class="restart_bt" value="다시하기" onclick="location.href=`{% url 'recom' %}`;">
     </section>
 <script src="{% static 'js/recom/wine_recommend.js' %}"></script>
 <script>
@@ -721,7 +721,10 @@
                 if (data.recommendations) {
                     data.recommendations.forEach(wine => {
                         const wineElement = document.createElement('div');
-                        wineElement.innerHTML = `<h3>${wine.name}</h3>
+                        wineElement.innerHTML = `
+                        <a href="${wine.url}">
+                            <h3>${wine.name}</h3>
+                        </a>
                         <p>평균 평점: ${wine.rating_average}</p>
                         <p>유사도 점수: ${wine.similarity_score}</p>
                         <p>가격: ${wine.price} 원</p>

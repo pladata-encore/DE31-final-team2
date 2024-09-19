@@ -203,6 +203,7 @@ def recom(request):
                     'price': row['Price'],
                     'brand_name': row['brand_name'],
                     'img': row['img_url'],
+                    'url': f"http://www.vivino.com/w/{row['wine_id']}",
                     
                     
                 }
