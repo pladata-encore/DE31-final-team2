@@ -726,6 +726,8 @@
                         <p>유사도 점수: ${wine.similarity_score}</p>
                         <p>가격: ${wine.price} 원</p>
                         <p>도수: ${wine.alcohol}</p>
+                        <p>와이너리명: ${wine.brand_name}</p>
+                        <img src="${wine.img}"/>
                         `;
                         resultSection.appendChild(wineElement);
                     });
