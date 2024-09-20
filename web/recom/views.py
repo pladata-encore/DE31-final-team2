@@ -18,7 +18,7 @@ from sklearn.metrics.pairwise import euclidean_distances
 from sklearn.preprocessing import MinMaxScaler
 
 
-# -- Step 1 와인 데이터 불러오기
+# 와인 데이터 불러오기
 load_dotenv("../.env")
 
 user = os.getenv("DB_USER")
@@ -141,8 +141,8 @@ def recom(request):
             ]   
 
             # type
-            preferred_type = int(request.POST.get('type'))
-            filtered_wines = filtered_wines[filtered_wines['type_id'] == preferred_type]
+            #preferred_type = int(request.POST.get('type'))
+            #filtered_wines = filtered_wines[filtered_wines['type_id'] == preferred_type]
 
 
             # flavor
@@ -173,7 +173,7 @@ def recom(request):
             scaler = MinMaxScaler()
             flavor_weight = 0.1 
             food_weight = 0.1
-            # NaN 들어있을경우 처리
+
             if valid_flavors:
 
 
@@ -195,6 +195,8 @@ def recom(request):
             # 추천 결과 추출
             def recommend_similar_wines_to_user(filtered_wines, df, n=5):
                 top_wines = filtered_wines.sort_values(by='similarity_score').head(5)
+                
+                top_wines['type_id_kor'] = df['type_id'].replace({1: '레드와인', 2: '화이트와인', 3: '스파클링와인', 4: '로제와인', 7: '디저트와인', 24: '주정강화와인'})
 
                 recommendations = []
                 for idx, row in top_wines.iterrows():
@@ -209,6 +211,7 @@ def recom(request):
                         'brand_name': row['brand_name'],
                         'img': row['img_url'],
                         'url': f"http://www.vivino.com/w/{row['wine_id']}",
+                        'type': row['type_id_kor'],
 
 
                     }
