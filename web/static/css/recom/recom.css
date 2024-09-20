@@ -42,9 +42,17 @@ h1 {
     padding-bottom: 25px;
 }
 
-.title {
+.name {
+    font-size: 25px;
     padding-top: 15px;
+    margin-bottom: 10px;
+}
+
+.title {
+    /* padding-top: 15px; */
     font-size: 35px;
+    margin-top: 5px;
+    margin-bottom: 13px;
 }
 
 .mainImage {
@@ -274,14 +282,29 @@ input[type="checkbox"] {
     flex-shrink: 0; /* 이미지 크기가 줄어들지 않게 고정 */
 }
 
+.img_box img {
+    max-width: 100px; /* 이미지 크기 조정 */
+    height: auto;
+    margin: 0 20px;
+}
+
 .info_box {
     /* flex-grow: 1; 남은 공간을 채움 */
     text-align: left;
     /* margin: 25px; */
+    width: 100%;
 }
 
 .info_box p {
     margin: 5px 0; /* 위아래 간격을 5px로 설정 */
+}
+
+.basic_info {
+    display: flex;
+}
+
+.basic_a {
+    width: 50%;
 }
 
 .result_brand {
@@ -292,14 +315,22 @@ input[type="checkbox"] {
     font-size: 30px;
 }
 
-.result_alcohol,
-.result_rating,
-.result_price {
+.result_alcohol {
     font-size: 25px;
 }
 
-.img_box img {
-    max-height: 275px; /* 이미지 크기 조정 */
-    width: auto;
-    margin: 0 20px;
+.basic_b {
+    width: 50%;
+}
+
+.result_rating {
+    font-size: 25px;
+}
+
+.price_info {
+    align-items: left;
+}
+
+.result_price {
+    font-size: 25px;
 }

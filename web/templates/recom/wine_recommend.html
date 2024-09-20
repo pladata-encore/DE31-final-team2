@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>와인 추천</title>
+    <title>wineasy</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/recom/recom.css' %}">
 </head>
 <body>
     <section class="start">
+        <p class="name">당신을 위한 와인 추천 플랫폼, wineasy</p>
         <h1 class="title">나에게 어울리는 와인은 무엇일까?</h1>
         <img src="https://img.freepik.com/free-vector/hand-drawn-facepalm-illustration_23-2150189575.jpg?t=st=1724764504~exp=1724768104~hmac=640f238fa34e1ebfa422f80f93d7e0bbc5631b1e380f4e511187eb38eb605938&w=740" alt="mainImage" class="mainImage"><br>
         <p class="intro">
@@ -106,8 +107,8 @@
                         </div>
                         <div class="answer_box">
                             <span>
-                                <input type="radio" name="food" id="Game" value="Game_">
-                                <label for="Game">사냥 고기(사슴고기 등)</label>
+                                <input type="radio" name="food" id="Game_" value="Game_">
+                                <label for="Game_">사냥 고기(사슴고기 등)</label>
                             </span>
                         </div>
                     </div>
@@ -148,8 +149,8 @@
                         </div>
                         <div class="answer_box">
                             <span>
-                                <input type="radio" name="food" id="Goats_Cheese" value="Goats_Cheese">
-                                <label for="Goats_Cheese">염소젖 치즈</label>
+                                <input type="radio" name="food" id="Goat_Cheese" value="Goat_Cheese">
+                                <label for="Goat_Cheese">염소젖 치즈</label>
                             </span>
                         </div>
                         <div class="answer_box">
@@ -688,13 +689,20 @@
     </section>
 </form>
     <section class="result">
-        <h1 class="chapter">try these Wine🍷</h1>
-        <h2 class="question">당신을 위한 와인 추천 플랫폼, Wineasy🍷</h2>
+        <!-- <h1 class="chapter">try these Wine🍷</h1> -->
+        <!-- <h2 class="question" style="font-size: 20px; padding-top:25px;">당신을 위한 와인 추천 플랫폼,<br>
+            <span style="font-size: 50px; font-family: 'titleFont', sans-serif; color: rgb(146,0,0);">와인이지(wineasy)가 준비한 당신을 위한 와인</span>
+        </h2> -->
+        <h1 class="title" style="padding-top: 20px;">와인이지(wineasy)가 추천하는<br>당신을 위한 와인</h1>
         <p class="explain">
             와인의 이름을 클릭하시면 vivino 로 이동하실 수 있습니다<br>
             평점과 가격은 vivino 기준으로 등록된 것입니다<br>
             가격의 경우 9월 1일 기준으로 환전한 가격으로,<br>
-            실제 구매 가격과 다를 수 있습니다
+            실제 구매 가격과 다를 수 있습니다<br><br>
+            <span style="font-size: 18px;">
+                최대 5개의 와인을 추천 받으실 수 있으며,<br>
+                상황에 따라 매칭이 안 되는 경우도 있습니다
+            </span>
         </p>
         <div class="result_content">
 
@@ -778,13 +786,21 @@
                     <img src="${wine.img}" alt="${wine.name}"/>
                 </div>
                 <div class="info_box">
-                    <p class="result_brand">${wine.brand_name}</p>
-                    <p class="result_name">
-                        <a href="${wine.url}" target="_blank">${wine.name}</a>
-                    </p>
-                    <p class="result_alcohol">${wine.alcohol} %</p>
-                    <p class="result_rating">평점: ${wine.rating_average}</p>
-                    <p class="result_price">약 ${wine.price} 원</p>
+                    <div class="basic_info">
+                        <div class=basic_a">
+                            <p class="result_brand">${wine.brand_name}</p>
+                            <p class="result_name">
+                                <a href="${wine.url}" target="_blank" title="vivino로 이동하기">${wine.name}</a>
+                            </p>
+                            <p class="result_alcohol">${wine.alcohol} %</p>
+                        </div>
+                        <div class="basic_b">
+                            <p class="result_rating">평점: ${wine.rating_average}</p>
+                        </div>
+                    </div>
+                    <div class="price_info">
+                        <p class="result_price">약 ${wine.price} 원</p>
+                    </div>
                 </div>
                 `;
                 resultSection.appendChild(wineElement);
