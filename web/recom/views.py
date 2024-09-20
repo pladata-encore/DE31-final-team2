@@ -32,7 +32,7 @@ database = os.getenv("DB_NAME")
 engine = sqlalchemy.create_engine(f"mysql://{user}:{password}@{host}:{port}/{database}")
 
 
-df = pd.read_sql_query("select * from real_final_items", engine)
+df = pd.read_sql_query("select * from merge_items", engine)
 #--
 
 # 수치형 값을 범위로 변환하는 함수
@@ -89,137 +89,145 @@ def sweetness_range(sweetness_value):
 # 와인 추천을 위한 뷰
 #@csrf_exempt
 def recom(request):
+    
     if request.method == "POST":
+        
+        try:
+            
             
           
-        # Step 2: 사용자 선호도 DataFrame 생성   
-        user_preferences = {            
-            'body': int(request.POST.get('body')),
-            'acidity_y': int(request.POST.get('acidity')),
-            'tannin': int(request.POST.get('tannin')),
-            'intensity': int(request.POST.get('intensity')),
-            'sweetness': int(request.POST.get('sweetness')), 
-        }
-        
-        user_data = pd.DataFrame([user_preferences])
-        
-        #-- Step 3: alcohol & price
-        alcohol_choice = int(request.POST.get('alcohol'))
-        
-        if alcohol_choice == 1:
-            alcohol_min, alcohol_max = 0, 12.5
-        elif alcohol_choice == 2:
-            alcohol_min, alcohol_max = 12.5, 14
-        elif alcohol_choice == 3:
-            alcohol_min, alcohol_max = 14, 16
-        elif alcohol_choice == 4: 
-            alcohol_min, alcohol_max = 16, 100
-        
-        price_choice = int(request.POST.get('price'))
-  
-        if price_choice == 1:
-            min_price, max_price = 0, 15000
-        elif price_choice == 2:
-            min_price, max_price = 15000, 25000
-        elif price_choice == 3:
-            min_price, max_price = 25000, 35000
-        elif price_choice == 4:
-            min_price, max_price = 35000, 60000
-        elif price_choice ==5: 
-            min_price, max_price = 60000, 1000000000
-        
-        #Step 4:  
-        filtered_wines = df[
-        (df['alcohol'] >= alcohol_min) &
-        (df['alcohol'] < alcohol_max)&
-        (df['Price'] >= min_price) &
-        (df['Price'] < max_price)
-        ]   
-        
-        #-- Step 4.5: type
-        preferred_type = int(request.POST.get('type'))
-        filtered_wines = filtered_wines[filtered_wines['type_id'] == preferred_type]
-        
-        
-        #-- Step 5,6 : flavor
-        selected_flavors = request.POST.getlist('flavor') 
-        #valid_flavors = [flavor for flavor in selected_flavors if flavor in df.columns]
-        # 빈 문자열("")은 제외하고, valid_flavors 리스트를 만듭니다
-        valid_flavors = [flavor for flavor in selected_flavors if flavor and flavor in df.columns]
-        
-        
-        #-- Step 7,8 : food
-        selected_food = request.POST.get('food')      
-        filtered_wines = filtered_wines[filtered_wines[selected_food] == 1]
+            # 맛   
+            user_preferences = {            
+                'body': int(request.POST.get('body')),
+                'acidity_y': int(request.POST.get('acidity')),
+                'tannin': int(request.POST.get('tannin')),
+                'intensity': int(request.POST.get('intensity')),
+                'sweetness': int(request.POST.get('sweetness')), 
+            }
 
-        #수치데이터를 범위에 맞는 데이터로 칼럼 생성
-        filtered_wines['body_range'] = filtered_wines['body'].apply(body_range)
-        filtered_wines['acidity_range'] = filtered_wines['acidity_y'].apply(acidity_range)
-        filtered_wines['tannin_range'] = filtered_wines['tannin'].apply(tannin_range)
-        filtered_wines['intensity_range'] = filtered_wines['intensity'].apply(itensity_range)
-        filtered_wines['sweetness_range'] = filtered_wines['sweetness'].apply(sweetness_range)
-        
-        # Step 9
-        wine_features = filtered_wines[['body_range', 'acidity_range', 'tannin_range', 'intensity_range', 'sweetness_range']]
-        
-        # Step 10: Calculate similarity (Euclidean Distance)
-        distances = euclidean_distances(wine_features, user_data)
+            user_data = pd.DataFrame([user_preferences])
+
+            # alcohol & price
+            alcohol_choice = int(request.POST.get('alcohol'))
+
+            if alcohol_choice == 1:
+                alcohol_min, alcohol_max = 0, 12.5
+            elif alcohol_choice == 2:
+                alcohol_min, alcohol_max = 12.5, 14
+            elif alcohol_choice == 3:
+                alcohol_min, alcohol_max = 14, 16
+            elif alcohol_choice == 4: 
+                alcohol_min, alcohol_max = 16, 100
+
+            price_choice = int(request.POST.get('price'))
+    
+            if price_choice == 1:
+                min_price, max_price = 0, 15000
+            elif price_choice == 2:
+                min_price, max_price = 15000, 25000
+            elif price_choice == 3:
+                min_price, max_price = 25000, 35000
+            elif price_choice == 4:
+                min_price, max_price = 35000, 60000
+            elif price_choice ==5: 
+                min_price, max_price = 60000, 1000000000
 
 
-        # Step 11: Normalize flavor counts (Min-Max Scaling)
-        scaler = MinMaxScaler()
-        flavor_weight = 0.1 
-        food_weight = 0.1
-        # NaN 들어있을경우 처리
-        if valid_flavors:
-            filtered_wines[valid_flavors] = scaler.fit_transform(filtered_wines[valid_flavors])
-            flavor_scores = filtered_wines[valid_flavors].sum(axis=1) * flavor_weight
-        else:
-            flavor_scores = 0 # flavor 아무것도 선택하지 않았을경우 flavor_score = 0 , flavor 로 필터링은 안함.
+            filtered_wines = df[
+            (df['alcohol'] >= alcohol_min) &
+            (df['alcohol'] < alcohol_max)&
+            (df['Price'] >= min_price) &
+            (df['Price'] < max_price)
+            ]   
 
-        if selected_food in filtered_wines.columns:
-            food_scores = filtered_wines[selected_food].fillna(0) * food_weight
-        else:
-            food_scores = 0
+            # type
+            preferred_type = int(request.POST.get('type'))
+            filtered_wines = filtered_wines[filtered_wines['type_id'] == preferred_type]
 
 
-     
-        filtered_wines['similarity_score'] = distances.flatten() - flavor_scores - food_scores
+            # flavor
+            selected_flavors = request.POST.getlist('flavor') 
 
+            valid_flavors = [flavor for flavor in selected_flavors if flavor and flavor in df.columns]
+
+
+            # food
+            selected_food = request.POST.get('food')      
+            filtered_wines = filtered_wines[filtered_wines[selected_food] == 1]
+
+            #수치데이터를 범위에 맞는 데이터로 칼럼 생성
+            filtered_wines['body_range'] = filtered_wines['body'].apply(body_range)
+            filtered_wines['acidity_range'] = filtered_wines['acidity_y'].apply(acidity_range)
+            filtered_wines['tannin_range'] = filtered_wines['tannin'].apply(tannin_range)
+            filtered_wines['intensity_range'] = filtered_wines['intensity'].apply(itensity_range)
+            filtered_wines['sweetness_range'] = filtered_wines['sweetness'].apply(sweetness_range)
+
+
+            wine_features = filtered_wines[['body_range', 'acidity_range', 'tannin_range', 'intensity_range', 'sweetness_range']]
+
+
+            distances = euclidean_distances(wine_features, user_data)
+
+
+
+            scaler = MinMaxScaler()
+            flavor_weight = 0.1 
+            food_weight = 0.1
+            # NaN 들어있을경우 처리
+            if valid_flavors:
+
+
+                filtered_wines[valid_flavors] = scaler.fit_transform(filtered_wines[valid_flavors])
+                flavor_scores = filtered_wines[valid_flavors].sum(axis=1) * flavor_weight
+            else:
+                flavor_scores = 0 # flavor 아무것도 선택하지 않았을경우 flavor_score = 0 , flavor 로 필터링은 안함.
+
+            if selected_food in filtered_wines.columns:
+                food_scores = filtered_wines[selected_food].fillna(0) * food_weight
+            else:
+                food_scores = 0
+
+
+
+            filtered_wines['similarity_score'] = distances.flatten() - flavor_scores - food_scores
+
+
+            # 추천 결과 추출
+            def recommend_similar_wines_to_user(filtered_wines, df, n=5):
+                top_wines = filtered_wines.sort_values(by='similarity_score').head(5)
+
+                recommendations = []
+                for idx, row in top_wines.iterrows():
+                    wine_info = {
+                        'index': idx,
+                        'name': row['name'],
+                        'rating_average': row['rating_average'],
+                        'rating_count' : f"{row['rating_count']:,}",
+                        'alcohol': row['alcohol'],
+                        'similarity_score': row['similarity_score'],
+                        'price': f"{row['Price']:,}",
+                        'brand_name': row['brand_name'],
+                        'img': row['img_url'],
+                        'url': f"http://www.vivino.com/w/{row['wine_id']}",
+
+
+                    }
+                    recommendations.append(wine_info)
+                return recommendations
+
+            # 추천된 와인의 정보를 리스트로 생성
+            similar_wines = recommend_similar_wines_to_user(filtered_wines, df, n=5)
+
+
+
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                return JsonResponse({'recommendations': similar_wines})
+            else:
+                return render(request, 'recom/wine_recommend.html', {'recommendations': similar_wines})
         
-        # 추천 결과 추출
-        def recommend_similar_wines_to_user(filtered_wines, df, n=5):
-            top_wines = filtered_wines.sort_values(by='similarity_score').head(5)
-
-            recommendations = []
-            for idx, row in top_wines.iterrows():
-                wine_info = {
-                    'index': idx,
-                    'name': row['name'],
-                    'rating_average': row['rating_average'],
-                    'alcohol': row['alcohol'],
-                    'similarity_score': row['similarity_score'],
-                    'price': row['Price'],
-                    'brand_name': row['brand_name'],
-                    'img': row['img_url'],
-                    'url': f"http://www.vivino.com/w/{row['wine_id']}",
-                    
-                    
-                }
-                recommendations.append(wine_info)
-            return recommendations
-
-        # 추천된 와인의 정보를 리스트로 생성
-        similar_wines = recommend_similar_wines_to_user(filtered_wines, df, n=5)
-
-        
-        # AJAX 요청을 확인
-        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-            return JsonResponse({'recommendations': similar_wines})
-        else:
-            return render(request, 'recom/wine_recommend.html', {'recommendations': similar_wines})
-
+        except ValueError as e:
+            return JsonResponse({'error': str(e)})
         
 
-    # GET 요청 처리
+    
     return render(request, 'recom/wine_recommend.html')
