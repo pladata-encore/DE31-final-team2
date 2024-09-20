@@ -629,56 +629,6 @@
                     </span>
                 </div>
             </div>
-
-            <div class="divider"></div>
-
-            <div class="quest_box" id="type_box">
-                <h2 class="question">마시고 싶은 와인의 종류를 선택해 주세요</h2>
-                <p class="explain">
-                    레드 와인 : 껍질을 벗기지 않은 포도로 제작된 와인<br>
-                    화이트 와인 : 껍질을 벗긴 청포도의 주스로 제작된 와인<br>
-                    스파클링 와인 : 탄산이 포함된 와인<br>
-                    로제 와인 : 발효 시간을 줄인 가벼운 맛의 분홍색 와인<br>
-                    디저트 와인 : 주로 후식 때 마시는 달달한 와인<br>
-                    주정강화 와인 : 주정을 넣어 알코올 도수를 높인 와인<br>
-                </p>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="type" id="redWine" value="1">
-                        <label for="redWine">레드 와인</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="type" id="whiteWine" value="2">
-                        <label for="whiteWine">화이트 와인</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="type" id="sparklingWine" value="3">
-                        <label for="sparklingWine">스파클링 와인</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="type" id="roseWine" value="4">
-                        <label for="roseWine">로제 와인</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="type" id="dessertWine" value="7">
-                        <label for="dessertWine">디저트 와인</label>
-                    </span>
-                </div>
-                <div class="answer_box">
-                    <span>
-                        <input type="radio" name="type" id="fortifiedWine" value="24">
-                        <label for="fortifiedWine">주정강화 와인</label>
-                    </span>
-                </div>
-            </div>
             <br>
             <input type="button" class="pre_bt" value="이전으로" onclick="pre3()">
             <!--input type="button" class="next_bt" value="결과 보기" onclick="end()"-->
@@ -711,53 +661,6 @@
     </section>
 <script src="{% static 'js/recom/wine_recommend.js' %}"></script>
 <script>
-    //소영 추가 (나중에 이 부분은 js 로 빼도 됨)
-    // 추천 와인 결과를 결과창에 추가하는 script
-    // document.getElementById('wine_recommend').addEventListener('submit', function(event) {
-    //     event.preventDefault(); 
-
-    //     const formData = new FormData(this);
-
-    //     const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-
-    //     fetch(`{% url 'recom' %}`, {
-    //         method: 'post',
-    //         body: formData,
-    //         headers: {
-    //             'X-Requested-With': 'XMLHttpRequest', 
-    //             'X-CSRFToken': csrfToken 
-    //         }
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         const resultSection = document.querySelector('.result_content');
-    //         resultSection.innerHTML = ''; 
-
-    //         if (data.recommendations) {
-    //             data.recommendations.forEach(wine => {
-    //                 const wineElement = document.createElement('div');
-    //                 wineElement.innerHTML = `
-    //                 <a href="${wine.url}">
-    //                     <h3>${wine.name}</h3>
-    //                 </a>
-    //                 <p>평균 평점: ${wine.rating_average}</p>
-    //                 <p>유사도 점수: ${wine.similarity_score}</p>
-    //                 <p>가격: ${wine.price} 원</p>
-    //                 <p>도수: ${wine.alcohol}</p>
-    //                 <p>와이너리명: ${wine.brand_name}</p>
-    //                 <img src="${wine.img}"/>
-    //                 `;
-    //                 resultSection.appendChild(wineElement);
-    //             });
-    //         } else {
-    //             resultSection.innerHTML = '<p>No recommendations found.</p>';
-    //         }
-    //     })
-    //     .catch(error => {
-    //         console.error('Error:', error);
-    //     });
-    // });
-
     document.getElementById('wine_recommend').addEventListener('submit', function(event) {
     event.preventDefault(); 
 

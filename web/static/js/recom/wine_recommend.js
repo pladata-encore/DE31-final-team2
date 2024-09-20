@@ -259,17 +259,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // price_box의 radio 버튼이 선택되면 type_box로 스크롤
+    // price_box의 radio 버튼이 선택되면 최하단으로 스크롤
     const priceRadio = document.querySelectorAll('input[name="price"]');
     priceRadio.forEach(function(radio) {
-        radio.addEventListener('change', function() {
-            document.getElementById('type_box').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
-    });
-
-    // type_box의 radio 버튼이 선택되면 최하단으로 스크롤
-    const typeRadio = document.querySelectorAll('input[name="type"]');
-    typeRadio.forEach(function(radio) {
         radio.addEventListener('change', function() {
             document.documentElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
         });
@@ -291,9 +283,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function end(){
     const selectAlcohol = document.querySelector('input[name="alcohol"]:checked');
     const selectPrice = document.querySelector('input[name="price"]:checked');
-    const selectType = document.querySelector('input[name="type"]:checked');
 
-    if (!selectAlcohol || !selectPrice || !selectType) {
+    if (!selectAlcohol || !selectPrice) {
         alert("답변을 선택해 주세요")
     } else {
         profile.style.display = "none";
