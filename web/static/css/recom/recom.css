@@ -279,20 +279,20 @@ input[type="checkbox"] {
 }
 
 .img_box {
-    flex-shrink: 0; /* 이미지 크기가 줄어들지 않게 고정 */
+    /* flex-shrink: 0; 이미지 크기가 줄어들지 않게 고정 */
+    flex-basis: 30%;
 }
 
 .img_box img {
-    max-width: 100px; /* 이미지 크기 조정 */
-    height: auto;
-    margin: 0 20px;
+    max-height: 250px; /* 이미지 크기 조정 */
+    width: auto;
 }
 
 .info_box {
     /* flex-grow: 1; 남은 공간을 채움 */
     text-align: left;
     /* margin: 25px; */
-    width: 100%;
+    flex-basis: 70%;
 }
 
 .info_box p {
