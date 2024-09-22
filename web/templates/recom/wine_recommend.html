@@ -9,7 +9,7 @@
 </head>
 <body>
     <section class="start">
-        <p class="name">당신을 위한 와인 추천 플랫폼, wineasy</p>
+        <p class="name" style="color: rgb(146,0,0);">당신을 위한 와인 추천 플랫폼, wineasy</p>
         <h1 class="title">나에게 어울리는 와인은 무엇일까?</h1>
         <img src="https://img.freepik.com/free-vector/hand-drawn-facepalm-illustration_23-2150189575.jpg?t=st=1724764504~exp=1724768104~hmac=640f238fa34e1ebfa422f80f93d7e0bbc5631b1e380f4e511187eb38eb605938&w=740" alt="mainImage" class="mainImage"><br>
         <p class="intro">
@@ -643,25 +643,92 @@
         <!-- <h2 class="question" style="font-size: 20px; padding-top:25px;">당신을 위한 와인 추천 플랫폼,<br>
             <span style="font-size: 50px; font-family: 'titleFont', sans-serif; color: rgb(146,0,0);">와인이지(wineasy)가 준비한 당신을 위한 와인</span>
         </h2> -->
-        <h1 class="title" style="padding-top: 20px;">와인이지(wineasy)가 추천하는<br>당신을 위한 와인</h1>
-        <p class="explain">
-            와인의 이름을 클릭하시면 vivino 로 이동하실 수 있습니다<br>
-            평점과 가격은 vivino 기준으로 등록된 것입니다<br>
-            가격의 경우 9월 1일 기준으로 환전한 가격으로,<br>
-            실제 구매 가격과 다를 수 있습니다<br><br>
-            <span style="font-size: 18px;">
-                최대 5개의 와인을 추천 받으실 수 있으며,<br>
-                상황에 따라 매칭이 안 되는 경우도 있습니다
-            </span>
-        </p>
+        <!-- <h1 class="title" style="padding-top: 20px;">와인이지(wineasy)가 추천하는<br>당신을 위한 와인</h1>
+        <p class="explain" style="width: 50%;">
+            🍷 최대 5개의 와인을 추천 받으실 수 있으며, 상황에 따라 매칭이 안 되는 경우도 있습니다<br>
+            🍷 와인 이미지를 클릭하시면 vivino 로 이동하실 수 있습니다<br>
+            🍷 와인의 이미지와 가격, 평점은 vivino 기준으로 등록된 점을 알리는 바 입니다.
+            <span style="font-size: 18px;">가격의 경우 9월 1일 환율 기준으로, 실제 구매 가격과 다를 수 있습니다</span>
+        </p> -->
         <div class="result_content">
 
         </div>
+        <br>
+        <!-- <p class="question">와인 종류에 대해 잘 모르신다면 아래를 참고해 주세요:)</p>
+        <p class="explain" style="width: 50%; text-align: left;">
+            레드 와인 : 껍질을 벗기지 않은 포도로 제작된 와인<br>
+            화이트 와인 : 껍질을 벗긴 청포도의 주스로 제작된 와인<br>
+            스파클링 와인 : 탄산이 포함된 와인<br>
+            로제 와인 : 발효 시간을 줄인 가벼운 맛의 분홍색 와인<br>
+            디저트 와인 : 주로 후식 때 마시는 달달한 와인<br>
+            주정강화 와인 : 주정을 넣어 알코올 도수를 높인 와인<br>
+        </p> -->
         <input type="button" class="restart_bt" value="다시하기" onclick="location.href=`{% url 'recom' %}`;">
     </section>
 <script src="{% static 'js/recom/wine_recommend.js' %}"></script>
 <script>
-    document.getElementById('wine_recommend').addEventListener('submit', function(event) {
+// document.getElementById('wine_recommend').addEventListener('submit', function(event) {
+//     event.preventDefault(); 
+
+//     const formData = new FormData(this);
+//     const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+//     fetch(`{% url 'recom' %}`, {
+//         method: 'post',
+//         body: formData,
+//         headers: {
+//             'X-Requested-With': 'XMLHttpRequest', 
+//             'X-CSRFToken': csrfToken 
+//         }
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         const resultSection = document.querySelector('.result_content');
+//         resultSection.innerHTML = ''; 
+
+//         if (data.recommendations) {
+//             data.recommendations.forEach(wine => {
+//                 const wineElement = document.createElement('div');
+//                 wineElement.classList.add('result_box');
+//                 wineElement.innerHTML = `
+//                 <div class="img_box">
+//                     <a href="${wine.url}" target="_blank" title="vivino 에서 확인하기">
+//                         <img src="${wine.img}" alt="${wine.name}"/>
+//                     </a>
+//                 </div>
+//                 <div class="info_box">
+//                     <div class="type_info">
+//                         <p class="type">${wine.type}</p>
+//                     </div>
+//                     <div class="basic_info">
+//                         <div class="basic_a">
+//                             <p class="result_brand" title="winery">${wine.brand_name}</p>
+//                             <p class="result_name">${wine.name}</p>
+//                             <p class="result_alcohol">${wine.alcohol} %</p>
+//                         </div>
+//                         <div class="basic_b">
+//                             <p class="result_ratingExp">Vivino 평점
+//                             <p class="result_rating">${wine.rating_average}<span style="font-size: 25px; color: black">/5</span></p>
+//                             <p class="result_ratingCount">${wine.rating_count} 명 참여</p>
+//                         </div>
+//                     </div>
+//                     <div class="price_info">
+//                         <p class="result_price">약 ${wine.price} 원</p>
+//                     </div>
+//                 </div>
+//                 `;
+//                 resultSection.appendChild(wineElement);
+//             });
+//         } else {
+//             resultSection.innerHTML = '<p>No recommendations found.</p>';
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//     });
+// });
+
+document.getElementById('wine_recommend').addEventListener('submit', function(event) {
     event.preventDefault(); 
 
     const formData = new FormData(this);
@@ -678,49 +745,97 @@
     .then(response => response.json())
     .then(data => {
         const resultSection = document.querySelector('.result_content');
-        resultSection.innerHTML = ''; 
+        resultSection.innerHTML = ''; // 기존 내용을 모두 지웁니다.
 
-        if (data.recommendations) {
+        if (data.recommendations && data.recommendations.length > 0) {
+            // 1. 상단에 한 번만 노출할 내용 추가 (추천 결과가 있을 때만)
+            if (!document.querySelector('.wineasy-title')) {
+                const titleSection = document.createElement('div');
+                titleSection.classList.add('wineasy-title');
+                titleSection.innerHTML = `
+                    <h1 class="chapter">try these Wine🍷</h1>
+                    <p class="question">와인이지(wineasy)가 추천하는 당신을 위한 와인</p>
+                    <p class="explain" style="width: 50%;">
+                        🍷 최대 5개의 와인을 추천 받으실 수 있으며,<br>와인 이미지를 클릭하시면 vivino 로 이동하실 수 있습니다<br>
+                        🍷 와인의 이미지와 가격, 평점은 vivino 기준으로 등록된 점을 알리는 바 입니다.
+                        <span style="font-size: 18px;">가격의 경우 9월 1일 환율 기준으로 계산되었으며, 실제 구매 가격과 다를 수 있습니다</span>
+                    </p>
+                `;
+                resultSection.insertAdjacentElement('beforebegin', titleSection); // 결과 섹션 상단에 삽입
+            }
+
+            // 2. 와인 추천 결과 표시
             data.recommendations.forEach(wine => {
                 const wineElement = document.createElement('div');
                 wineElement.classList.add('result_box');
                 wineElement.innerHTML = `
-                <div class="img_box">
-                    <a href="${wine.url}" target="_blank" title="vivino 에서 확인하기">
-                        <img src="${wine.img}" alt="${wine.name}"/>
-                    </a>
-                </div>
-                <div class="info_box">
-                    <div class="type_info">
-                        <p class="type">여기에 타입 정보를 노출하면 좋을 것 같은데..</p>
+                    <div class="img_box">
+                        <a href="${wine.url}" target="_blank" title="vivino 로 이동하기">
+                            <img src="${wine.img}" alt="${wine.name}"/>
+                        </a>
                     </div>
-                    <div class="basic_info">
-                        <div class="basic_a">
-                            <p class="result_brand" title="winery">${wine.brand_name}</p>
-                            <p class="result_name">${wine.name}</p>
-                            <p class="result_alcohol">${wine.alcohol} %</p>
+                    <div class="info_box">
+                        <div class="type_info">
+                            <p class="type">${wine.type}</p>
                         </div>
-                        <div class="basic_b">
-                            <p class="result_ratingExp">Vivino 평점
-                            <p class="result_rating">${wine.rating_average}<span style="font-size: 25px; color: black">/5</span></p>
-                            <p class="result_ratingCount">${wine.rating_count} 명 참여</p>
+                        <div class="basic_info">
+                            <div class="basic_a">
+                                <p class="result_brand" title="winery">${wine.brand_name}</p>
+                                <p class="result_name">${wine.name}</p>
+                                <p class="result_alcohol">${wine.alcohol} %</p>
+                            </div>
+                            <div class="basic_b">
+                                <p class="result_ratingExp">Vivino 평점</p>
+                                <p class="result_rating">${wine.rating_average}<span style="font-size: 25px; color: black">/5</span></p>
+                                <p class="result_ratingCount">${wine.rating_count} 명 참여</p>
+                            </div>
+                        </div>
+                        <div class="price_info">
+                            <p class="result_price">약 ${wine.price} 원</p>
                         </div>
                     </div>
-                    <div class="price_info">
-                        <p class="result_price">약 ${wine.price} 원</p>
-                    </div>
-                </div>
                 `;
                 resultSection.appendChild(wineElement);
             });
+
+            // 3. 하단에 추가할 설명 (추천 결과가 있을 때만)
+            if (!document.querySelector('.wine-type-explain')) {
+                const explanationSection = document.createElement('div');
+                explanationSection.classList.add('wine-type-explain');
+                explanationSection.innerHTML = `
+                    <br>
+                    <p class="question" style="font-size: 28px">와인 종류에 대한 정보는 아래를 참고해 주세요:)</p>
+                    <p class="explain" style="width: 50%; text-align: left;">
+                        레드 와인 : 껍질을 벗기지 않은 포도로 제작된 와인<br>
+                        화이트 와인 : 껍질을 벗긴 청포도의 주스로 제작된 와인<br>
+                        스파클링 와인 : 탄산이 포함된 와인<br>
+                        로제 와인 : 발효 시간을 줄인 가벼운 맛의 분홍색 와인<br>
+                        디저트 와인 : 주로 후식 때 마시는 달달한 와인<br>
+                        주정강화 와인 : 주정을 넣어 알코올 도수를 높인 와인<br>
+                    </p>
+                `;
+                resultSection.insertAdjacentElement('afterend', explanationSection); // 결과 섹션 하단에 삽입
+            }
         } else {
-            resultSection.innerHTML = '<p>No recommendations found.</p>';
+            // 추천 결과가 없는 경우
+            resultSection.innerHTML = `
+            <p class="question">Oops!</p>
+            <p>당황한 이미지 넣고</p>
+            <p>고객님의 취향 매우 소중하지만, 우리 데이터로는 추천해줄 와인이 없음 ㅠㅠ ㅈㅅㅈㅅ<br>
+                살짝 다르게 해서 다시 도전해주실라우?
+            </p>
+            <p class="explain">
+            * 설문 답변 선택 tip~
+            - 주정강화는 도수가 높아서 낮은 도수 선택하면 앙대용 어쩌고~    
+            </p>
+            `;
         }
     })
     .catch(error => {
         console.error('Error:', error);
     });
 });
+
 
 </script>
 </body>

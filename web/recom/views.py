@@ -196,7 +196,7 @@ def recom(request):
             def recommend_similar_wines_to_user(filtered_wines, df, n=5):
                 top_wines = filtered_wines.sort_values(by='similarity_score').head(5)
                 
-                top_wines['type_id_kor'] = df['type_id'].replace({1: '레드와인', 2: '화이트와인', 3: '스파클링와인', 4: '로제와인', 7: '디저트와인', 24: '주정강화와인'})
+                top_wines['type_id_kor'] = df['type_id'].replace({1: '레드 와인', 2: '화이트 와인', 3: '스파클링 와인', 4: '로제 와인', 7: '디저트 와인', 24: '주정강화 와인'})
 
                 recommendations = []
                 for idx, row in top_wines.iterrows():
