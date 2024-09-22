@@ -686,7 +686,9 @@
                 wineElement.classList.add('result_box');
                 wineElement.innerHTML = `
                 <div class="img_box">
-                    <img src="${wine.img}" alt="${wine.name}"/>
+                    <a href="${wine.url}" target="_blank" title="vivino 에서 확인하기">
+                        <img src="${wine.img}" alt="${wine.name}"/>
+                    </a>
                 </div>
                 <div class="info_box">
                     <div class="type_info">
@@ -695,14 +697,12 @@
                     <div class="basic_info">
                         <div class="basic_a">
                             <p class="result_brand" title="winery">${wine.brand_name}</p>
-                            <p class="result_name">
-                                <a href="${wine.url}" target="_blank" title="vivino로 이동하기">${wine.name}</a>
-                            </p>
+                            <p class="result_name">${wine.name}</p>
                             <p class="result_alcohol">${wine.alcohol} %</p>
                         </div>
                         <div class="basic_b">
                             <p class="result_ratingExp">Vivino 평점
-                            <p class="result_rating">${wine.rating_average}<span style="font-size: 25px">/5</span></p>
+                            <p class="result_rating">${wine.rating_average}<span style="font-size: 25px; color: black">/5</span></p>
                             <p class="result_ratingCount">${wine.rating_count} 명 참여</p>
                         </div>
                     </div>
