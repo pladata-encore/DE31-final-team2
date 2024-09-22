@@ -268,7 +268,7 @@ input[type="checkbox"] {
 .result_box {
     display: flex;
     align-items: center;
-    width: 55%;
+    width: 50%;
     margin: auto;
     gap: 20px;
     padding: 25px;
@@ -303,8 +303,10 @@ input[type="checkbox"] {
     display: flex;
 }
 
+/* 브랜드명, 와인명, 도수 */
 .basic_a {
-    width: 50%;
+    flex-basis: 65%;
+    text-align: left;
 }
 
 .result_brand {
@@ -319,14 +321,17 @@ input[type="checkbox"] {
     font-size: 25px;
 }
 
+/* 평점 관련 */
 .basic_b {
-    width: 50%;
+    flex-basis: 35%;
+    text-align: center;
 }
 
 .result_rating {
     font-size: 25px;
 }
 
+/* 가격 */
 .price_info {
     align-items: left;
 }
