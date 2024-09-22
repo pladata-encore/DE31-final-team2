@@ -689,17 +689,21 @@
                     <img src="${wine.img}" alt="${wine.name}"/>
                 </div>
                 <div class="info_box">
+                    <div class="type_info">
+                        <p class="type">여기에 타입 정보를 노출하면 좋을 것 같은데..</p>
+                    </div>
                     <div class="basic_info">
                         <div class="basic_a">
-                            <p class="result_brand">${wine.brand_name}</p>
+                            <p class="result_brand" title="winery">${wine.brand_name}</p>
                             <p class="result_name">
                                 <a href="${wine.url}" target="_blank" title="vivino로 이동하기">${wine.name}</a>
                             </p>
                             <p class="result_alcohol">${wine.alcohol} %</p>
                         </div>
                         <div class="basic_b">
-                            <p class="result_rating">평점: ${wine.rating_average}</p>
-                            <p class="result_ratingCount">참여자수: ${wine.rating_count}</p>
+                            <p class="result_ratingExp">Vivino 평점
+                            <p class="result_rating">${wine.rating_average}<span style="font-size: 25px">/5</span></p>
+                            <p class="result_ratingCount">${wine.rating_count} 명 참여</p>
                         </div>
                     </div>
                     <div class="price_info">

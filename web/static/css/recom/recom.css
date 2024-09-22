@@ -327,13 +327,22 @@ input[type="checkbox"] {
     text-align: center;
 }
 
+.result_ratingExp {
+    font-size: 20px;
+}
+
 .result_rating {
-    font-size: 25px;
+    font-size: 40px;
+}
+
+.result_ratingCount{
+    font-size: 15px;
 }
 
 /* 가격 */
 .price_info {
     align-items: left;
+    margin-top: 15px;
 }
 
 .result_price {
