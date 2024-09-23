@@ -189,7 +189,6 @@
 ![image](https://github.com/user-attachments/assets/6cbd9e18-f135-4ab0-b131-d6cc97d7ba02)
 
 
-
 ## 4. 웹 개발
 * 사용자가 웹에서 쉽게 접근할 수 있도록 페이지를 구축
 * 페이지 :  
