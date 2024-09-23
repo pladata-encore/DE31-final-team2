@@ -101,7 +101,7 @@ function next1(){
     const selectFood = document.querySelector('input[name="food"]:checked');
 
     if (!selectFood) {
-        alert("답변을 선택해 주세요.");
+        alert("페어링할 음식을 선택해 주세요");
     } else {
         food.style.display = "none";
         flavor.style.display = "block";
@@ -140,7 +140,7 @@ function next2(){
     const selectFlavor = document.querySelector('input[name="flavor"]:checked');
 
     if (!selectFlavor) {
-        alert("답변을 선택해 주세요.")
+        alert("1개 이상의 flavor 을 선택해 주세요")
     } else {
         flavor.style.display = "none";
         taste.style.display = "block";
@@ -226,7 +226,7 @@ function next3(){
     const selectBody = document.querySelector('input[name="body"]:checked');
 
     if (!selectSweetness || !selectAcidity || !selectTannin || !selectIntensity || !selectBody) {
-        alert("답변을 선택해 주세요")
+        alert("모든 문항의 답변을 선택해 주세요")
     } else {
         taste.style.display = "none";
         profile.style.display = "block";
