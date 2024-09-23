@@ -16,12 +16,39 @@
 > 
 > 소비자들이 와인에 대해 쉽게 접근할 수 있는 서비스가 있다면, 수요가 늘을 것이라 생각하여 '와인이지'를 제작하고자 함.
 ## 2. 서비스 개발을 위한 분석(NABC)
+![image](https://github.com/user-attachments/assets/59caff94-ed61-4d9a-917b-6357f6b77490)
+
+> * **아키텍처**
+![image](https://github.com/user-attachments/assets/344bb1f9-98ee-41e8-85c9-f3dc00720ce3)
+
+> Docker 환경 구성
+![image](https://github.com/user-attachments/assets/39bb4682-a359-4011-9c7a-8de0217b038d)
+
 
 ## 3. 데이터 전처리
-* 과정1
+* vivino 사이트에서 크롤링을 시도하였으나 ip가 차단되는 상황이 다수 발생
+* 작업 시간을 줄이고자 ThreadPoolExecutor를 사용
+* 정규표현식을 사용하여 와인 데이터를 가져옴
+* Json 데이터를 변환하여 저장하였으나 None 오류가 다수 발생. 예외 처리를 하여 해결
+* 예시 코드
+```
+  try:
+    if style['body']:
+      body = style['body']
+  except:
+    body = None
+  ```
+* EC2 환경 도커에 구축한 DB 적재 중 자료 소실
+> docker-compose down으로 발생한 이슈로 확인.
+>
+> 다행히 백업DB가 있어서 다시 만들지는 않음.
+>
+> 백업을 생활화합시다.
+* 유사도
+> 초기 코사인 유사도 사용하였으나 원핫인코딩 데이터를 주로 사용하게 되어 유클리디안 유사도 적용
 
 ## 4. 웹 개발
-* 과정1
+* 사용자가 웹에서 쉽게 접근할 수 있도록 페이지를 구축
 
 ### 1. 프론트엔드
 * 과정1
