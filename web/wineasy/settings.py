@@ -26,20 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    # app 추가
-    'main',
-    'wine',
-    #'recom',
-    'user',
-    # rsst_framework 관련
-    'rest_framework',
-    'rest_framework_simplejwt',
-    # allauth 관련
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-    
+    'recom',
 ]
 
 THIRD_PARTY_APPS = [
@@ -49,32 +36,7 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount.providers.google",    
 ]
     
-SITE_ID = 1
-
-
-ACCOUNT_EMAIL_REQUIRED = True           # email 필드 사용 o
-ACCOUNT_USERNAME_REQUIRED = False       # username 필드 사용 X
-ACCOUNT_AUTHENTICATION_METHOD = 'email' # email 필드로 확인
-ACCOUNT_EMAIL_REQUIRED = True           # email 필드 사용 o
-ACCOUNT_UNIQUE_EMAIL = True
-
-LOGIN_REDIRECT_URL = '/'
-
-SOCIALACCOUNT_PROVIDERS = {
-    'google' : [
-        'profile',
-        'email'
-    ],
-    'AUTH_PARAMS' : {
-        'access_type' : 'online',
-    }
-}
-
-
-GOOGLE_CALLBACK_URI = os.getenv("GOOGLE_CALLBACK_URI", "http://localhost:8000/account/google/callback/")
-LOGIN_REDIRECT_URL = os.getenv("LOGIN_REDIRECT_URL", "/") # login 되고 redirect 되는 경로
-
-AUTH_USER_MODEL = 'user.User'  
+# AUTH_USER_MODEL = 'user.User'  
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -168,20 +130,3 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-    'TOKEN_MODEL': None,  
-    'DEFAULT_PAGENATION_CLASSES': 
-        'rest_framework.pagenation.PageNumberPagination',
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend', 'rest_framework.filters.SearchFilter'],
-      
-    }
-
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
