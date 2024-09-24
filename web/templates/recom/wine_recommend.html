@@ -33,31 +33,31 @@
                 </p>
                 <div class="food_parent">
                     <h2 class="question">페어링할 음식의 카테고리를 먼저 선택해 주세요</h2>
-                    <div class="answer_box">
+                    <div class="answer_box" onclick="document.getElementById('meatBtn').click();">
                         <span>
                             <input type="radio" name="parent_food" id="meatBtn">
                             <label for="meatBtn">육류</label>
                         </span>
                     </div>
-                    <div class="answer_box">
+                    <div class="answer_box" onclick="document.getElementById('seafoodBtn').click();">
                         <span>
                             <input type="radio" name="parent_food" id="seafoodBtn">
                             <label for="seafoodBtn">해산물</label>
                         </span>
                     </div>
-                    <div class="answer_box">
+                    <div class="answer_box" onclick="document.getElementById('cheeseBtn').click();">
                         <span>
                             <input type="radio" name="parent_food" id="cheeseBtn">
                             <label for="cheeseBtn">치즈류</label>
                         </span>
                     </div>
-                    <div class="answer_box">
+                    <div class="answer_box" onclick="document.getElementById('appeDessertBtn').click();">
                         <span>
                             <input type="radio" name="parent_food" id="appeDessertBtn">
                             <label for="appeDessertBtn">에피타이저 및 디저트</label>
                         </span>
                     </div>
-                    <div class="answer_box">
+                    <div class="answer_box" onclick="document.getElementById('etcBtn').click();">
                         <span>
                             <input type="radio" name="parent_food" id="etcBtn">
                             <label for="etcBtn">기타</label>
@@ -69,43 +69,43 @@
                     <div class="divider"></div>
                     <h2 class="question">구체적인 음식을 선택해 주세요</h2>
                     <div class="food_category" id="meat">
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Beef').click();">
                             <span>
                                 <input type="radio" name="food" id="Beef" value="Beef">
                                 <label for="Beef">소고기</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Pork').click();">
                             <span>
                                 <input type="radio" name="food" id="Pork" value="Pork">
                                 <label for="Pork">돼지고기</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Poultry').click();">
                             <span>
                                 <input type="radio" name="food" id="Poultry" value="Poultry">
                                 <label for="Poultry">가금류(닭, 오리 등)</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Lamb').click();">
                             <span>
                                 <input type="radio" name="food" id="Lamb" value="Lamb">
                                 <label for="Lamb">양고기</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Veal').click();">
                             <span>
                                 <input type="radio" name="food" id="Veal" value="Veal">
                                 <label for="Veal">송아지 고기</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Cured_Meat').click();">
                             <span>
                                 <input type="radio" name="food" id="Cured_Meat" value="Cured_Meat">
                                 <label for="Cured_Meat">염장육(훈제, 건조, 소금에 절인 고기)</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Game_').click();">
                             <span>
                                 <input type="radio" name="food" id="Game_" value="Game_">
                                 <label for="Game_">사냥 고기(사슴고기 등)</label>
@@ -114,19 +114,19 @@
                     </div>
                 
                     <div class="food_category" id="seafood">
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Rich_fish').click();">
                             <span>
                                 <input type="radio" name="food" id="Rich_fish" value="Rich_fish">
                                 <label for="Rich_fish">기름진 생선(연어, 참치 등)</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Lean_fish').click();">
                             <span>
                                 <input type="radio" name="food" id="Lean_fish" value="Lean_fish">
                                 <label for="Lean_fish">살코기가 적은 생선(대구, 송어 등)</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Shellfish').click();">
                             <span>
                                 <input type="radio" name="food" id="Shellfish" value="Shellfish">
                                 <label for="Shellfish">갑각류(조개, 새우 등)</label>
@@ -135,25 +135,25 @@
                     </div>
 
                     <div class="food_category" id="cheese">
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Mild_and_soft_cheese').click();">
                             <span>
                                 <input type="radio" name="food" id="Mild_and_soft_cheese" value="Mild_and_soft_cheese">
                                 <label for="Mild_and_soft_cheese">부드럽고 순한 치즈(브리, 카망베르 등)</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Mature_and_hard_cheese').click();">
                             <span>
                                 <input type="radio" name="food" id="Mature_and_hard_cheese" value="Mature_and_hard_cheese">
                                 <label for="Mature_and_hard_cheese">숙성된 단단한 치즈(체다, 파르미지아노 레지아노 등)</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Goat_Cheese').click();">
                             <span>
                                 <input type="radio" name="food" id="Goat_Cheese" value="Goat_Cheese">
                                 <label for="Goat_Cheese">염소젖 치즈</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Blue_cheese').click();">
                             <span>
                                 <input type="radio" name="food" id="Blue_cheese" value="Blue_cheese">
                                 <label for="Blue_cheese">블루 치즈(고르곤졸라, 로크포르 등)</label>
@@ -162,25 +162,25 @@
                     </div>
 
                     <div class="food_category" id="appeDessert">
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Appetizers_and_snacks').click();">
                             <span>
                                 <input type="radio" name="food" id="Appetizers_and_snacks" value="Appetizers_and_snacks">
                                 <label for="Appetizers_and_snacks">에피타이저와 스낵(간단한 전채 요리 및 간식)</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Aperitif').click();">
                             <span>
                                 <input type="radio" name="food" id="Aperitif" value="Aperitif">
                                 <label for="Aperitif">아페리티프(식전 음료 또는 간단한 식전 요리)</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Fruity_desserts').click();">
                             <span>
                                 <input type="radio" name="food" id="Fruity_desserts" value="Fruity_desserts">
                                 <label for="Fruity_desserts">과일 디저트(과일 타르트, 과일 샐러드 등)</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Sweet_desserts').click();">
                             <span>
                                 <input type="radio" name="food" id="Sweet_desserts" value="Sweet_desserts">
                                 <label for="Sweet_desserts">단 디저트(케이크, 쿠키, 아이스크림 등)</label>
@@ -189,25 +189,25 @@
                     </div>
 
                     <div class="food_category" id="etc">
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Pasta').click();">
                             <span>
                                 <input type="radio" name="food" id="Pasta" value="Pasta">
                                 <label for="Pasta">파스타</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Spicy_food').click();">
                             <span>
                                 <input type="radio" name="food" id="Spicy_food" value="Spicy_food">
                                 <label for="Spicy_food">매운 음식</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Vegetarian').click();">
                             <span>
                                 <input type="radio" name="food" id="Vegetarian" value="Vegetarian">
                                 <label for="Vegetarian">배지테리언</label>
                             </span>
                         </div>
-                        <div class="answer_box">
+                        <div class="answer_box" onclick="document.getElementById('Mushrooms').click();">
                             <span>
                                 <input type="radio" name="food" id="Mushrooms" value="Mushrooms">
                                 <label for="Mushrooms">버섯</label>
@@ -235,14 +235,14 @@
                 </p>
 
                 <div class="flavor_container">
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('allFlavor').click();">
                         <input type="checkbox" name="flavor" id="allFlavor" value="" onclick="handleCheckboxChange(this)">
                         <label for="allFlavor">
                             <p class="flavor_all">상관 없음</p>
                         </label>
                     </div>
 
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('ageing').click();">
                         <input type="checkbox" name="flavor" id="ageing" value="non_oak_count" onclick="handleCheckboxChange(this)">
                         <label for="ageing">
                             <p class="flavor_name">Ageing</p>
@@ -251,7 +251,7 @@
                       </label>
                     </div>
 
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('dried_fruit').click();">
                         <input type="checkbox" name="flavor" id="dried_fruit" value="dried_fruit_count" onclick="handleCheckboxChange(this)">
                         <label for="dried_fruit">
                             <p class="flavor_name">Dried Fruit</p>
@@ -260,7 +260,7 @@
                         </label>
                     </div>
 
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('microbio').click();">
                         <input type="checkbox" name="flavor" id="microbio" value="microbio_count" onclick="handleCheckboxChange(this)">
                         <label for="microbio">
                             <p class="flavor_name">Microbio</p>
@@ -269,7 +269,7 @@
                         </label>
                     </div>
 
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('black_fruit').click();">
                         <input type="checkbox" name="flavor" id="black_fruit" value="black_fruit_count" onclick="handleCheckboxChange(this)">
                         <label for="black_fruit">
                             <p class="flavor_name">Black Fruit</p>
@@ -278,7 +278,7 @@
                         </label>
                     </div>
 
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('red_fruit').click();">
                         <input type="checkbox" name="flavor" id="red_fruit" value="red_fruit_count" onclick="handleCheckboxChange(this)">
                         <label for="red_fruit">
                             <p class="flavor_name">Red Fruit</p>
@@ -287,7 +287,7 @@
                         </label>
                       </div>
   
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('spices').click();">
                         <input type="checkbox" name="flavor" id="spices" value="spices_count" onclick="handleCheckboxChange(this)">
                         <label for="spices">
                             <p class="flavor_name">Spices</p>
@@ -296,7 +296,7 @@
                         </label>
                     </div>
   
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('citrus_fruit').click();">
                         <input type="checkbox" name="flavor" id="citrus_fruit" value="citrus_fruit_count" onclick="handleCheckboxChange(this)">
                         <label for="citrus_fruit">
                             <p class="flavor_name">Citrus Fruit</p>
@@ -305,7 +305,7 @@
                         </label>
                     </div>
   
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('oak').click();">
                         <input type="checkbox" name="flavor" id="oak" value="oak_count" onclick="handleCheckboxChange(this)">
                         <label for="oak">
                             <p class="flavor_name">Oak</p>
@@ -314,7 +314,7 @@
                         </label>
                     </div>
 
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('tree_fruit').click();">
                         <input type="checkbox" name="flavor" id="tree_fruit" value="tree_fruit_count" onclick="handleCheckboxChange(this)">
                         <label for="tree_fruit">
                             <p class="flavor_name">Tree Fruit</p>
@@ -323,7 +323,7 @@
                         </label>
                     </div>
   
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('tropical_fruit').click();">
                         <input type="checkbox" name="flavor" id="tropical_fruit" value="tropical_fruit_count" onclick="handleCheckboxChange(this)">
                         <label for="tropical_fruit">
                             <p class="flavor_name">Tropical Fruit</p>
@@ -332,7 +332,7 @@
                         </label>
                     </div>
   
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('vegetal').click();">
                         <input type="checkbox" name="flavor" id="vegetal" value="vegetal_count" onclick="handleCheckboxChange(this)">
                         <label for="vegetal">
                             <p class="flavor_name">Vegetal</p>
@@ -341,7 +341,7 @@
                         </label>
                     </div>
 
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('floral').click();">
                         <input type="checkbox" name="flavor" id="floral" value="floral_count" onclick="handleCheckboxChange(this)">
                         <label for="floral">
                             <p class="flavor_name">Floral</p>
@@ -350,7 +350,7 @@
                         </label>
                     </div>
 
-                    <div class="flavor_box">
+                    <div class="flavor_box" onclick="document.getElementById('earth').click();">
                         <input type="checkbox" name="flavor" id="earth" value="earth_count" onclick="handleCheckboxChange(this)">
                         <label for="earth">
                             <p class="flavor_name">Earth</p>
@@ -671,67 +671,6 @@
     </section>
 <script src="{% static 'js/recom/wine_recommend.js' %}"></script>
 <script>
-// document.getElementById('wine_recommend').addEventListener('submit', function(event) {
-//     event.preventDefault(); 
-
-//     const formData = new FormData(this);
-//     const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-
-//     fetch(`{% url 'recom' %}`, {
-//         method: 'post',
-//         body: formData,
-//         headers: {
-//             'X-Requested-With': 'XMLHttpRequest', 
-//             'X-CSRFToken': csrfToken 
-//         }
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         const resultSection = document.querySelector('.result_content');
-//         resultSection.innerHTML = ''; 
-
-//         if (data.recommendations) {
-//             data.recommendations.forEach(wine => {
-//                 const wineElement = document.createElement('div');
-//                 wineElement.classList.add('result_box');
-//                 wineElement.innerHTML = `
-//                 <div class="img_box">
-//                     <a href="${wine.url}" target="_blank" title="vivino 에서 확인하기">
-//                         <img src="${wine.img}" alt="${wine.name}"/>
-//                     </a>
-//                 </div>
-//                 <div class="info_box">
-//                     <div class="type_info">
-//                         <p class="type">${wine.type}</p>
-//                     </div>
-//                     <div class="basic_info">
-//                         <div class="basic_a">
-//                             <p class="result_brand" title="winery">${wine.brand_name}</p>
-//                             <p class="result_name">${wine.name}</p>
-//                             <p class="result_alcohol">${wine.alcohol} %</p>
-//                         </div>
-//                         <div class="basic_b">
-//                             <p class="result_ratingExp">Vivino 평점
-//                             <p class="result_rating">${wine.rating_average}<span style="font-size: 25px; color: black">/5</span></p>
-//                             <p class="result_ratingCount">${wine.rating_count} 명 참여</p>
-//                         </div>
-//                     </div>
-//                     <div class="price_info">
-//                         <p class="result_price">약 ${wine.price} 원</p>
-//                     </div>
-//                 </div>
-//                 `;
-//                 resultSection.appendChild(wineElement);
-//             });
-//         } else {
-//             resultSection.innerHTML = '<p>No recommendations found.</p>';
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error:', error);
-//     });
-// });
-
 document.getElementById('wine_recommend').addEventListener('submit', function(event) {
     event.preventDefault(); 
 
@@ -843,8 +782,6 @@ document.getElementById('wine_recommend').addEventListener('submit', function(ev
         console.error('Error:', error);
     });
 });
-
-
 </script>
 </body>
 </html>

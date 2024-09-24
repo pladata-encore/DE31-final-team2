@@ -132,7 +132,7 @@ h1 {
     margin: auto;
     margin-bottom: 10px;
     text-align: left;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 
 .answer_box:hover ,
