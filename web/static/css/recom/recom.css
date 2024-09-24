@@ -55,7 +55,8 @@ h1 {
     margin-bottom: 13px;
 }
 
-.mainImage {
+.startImg,
+.resultImg {
     max-width: 100%;
     width: 450px;
 }
