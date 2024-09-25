@@ -19,16 +19,21 @@
 ![image](https://github.com/user-attachments/assets/68fc2b61-abbb-45d8-af2c-4d22f006f2c6)
 
 
-> * **아키텍처**
-![image](https://github.com/user-attachments/assets/344bb1f9-98ee-41e8-85c9-f3dc00720ce3)
+## 3. 아키텍처
 
-> Docker 환경 구성
+![10page](https://github.com/user-attachments/assets/65ddcfa5-0be3-4c49-b8a6-53bd252fd30d)
+
+
+
+## 4. Docker 환경 구성
 jupyter notebook 과 mysql 을 컨테이너 환경에서 통합적으로 사용하기 위해 Docker 를 사용함.
 AWS EC2 한 대에 아래와 같이 Docker 환경을 구성하여 데이터 수집 단계에서 활용함.
+
+
 ![image](https://github.com/user-attachments/assets/015908d0-f235-4f16-985a-72dd4c4418b4)
 
 
-## 3. 데이터 전처리
+## 5. 데이터 전처리
 * vivino 사이트에서 크롤링을 시도하였으나 ip가 차단되는 상황이 다수 발생
 * 작업 시간을 줄이고자 ThreadPoolExecutor를 사용
 * 정규표현식을 사용하여 와인 데이터를 가져옴
@@ -189,10 +194,11 @@ AWS EC2 한 대에 아래와 같이 Docker 환경을 구성하여 데이터 수�
 
 ### 2. DB 테이블 정보
 
-![image](https://github.com/user-attachments/assets/6cbd9e18-f135-4ab0-b131-d6cc97d7ba02)
+
+![12page](https://github.com/user-attachments/assets/c8348818-f5d2-4125-9e7c-75069a657584)
 
 
-## 4. 웹 개발
+## 6. 웹 개발
 * 사용자가 웹에서 쉽게 접근할 수 있도록 페이지를 구축
 * 페이지 :  
 
