@@ -73,7 +73,8 @@ AWS EC2 한 대에 아래와 같이 Docker 환경을 구성하여 데이터 수�
 ### 1. DB 테이블 정보
 
 
-![image](https://github.com/user-attachments/assets/5d56cdf6-8307-4cd3-8f33-0771bc5ae26e)
+![image](https://github.com/user-attachments/assets/ee79838e-fdbf-4d39-8b74-30d394800c0e)
+
 
 
 ### 2. 데이터 확인
