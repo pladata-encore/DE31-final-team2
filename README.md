@@ -24,7 +24,7 @@
 ![10page](https://github.com/user-attachments/assets/65ddcfa5-0be3-4c49-b8a6-53bd252fd30d)
 
 ## 버전 정보
-<img src="https://github.com/user-attachments/assets/aeb1374a-1341-4b99-b733-be437263484a" width="300">
+<img src="https://github.com/user-attachments/assets/aeb1374a-1341-4b99-b733-be437263484a" width="450">
 
 
 
