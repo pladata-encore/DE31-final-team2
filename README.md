@@ -10,6 +10,7 @@
   > * 환경 구축 : 조혜민
 
 💡 발표자료
+[와인이지_발표자료.pdf](https://github.com/user-attachments/files/17131414/_.pdf)
 
 💡 시연영상
 [시연영상 YouTube 링크](https://youtu.be/fjAC9qZIHiM)
