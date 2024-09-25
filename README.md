@@ -10,7 +10,11 @@
   > * 환경 구축 : 조혜민
 
 💡 발표자료
-[와인이지_발표자료.pdf](https://drive.google.com/file/d/1QJ2ajAq0cBFixu8AnyRH9M6ZWKAUC8pd/view?usp=drive_link)
+[와인이지_발표자료.pdf](https://drive.google.com/file/d/1mkyThgcnKNKWzb4b0cQCGyzXneD1jEyS/view?usp=drive_link)
+
+[와인이지_발표자료.pptx](https://docs.google.com/presentation/d/1lCfIPzbH39OI2GkRz-EvQbFJcJ66_Yl5/edit?usp=drive_link&ouid=107925533121739727031&rtpof=true&sd=true)
+
+[폰트 모음](https://drive.google.com/file/d/1qB-YEJvom2E5SMnBLiTFyy5bn6FR3vAj/view?usp=drive_link)
 
 💡 시연영상
 [시연영상 YouTube 링크](https://youtu.be/fjAC9qZIHiM)
