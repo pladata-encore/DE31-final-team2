@@ -298,6 +298,8 @@ function end(){
 }
 
 // .flavor_info 관련 js
+
+
 function handleCheckboxChange(checkbox) {
     const checkboxes = document.querySelectorAll('input[name="flavor"]');
     const maxSelections = 5; // 최대 선택 가능 수
