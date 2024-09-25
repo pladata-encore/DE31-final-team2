@@ -225,3 +225,6 @@ AWS EC2 한 대에 아래와 같이 Docker 환경을 구성하여 데이터 수�
   > 2. `ValueError: Found array with 0 sample(s) (shape=(0, 5)) while a minimum of 1 is required by check_pairwise_arrays.` 에러 발생하며 추천 결과 아무것도 나오지 않는 문제 발생
   > * 초기에는 도수, 가격대, 종류를 필터링 요소로 넣고, 나머지 요소는 유사도 계산에 활용했음. 
   하지만 데이터 분포 상 필터링이 되면 유사도 계산을 하기도 전에 이미 추천 가능한 조합이 없어서 유사도 계산을 하지 못하여 생기는 오류였고, 다양한 추천 결과를 위해 필터링 요소에서 종류를 제외시키로 결정함.
+
+
+git actions test 
