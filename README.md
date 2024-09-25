@@ -10,7 +10,7 @@
   > * 환경 구축 : 조혜민
 
 💡 발표자료
-[와인이지_발표자료.pdf](https://github.com/user-attachments/files/17131414/DE31_final_wineay_발표자료.pdf)
+[와인이지_발표자료.pdf](https://drive.google.com/file/d/1QJ2ajAq0cBFixu8AnyRH9M6ZWKAUC8pd/view?usp=drive_link)
 
 💡 시연영상
 [시연영상 YouTube 링크](https://youtu.be/fjAC9qZIHiM)
