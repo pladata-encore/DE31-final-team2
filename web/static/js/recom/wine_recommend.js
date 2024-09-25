@@ -85,17 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// food -> flavor
-// function next1(){
-//     food.style.display = "none";
-//     flavor.style.display = "block";
-
-//     window.scrollTo({
-//         top: 0,
-//         behavior: 'smooth'
-//     });
-// }
-
 // food -> flavor : 답변 필수 선택하게 하는 코드
 function next1(){
     const selectFood = document.querySelector('input[name="food"]:checked');
@@ -124,17 +113,6 @@ function pre1(){
     });
 }
 
-// flavor -> taste
-// function next2(){
-//     flavor.style.display = "none";
-//     taste.style.display = "block";
-
-//     window.scrollTo({
-//         top: 0,
-//         behavior: 'smooth'
-//     });
-// }
-
 // flavor -> taste : 답변 필수 선택하게 하는 코드
 function next2(){
     const selectFlavor = document.querySelector('input[name="flavor"]:checked');
@@ -162,17 +140,6 @@ function pre2(){
         behavior: 'smooth'
     });
 }
-
-// taste -> profile
-// function next3(){
-//     taste.style.display = "none";
-//     profile.style.display = "block";
-
-//     window.scrollTo({
-//         top: 0,
-//         behavior: 'smooth'
-//     });
-// }
 
 // taste 자동 스크롤
 document.addEventListener('DOMContentLoaded', function() {
@@ -267,17 +234,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-// profile -> result
-// function end(){
-//     profile.style.display = "none";
-//     result.style.display = "block";
-
-//     window.scrollTo({
-//         top: 0,
-//         behavior: 'smooth'
-//     });
-// }
 
 // profile -> result : 답변 필수 선택하게 하는 코드
 function end(){
