@@ -10,11 +10,14 @@
   > * 환경 구축 : 조혜민
 
 💡 발표자료
+
 💡 시연영상
-💡 WBS , 명세서
-[wbs](https://docs.google.com/spreadsheets/d/1ZDyCFh3nbPvEzf64jL3QJB1gte7ibYC1JFk5hXatavI/edit?gid=856137190#gid=856137190)
+
+💡 WBS 및 명세서
+
+[WBS 및 명세서 링크](https://docs.google.com/spreadsheets/d/1ZDyCFh3nbPvEzf64jL3QJB1gte7ibYC1JFk5hXatavI/edit?gid=856137190#gid=856137190)
 💡 AWS 배포 주소
-[wineasy](http://43.203.67.102/wineasy/)
+[http://43.203.67.102/wineasy/](http://43.203.67.102/wineasy/)
 
 
 ## 1. 주제 선정 배경
