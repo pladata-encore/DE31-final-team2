@@ -15,12 +15,11 @@ jobs:
       with:
         host: ${{ secrets.EC2_HOST }}			
         username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.AWS_PEM }}				# pem 파일 내용
+        key: ${{ secrets.AWS_PEM }}				
         command_timeout: 3m						
         script: |
           source /home/wineasy/wineasy/venv/bin/activate
           cd /home/wineasy/wineasy/DE31-final-team2/web/wineasy
           git pull origin develop
-          sudo lsof -t -i tcp:8000 | xargs kill -9
           sudo systemctl start gunicorn
           sudo systemctl reload nginx  
