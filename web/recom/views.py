@@ -32,7 +32,7 @@ database = os.getenv("DB_NAME")
 engine = sqlalchemy.create_engine(f"mysql://{user}:{password}@{host}:{port}/{database}")
 
 
-df = pd.read_sql_query("select * from merge_items", engine)
+df = pd.read_sql_query("select * from merged_view", engine)
 #--
 
 # 수치형 값을 범위로 변환하는 함수
