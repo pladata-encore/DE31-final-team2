@@ -14,7 +14,6 @@
 💡 시연영상
 
 💡 WBS 및 명세서
-
 [WBS 및 명세서 링크](https://docs.google.com/spreadsheets/d/1ZDyCFh3nbPvEzf64jL3QJB1gte7ibYC1JFk5hXatavI/edit?gid=856137190#gid=856137190)
 
 💡 AWS 배포 주소
