@@ -24,6 +24,7 @@
 > Docker 환경 구성
 jupyter notebook 과 mysql 을 컨테이너 환경에서 통합적으로 사용하기 위해 Docker 를 사용함.
 AWS EC2 한 대에 아래와 같이 Docker 환경을 구성하여 데이터 수집 단계에서 활용함.
+> 
 ![image](https://github.com/user-attachments/assets/015908d0-f235-4f16-985a-72dd4c4418b4)
 
 
