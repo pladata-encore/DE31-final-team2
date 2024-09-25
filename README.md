@@ -205,7 +205,43 @@ AWS EC2 한 대에 아래와 같이 Docker 환경을 구성하여 데이터 수�
 
 ## 6. 웹 개발
 * 사용자가 웹에서 쉽게 접근할 수 있도록 페이지를 구축
-* 페이지 :  
+* 기능소개 :  
+  - 시작 화면
+  ![start](https://github.com/user-attachments/assets/a1aa3837-6b2b-418f-ba64-64e30d4a3e3a)
+
+  - food 페어링 선택 화면
+    - 페어링할 음식을 선택하도록 함.
+    - 음식 카테고리(대분류)를 선택하면 이에 해당하는 음식(소분류)이 나오도록 구현함.
+  ![food_1](https://github.com/user-attachments/assets/3f13e2b9-5f16-4222-b9b3-35bdc96be1f9)
+  ![food_2](https://github.com/user-attachments/assets/51fbbe08-95b0-4f7b-9a9b-15dd754fb05b)
+
+  - flavor 선택 화면
+    - 와인의 flavor을 선택하도록 함.
+    - 최대 5개까지 다중 선택할 수 있지만, '상관 없음'과 다른 flavor은 동시 선택이 불가능하도록 설정함.
+    - '상관 없음' 선택 시 최하단으로 이동하도록 설정함.
+    - '상관 없음' 선택지를 추가하여 보다 넓은 범위의 추천 결과가 나올 수 있도록 함.   
+
+  ![flavor](https://github.com/user-attachments/assets/4a6264f0-cab4-4422-a59b-7fc3e87071a5)
+
+  - taste, body 선택 화면
+    - 와인의 taste(당도, 산도, 타닌, 강도)와 바디감의 범위를 나누어 선택지를 제공함.
+    - 답변 선택 시 다음 문항이 화면의 중앙에 위치하도록 설정함.
+  ![taste](https://github.com/user-attachments/assets/657a2549-fe1f-4459-82ed-36d1248e3a87)
+
+  - 와인 프로필 선택 화면
+    - 와인의 알코올 도수와 가격대를 선택하도록 함
+    - 알코올 도수 선택 시 가격대 문항을 최상단으로 이동하도록 함.
+  ![alcohol price](https://github.com/user-attachments/assets/c835f307-3303-4053-a2fe-ebff166d5317)
+
+  - 결과 화면 화면
+    - 추천 결과 있을 때
+      - 추천된 와인의 정보를 보여주고, 와인의 이미지를 클릭하면 Vivino 홈페이지의 해당 와인의 url 로 통하도록 구현함.
+      - 여러 종류의 와인이 추천될 결과를 고려하여 와인의 정보에 대한 짧은 설명을 하단에 추가함.
+    ![result](https://github.com/user-attachments/assets/25371271-631d-4f29-b124-b9c13c9d5cda)
+    - 추천 결과 없을 때
+      - 추천이 되지 않는 경우에 대해 설명해줌으로 다시 시도할 수 있도록 유도함.
+    ![result_zero](https://github.com/user-attachments/assets/1ca7ba29-5648-4783-a562-a2c1d00b1bfb)
+  
 
 ### 1. 프론트엔드
 * 페이지 적용
