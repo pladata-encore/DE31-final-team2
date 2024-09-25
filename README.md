@@ -201,9 +201,16 @@
   > 4. 도수, 가격대 선택
   > 5. 결과보기
 * 오류 및 해결
-  > 1. food_category 항목 표시
-  > * display.none 적용이 안되는 이슈
+  > 1. food_child 항목 표시
+  > * display.none 적용이 안되는 이슈 발생
   > * js function 이 제대로 작동되지 않아, 상위 카테고리 button 마다 addEventListener 을 적용하여 해당 상세 항목만 보이도록 설정
+  > 2. 답변 선택 관련(`answer_box`, `flavor_box`)
+  > * `answer_box` , `flavor_box` 내의 label 을 클릭 해야 해당 답변이 선택되는 이슈 발생
+  > * label 을 감싸고 있는 box 에 `onclick="document.getElementById('id값').click();"` 추가
+  > 3. 답변 선택 관련(`flavor_box`)
+  > * 위의 이슈를 해결하고자 수정했으나, 오히려 `flavor_box` 의 label 제외를 클릭해야 해당 답변이 선택되는 이슈 발생
+  > * `<div class="flavor_box" onclick="handleCheckboxChange(document.getElementById('id값'));">` 와 같이 수정했으나, 첫 번째 이슈로 돌아감
+  > * `flavor_box` 내의 label 은 `flavor_box` 의 크기와 거의 동일하여 답변 선택에 있어서 큰 이슈가 없었기에, ii. 에서 추가했던 onclick 을 제외하기로 함
 ### 2. 백엔드
 * 구글연동 로그인 적용하였으나 사용하지 않음
 * wine_recommend API 적용
