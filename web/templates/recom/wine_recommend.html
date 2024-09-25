@@ -401,12 +401,6 @@
                             <label for="sweetness4">Sweet(단): 디저트 같은 강한 단맛이 느껴지는 정도</label>
                         </span>
                     </div>
-                    <!-- <div class="answer_box">
-                        <span>
-                            <input type="radio" name="sweetness" id="all_sweetness" value="">
-                            <label for="all_sweetness">상관 없음</label>
-                        </span>
-                    </div> -->
                 </div>
 
                 <div class="divider"></div>
@@ -438,12 +432,6 @@
                             <label for="acidity4">High(높음): 산도가 매우 높아 신맛이 강하게 느껴지는 가장 상쾌하고 신선한 정도</label>
                         </span>
                     </div>
-                    <!-- <div class="answer_box">
-                        <span>
-                            <input type="radio" name="acidity" id="all_acidity" value="">
-                            <label for="all_acidity">상관 없음</label>
-                        </span>
-                    </div> -->
                 </div>
 
                 <div class="divider"></div>
@@ -475,12 +463,6 @@
                             <label for="tannin4">High(높음): 쓴맛이 강해 때로는 떫은 정도</label>
                         </span>
                     </div>
-                    <!-- <div class="answer_box">
-                        <span>
-                            <input type="radio" name="tannin" id="all_tannin" value="">
-                            <label for="all_tannin">상관 없음</label>
-                        </span>
-                    </div> -->
                 </div>
 
                 <div class="divider"></div>
@@ -512,12 +494,6 @@
                             <label for="intensity4">Full(강함): 맛과 향이 매우 강렬하며 와인 만의 특성이 뚜렷하게 두드려지는 정도</label>
                         </span>
                     </div>
-                    <!-- <div class="answer_box">
-                        <span>
-                            <input type="radio" name="intensity" id="all_intensity" value="">
-                            <label for="all_intensity">상관 없음</label>
-                        </span>
-                    </div> -->
                 </div>
 
                 <div class="divider"></div>
@@ -527,8 +503,6 @@
                     바디감은 주로 알코올 도수, taste, 포도의 원산지 등의 요소들에 의해 결정됩니다.
                 </p>
                 <div class="taste_box" id="body_box">
-                    <!-- <h2 class="question">body</h2> -->
-                    <!-- <p class="explain">와인의 무게감과 밀도에 대한 문항입니다</p> -->
                     <div class="answer_box" onclick="document.getElementById('body1').click();">
                         <span>
                             <input type="radio" name="body" id="body1" value="1">
@@ -564,13 +538,6 @@
             <h1 class="chapter">about wine profile🍷</h1>
             <div class="quest_box" id="alcohol_box">
                 <h2 class="question">희망하는 와인의 도수를 선택해 주세요</h2>
-                <!-- <p class="explain">도수별 간단 설명</p> -->
-                <!-- <div class="answer_box">
-                    <span>
-                        <input type="radio" name="alcohol" id="all_alch">
-                        <label for="all_alch">상관 없음</label>
-                    </span>
-                </div> -->
                 <div class="answer_box" onclick="document.getElementById('alcohol1').click();">
                     <span>
                         <input type="radio" name="alcohol" id="alcohol1" value="1">
@@ -601,7 +568,6 @@
 
             <div class="quest_box" id="price_box">
                 <h2 class="question">희망하는 와인의 가격을 선택해 주세요</h1>
-                <!-- <p class="explain">롸롸</p> -->
                 <div class="answer_box" onclick="document.getElementById('price1').click();">
                     <span>
                         <input type="radio" name="price" id="price1" value="1">
@@ -635,7 +601,6 @@
             </div>
             <br>
             <input type="button" class="pre_bt" value="이전으로" onclick="pre3()">
-            <!--input type="button" class="next_bt" value="결과 보기" onclick="end()"-->
             <button type="submit" class="next_bt" onclick="end()">결과 보기</button>
 
         
@@ -643,30 +608,10 @@
     </section>
 </form>
     <section class="result">
-        <!-- <h1 class="chapter">try these Wine🍷</h1> -->
-        <!-- <h2 class="question" style="font-size: 20px; padding-top:25px;">당신을 위한 와인 추천 플랫폼,<br>
-            <span style="font-size: 50px; font-family: 'titleFont', sans-serif; color: rgb(146,0,0);">와인이지(wineasy)가 준비한 당신을 위한 와인</span>
-        </h2> -->
-        <!-- <h1 class="title" style="padding-top: 20px;">와인이지(wineasy)가 추천하는<br>당신을 위한 와인</h1>
-        <p class="explain" style="width: 50%;">
-            🍷 최대 5개의 와인을 추천 받으실 수 있으며, 상황에 따라 매칭이 안 되는 경우도 있습니다<br>
-            🍷 와인 이미지를 클릭하시면 vivino 로 이동하실 수 있습니다<br>
-            🍷 와인의 이미지와 가격, 평점은 vivino 기준으로 등록된 점을 알리는 바 입니다.
-            <span style="font-size: 18px;">가격의 경우 9월 1일 환율 기준으로, 실제 구매 가격과 다를 수 있습니다</span>
-        </p> -->
         <div class="result_content">
 
         </div>
         <br>
-        <!-- <p class="question">와인 종류에 대해 잘 모르신다면 아래를 참고해 주세요:)</p>
-        <p class="explain" style="width: 50%; text-align: left;">
-            레드 와인 : 껍질을 벗기지 않은 포도로 제작된 와인<br>
-            화이트 와인 : 껍질을 벗긴 청포도의 주스로 제작된 와인<br>
-            스파클링 와인 : 탄산이 포함된 와인<br>
-            로제 와인 : 발효 시간을 줄인 가벼운 맛의 분홍색 와인<br>
-            디저트 와인 : 주로 후식 때 마시는 달달한 와인<br>
-            주정강화 와인 : 주정을 넣어 알코올 도수를 높인 와인<br>
-        </p> -->
         <input type="button" class="restart_bt" value="다시하기" onclick="location.href=`{% url 'recom' %}`;">
     </section>
 <script src="{% static 'js/recom/wine_recommend.js' %}"></script>
