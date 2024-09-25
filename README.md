@@ -22,7 +22,9 @@
 ![image](https://github.com/user-attachments/assets/344bb1f9-98ee-41e8-85c9-f3dc00720ce3)
 
 > Docker 환경 구성
-![image](https://github.com/user-attachments/assets/39bb4682-a359-4011-9c7a-8de0217b038d)
+jupyter notebook 과 mysql 을 컨테이너 환경에서 통합적으로 사용하기 위해 Docker 를 사용함.
+AWS EC2 한 대에 아래와 같이 Docker 환경을 구성하여 데이터 수집 단계에서 활용함.
+![image](https://github.com/user-attachments/assets/015908d0-f235-4f16-985a-72dd4c4418b4)
 
 
 ## 3. 데이터 전처리
@@ -212,14 +214,13 @@
   > * `<div class="flavor_box" onclick="handleCheckboxChange(document.getElementById('id값'));">` 와 같이 수정했으나, 첫 번째 이슈로 돌아감
   > * `flavor_box` 내의 label 은 `flavor_box` 의 크기와 거의 동일하여 답변 선택에 있어서 큰 이슈가 없었기에, ii. 에서 추가했던 onclick 을 제외하기로 함
 ### 2. 백엔드
-* 구글연동 로그인 적용하였으나 사용하지 않음
+* 소셜로그인(구글) 연동하여 유저 정보를 저장하는 기능을 구현하려고 했으나 추천 시스템의 완성을 최우선 순위로 생각하여 로그인 기능은 제외함.
 * wine_recommend API 적용
   > * 결과보기 클릭 시 유사도 적용하여 와인 5개 추천
   > * 결과 값이 없는 경우 결과 없음으로 표시하도록 적용
 * 오류 및 해결
-  > 1. html food와 DB의 컬럼이 같이 않아서 발생한 오류   
-  > * food와 컬럼명 동일하게 맞춰줌
-  > 2. wine_features , user_data 에 NaN 값이 있어서 오류
-  > * nan값인 경우 값을 0으로 변경하여 해결
-  > 3. 컬럼명 대소문자 구분하지 않아 발생한 오류
-  > * 이름을 똑같이 맞춰줌
+  > 1. food 와 flavor 에서 HTML 에서의 input 값과 DB의 컬럼이 같이 않아서 발생한 오류   
+  > * HTML 에서 food, flavor 의 input value 값을 DB의 컬럼명과 동일하게 맞춰줌.
+  > 2. `ValueError: Found array with 0 sample(s) (shape=(0, 5)) while a minimum of 1 is required by check_pairwise_arrays.` 에러 발생하며 추천 결과 아무것도 나오지 않는 문제 발생
+  > * 초기에는 도수, 가격대, 종류를 필터링 요소로 넣고, 나머지 요소는 유사도 계산에 활용했음. 
+  하지만 데이터 분포 상 필터링이 되면 유사도 계산을 하기도 전에 이미 추천 가능한 조합이 없어서 유사도 계산을 하지 못하여 생기는 오류였고, 다양한 추천 결과를 위해 필터링 요소에서 종류를 제외시키로 결정함.
