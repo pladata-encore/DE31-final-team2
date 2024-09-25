@@ -16,7 +16,8 @@
 > 
 > 소비자들이 와인에 대해 쉽게 접근할 수 있는 서비스가 있다면, 수요가 늘을 것이라 생각하여 '와인이지'를 제작하고자 함.
 ## 2. 서비스 개발을 위한 분석(NABC)
-![image](https://github.com/user-attachments/assets/59caff94-ed61-4d9a-917b-6357f6b77490)
+![image](https://github.com/user-attachments/assets/68fc2b61-abbb-45d8-af2c-4d22f006f2c6)
+
 
 > * **아키텍처**
 ![image](https://github.com/user-attachments/assets/344bb1f9-98ee-41e8-85c9-f3dc00720ce3)
