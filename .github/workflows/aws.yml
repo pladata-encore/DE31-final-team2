@@ -1,0 +1,26 @@
+name: Deploy Django to EC2
+
+on:
+  push:
+    branches:
+      - develop  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    
+    steps:
+    - name: EC2 ssh connection test
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}			
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.AWS_PEM }}				# pem 파일 내용
+        command_timeout: 3m						
+        script: |
+          source /home/wineasy/wineasy/venv/bin/activate
+          cd /home/wineasy/wineasy/DE31-final-team2/web/wineasy
+          git pull origin develop
+          sudo lsof -t -i tcp:8000 | xargs kill -9
+          sudo systemctl start gunicorn
+          sudo systemctl reload nginx  
