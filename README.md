@@ -6,8 +6,8 @@
 * 환경 구축 : 조혜민
 
 💡 발표자료
-* [와인이지_발표자료.pdf](https://drive.google.com/file/d/1I4yAQtfZERflgFZrv1AldwbSvfsOw_mj/view?usp=sharing)
-* [와인이지_발표자료.pptx](https://docs.google.com/presentation/d/1YHly1-TU8zgHHkM-FyU_d4oE9weYjfka/edit?usp=sharing&ouid=107925533121739727031&rtpof=true&sd=true)
+* [와인이지_발표자료.pdf](https://drive.google.com/file/d/166YRFOOQ0DPblerwlXkzEvj7GAk1U3gC/view?usp=drive_link)
+* [와인이지_발표자료.pptx](https://docs.google.com/presentation/d/1-FwEjTovWXyWpALJggEg7q8XtsL4AWLh/edit?usp=drive_link&ouid=107925533121739727031&rtpof=true&sd=true)
 * [발표자료 폰트 모음](https://drive.google.com/file/d/1qB-YEJvom2E5SMnBLiTFyy5bn6FR3vAj/view?usp=drive_link)
 
 💡 시연영상
