@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wineasy</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/recom/recom.css' %}">
+</head>
+<body>
+    <section class="start">
+        <p class="name" style="color: rgb(146,0,0);">당신을 위한 와인 추천 플랫폼, wineasy</p>
+        <h1 class="title">나에게 어울리는 와인은 무엇일까?</h1>
+        <img src="/static/img/recom/start_img.jpg" alt="startImage" class="startImg"><br>
+        <p class="intro">
+            와인이 생각나는 오늘,<br>
+            어떤 와인을 마셔야 할 지 모르시겠다구요?<br><br>
+            그렇다면 잘 찾아오셨답니다!<br>
+            wineasy 가 최적의 와인을 추천해 드릴게요🍷
+        </p>
+        <input type="button" class="start_bt" value="시작하기" onclick="begin()"></input>
+    </section>
+    <form id="wine_recommend" method="post" action="{% url 'recom' %}">
+        {% csrf_token %}
+    <section class="qna">
+        <div class="food_info">
+            <h1 class="chapter">about pairing🍷</h1>
+            <div class="quest_box">
+                <h2 class="question">와인과 함께 곁들일 음식 종류를 선택해 주세요</h2>
+                <p class="explain">
+                    여러 종류의 음식을 함께 곁들일 경우,<br>
+                    가장 메인이 되는 음식을 선택해 주세요
+                </p>
+                <div class="food_parent">
+                    <h2 class="question">페어링할 음식의 카테고리를 먼저 선택해 주세요</h2>
+                    <div class="answer_box" onclick="document.getElementById('meatBtn').click();">
+                        <span>
+                            <input type="radio" name="parent_food" id="meatBtn">
+                            <label for="meatBtn">육류</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('seafoodBtn').click();">
+                        <span>
+                            <input type="radio" name="parent_food" id="seafoodBtn">
+                            <label for="seafoodBtn">해산물</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('cheeseBtn').click();">
+                        <span>
+                            <input type="radio" name="parent_food" id="cheeseBtn">
+                            <label for="cheeseBtn">치즈류</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('appeDessertBtn').click();">
+                        <span>
+                            <input type="radio" name="parent_food" id="appeDessertBtn">
+                            <label for="appeDessertBtn">에피타이저 및 디저트</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('etcBtn').click();">
+                        <span>
+                            <input type="radio" name="parent_food" id="etcBtn">
+                            <label for="etcBtn">기타</label>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="food_child">
+                    <div class="divider"></div>
+                    <h2 class="question">구체적인 음식을 선택해 주세요</h2>
+                    <div class="food_category" id="meat">
+                        <div class="answer_box" onclick="document.getElementById('Beef').click();">
+                            <span>
+                                <input type="radio" name="food" id="Beef" value="Beef">
+                                <label for="Beef">소고기</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Pork').click();">
+                            <span>
+                                <input type="radio" name="food" id="Pork" value="Pork">
+                                <label for="Pork">돼지고기</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Poultry').click();">
+                            <span>
+                                <input type="radio" name="food" id="Poultry" value="Poultry">
+                                <label for="Poultry">가금류(닭, 오리 등)</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Lamb').click();">
+                            <span>
+                                <input type="radio" name="food" id="Lamb" value="Lamb">
+                                <label for="Lamb">양고기</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Veal').click();">
+                            <span>
+                                <input type="radio" name="food" id="Veal" value="Veal">
+                                <label for="Veal">송아지 고기</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Cured_Meat').click();">
+                            <span>
+                                <input type="radio" name="food" id="Cured_Meat" value="Cured_Meat">
+                                <label for="Cured_Meat">염장육(훈제, 건조, 소금에 절인 고기)</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Game_').click();">
+                            <span>
+                                <input type="radio" name="food" id="Game_" value="Game_">
+                                <label for="Game_">사냥 고기(사슴고기 등)</label>
+                            </span>
+                        </div>
+                    </div>
+                
+                    <div class="food_category" id="seafood">
+                        <div class="answer_box" onclick="document.getElementById('Rich_fish').click();">
+                            <span>
+                                <input type="radio" name="food" id="Rich_fish" value="Rich_fish">
+                                <label for="Rich_fish">기름진 생선(연어, 참치 등)</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Lean_fish').click();">
+                            <span>
+                                <input type="radio" name="food" id="Lean_fish" value="Lean_fish">
+                                <label for="Lean_fish">살코기가 적은 생선(대구, 송어 등)</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Shellfish').click();">
+                            <span>
+                                <input type="radio" name="food" id="Shellfish" value="Shellfish">
+                                <label for="Shellfish">갑각류(조개, 새우 등)</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="food_category" id="cheese">
+                        <div class="answer_box" onclick="document.getElementById('Mild_and_soft_cheese').click();">
+                            <span>
+                                <input type="radio" name="food" id="Mild_and_soft_cheese" value="Mild_and_soft_cheese">
+                                <label for="Mild_and_soft_cheese">부드럽고 순한 치즈(브리, 카망베르 등)</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Mature_and_hard_cheese').click();">
+                            <span>
+                                <input type="radio" name="food" id="Mature_and_hard_cheese" value="Mature_and_hard_cheese">
+                                <label for="Mature_and_hard_cheese">숙성된 단단한 치즈(체다, 파르미지아노 레지아노 등)</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Goat_Cheese').click();">
+                            <span>
+                                <input type="radio" name="food" id="Goat_Cheese" value="Goat_Cheese">
+                                <label for="Goat_Cheese">염소젖 치즈</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Blue_cheese').click();">
+                            <span>
+                                <input type="radio" name="food" id="Blue_cheese" value="Blue_cheese">
+                                <label for="Blue_cheese">블루 치즈(고르곤졸라, 로크포르 등)</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="food_category" id="appeDessert">
+                        <div class="answer_box" onclick="document.getElementById('Appetizers_and_snacks').click();">
+                            <span>
+                                <input type="radio" name="food" id="Appetizers_and_snacks" value="Appetizers_and_snacks">
+                                <label for="Appetizers_and_snacks">에피타이저와 스낵(간단한 전채 요리 및 간식)</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Aperitif').click();">
+                            <span>
+                                <input type="radio" name="food" id="Aperitif" value="Aperitif">
+                                <label for="Aperitif">아페리티프(식전 음료 또는 간단한 식전 요리)</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Fruity_desserts').click();">
+                            <span>
+                                <input type="radio" name="food" id="Fruity_desserts" value="Fruity_desserts">
+                                <label for="Fruity_desserts">과일 디저트(과일 타르트, 과일 샐러드 등)</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Sweet_desserts').click();">
+                            <span>
+                                <input type="radio" name="food" id="Sweet_desserts" value="Sweet_desserts">
+                                <label for="Sweet_desserts">단 디저트(케이크, 쿠키, 아이스크림 등)</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="food_category" id="etc">
+                        <div class="answer_box" onclick="document.getElementById('Pasta').click();">
+                            <span>
+                                <input type="radio" name="food" id="Pasta" value="Pasta">
+                                <label for="Pasta">파스타</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Spicy_food').click();">
+                            <span>
+                                <input type="radio" name="food" id="Spicy_food" value="Spicy_food">
+                                <label for="Spicy_food">매운 음식</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Vegetarian').click();">
+                            <span>
+                                <input type="radio" name="food" id="Vegetarian" value="Vegetarian">
+                                <label for="Vegetarian">배지테리언</label>
+                            </span>
+                        </div>
+                        <div class="answer_box" onclick="document.getElementById('Mushrooms').click();">
+                            <span>
+                                <input type="radio" name="food" id="Mushrooms" value="Mushrooms">
+                                <label for="Mushrooms">버섯</label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <input type="button" class="next_bt" value="다음으로" onclick="next1()">
+        </div>
+
+        <div class="flavor_info">
+            <h1 class="chapter">about flavor🍷</h1>
+            <div class="quest_box">
+                <h2 class="question">원하는 와인의 향(flavor)을 자유롭게 선택해 주세요</h2>
+                <p class="explain">
+                    flavor은 와인의 향과 관련된 모든 복합적인 느낌으로,<br>
+                    와인을 마시기 전 코로 느끼는 향은 물론이고<br>
+                    입에 머금고 있을 때 느껴지는 다양한 향과 맛의 조화라고 할 수 있습니다<br><br>
+                    <span style="font-size: 18px;">
+                        flavor 은 최대 5개까지 선택이 가능합니다<br>
+                        flavor 과 상관 없음은 동시 선택이 불가능합니다
+                    </span>
+                </p>
+
+                <div class="flavor_container">
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="allFlavor" value="" onclick="handleCheckboxChange(this)">
+                        <label for="allFlavor">
+                            <p class="flavor_all">상관 없음</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="ageing" value="non_oak_count" onclick="handleCheckboxChange(this)">
+                        <label for="ageing">
+                            <p class="flavor_name">Ageing</p>
+                            <img src="/static/img/recom/ageing.png">
+                            <p class="flavor_exp">체스트넛, 호두, 구운 아몬드 등</p>
+                      </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="dried_fruit" value="dried_fruit_count" onclick="handleCheckboxChange(this)">
+                        <label for="dried_fruit">
+                            <p class="flavor_name">Dried Fruit</p>
+                            <img src="/static/img/recom/driedFruit.png">
+                            <p class="flavor_exp">푸룬, 무화과, 건포도 등</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="microbio" value="microbio_count" onclick="handleCheckboxChange(this)">
+                        <label for="microbio">
+                            <p class="flavor_name">Microbio</p>
+                            <img src="/static/img/recom/micribio.png">
+                            <p class="flavor_exp">크림, 바나나, 치즈, 요거트 등</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="black_fruit" value="black_fruit_count" onclick="handleCheckboxChange(this)">
+                        <label for="black_fruit">
+                            <p class="flavor_name">Black Fruit</p>
+                            <img src="/static/img/recom/blackFruit.png">
+                            <p class="flavor_exp">블랙베리, 자두, 블랙체리 등</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="red_fruit" value="red_fruit_count" onclick="handleCheckboxChange(this)">
+                        <label for="red_fruit">
+                            <p class="flavor_name">Red Fruit</p>
+                            <img src="/static/img/recom/redFruit.png">
+                            <p class="flavor_exp">체리, 라즈베리, 딸기 등</p>
+                        </label>
+                      </div>
+  
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="spices" value="spices_count" onclick="handleCheckboxChange(this)">
+                        <label for="spices">
+                            <p class="flavor_name">Spices</p>
+                            <img src="/static/img/recom/spices.png">
+                            <p class="flavor_exp">후추, 시나몬, 허브,<br>감초, 유칼립투스 등</p>
+                        </label>
+                    </div>
+  
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="citrus_fruit" value="citrus_fruit_count" onclick="handleCheckboxChange(this)">
+                        <label for="citrus_fruit">
+                            <p class="flavor_name">Citrus Fruit</p>
+                            <img src="/static/img/recom/citrusFruit.png">
+                            <p class="flavor_exp">마말레이드, 오렌지,<br>레몬, 자몽 등 감귤류</p>
+                        </label>
+                    </div>
+  
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="oak" value="oak_count" onclick="handleCheckboxChange(this)">
+                        <label for="oak">
+                            <p class="flavor_name">Oak</p>
+                            <img src="/static/img/recom/oak.png">
+                            <p class="flavor_exp">오크통, 초콜릿, 바닐라,<br>커피, 시가 등</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="tree_fruit" value="tree_fruit_count" onclick="handleCheckboxChange(this)">
+                        <label for="tree_fruit">
+                            <p class="flavor_name">Tree Fruit</p>
+                            <img src="/static/img/recom/treeFruit.png">
+                            <p class="flavor_exp">배, 복숭아, 사과, 메론 등</p>
+                        </label>
+                    </div>
+  
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="tropical_fruit" value="tropical_fruit_count" onclick="handleCheckboxChange(this)">
+                        <label for="tropical_fruit">
+                            <p class="flavor_name">Tropical Fruit</p>
+                            <img src="/static/img/recom/tropicalFruit.png">
+                            <p class="flavor_exp">망고, 파인애플, 리치,<br>구아바, 패션후르츠 등</p>
+                        </label>
+                    </div>
+  
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="vegetal" value="vegetal_count" onclick="handleCheckboxChange(this)">
+                        <label for="vegetal">
+                            <p class="flavor_name">Vegetal</p>
+                            <img src="/static/img/recom/vegetal.png">
+                            <p class="flavor_exp">잔디, 건초, 토마토, 짚 등</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="floral" value="floral_count" onclick="handleCheckboxChange(this)">
+                        <label for="floral">
+                            <p class="flavor_name">Floral</p>
+                            <img src="/static/img/recom/floral.png">
+                            <p class="flavor_exp">바이올렛, 라벤더,<br>캐모마일, 라일락 등</p>
+                        </label>
+                    </div>
+
+                    <div class="flavor_box">
+                        <input type="checkbox" name="flavor" id="earth" value="earth_count" onclick="handleCheckboxChange(this)">
+                        <label for="earth">
+                            <p class="flavor_name">Earth</p>
+                            <img src="/static/img/recom/earth.png">
+                            <p class="flavor_exp">비 온 뒤 땅의 냄새, 우디,<br>꿀, 마른 흙, 돌, 훈연 등</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+            <input type="button" class="pre_bt" value="이전으로" onclick="pre1()">
+            <input type="button" class="next_bt" value="다음으로" onclick="next2()">
+        </div>
+
+        <div class="taste_info">
+            <h1 class="chapter">about taste🍷</h1>
+            <div class="quest_box">
+                <h2 class="question">원하는 와인의 맛(taste)을 항목별로 하나씩 선택해 주세요</h2>
+                <p class="explain">
+                    taste는 와인을 마실 때 입안에서 혀로 느끼는 단순한 맛의 감각으로,<br>
+                    주로 단맛, 산도, 탄닌, 강도가 포함되는 와인의 기본적인 구조적 요소입니다.
+                </p>
+                <div class="taste_box" id="sweetness_box">
+                    <h2 class="question">sweetness</h2>
+                    <p class="explain">와인의 당도에 대한 문항입니다</p>
+                    <div class="answer_box" onclick="document.getElementById('sweetness1').click();">
+                        <span>
+                            <input type="radio" name="sweetness" id="sweetness1" value="1">
+                            <label for="sweetness1">Dry(드라이): 단맛이 거의 느껴지지 않는 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('sweetness2').click();">
+                        <span>
+                            <input type="radio" name="sweetness" id="sweetness2" value="2">
+                            <label for="sweetness2">Off-Dry(약간 단): 약간의 단맛으로 입안을 살짝 달게 하는 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('sweetness3').click();">
+                        <span>
+                            <input type="radio" name="sweetness" id="sweetness3" value="3">
+                            <label for="sweetness3">Medium(중간): 과하지 않아 균형잡힌 단맛이 느껴지는 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('sweetness4').click();">
+                        <span>
+                            <input type="radio" name="sweetness" id="sweetness4" value="4">
+                            <label for="sweetness4">Sweet(단): 디저트 같은 강한 단맛이 느껴지는 정도</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="taste_box" id="acidity_box">
+                    <h2 class="question">acidity</h2>
+                    <p class="explain">와인의 산도(신맛)에 대한 문항입니다</p>
+                    <div class="answer_box" onclick="document.getElementById('acidity1').click();">
+                        <span>
+                            <input type="radio" name="acidity" id="acidity1" value="1">
+                            <label for="acidity1">Low(낮음): 산도가 적어 부드러운 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('acidity2').click();">
+                        <span>
+                            <input type="radio" name="acidity" id="acidity2" value="2">
+                            <label for="acidity2">Medium-Low(중간-낮음): 산도가 적당히 있어 약간의 상쾌함이 있는 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('acidity3').click();">
+                        <span>
+                            <input type="radio" name="acidity" id="acidity3" value="3">
+                            <label for="acidity3">Medium-High(중간-높음): 중간 이상의 산도로 적당한 상쾌함으로 입 안이 깔끔해지는 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('acidity4').click();">
+                        <span>
+                            <input type="radio" name="acidity" id="acidity4" value="4">
+                            <label for="acidity4">High(높음): 산도가 매우 높아 신맛이 강하게 느껴지는 가장 상쾌하고 신선한 정도</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="taste_box" id="tannin_box">
+                    <h2 class="question">tannin</h2>
+                    <p class="explain">와인의 탄닌(쓴맛)에 대한 문항입니다</p>
+                    <div class="answer_box" onclick="document.getElementById('tannin1').click();">
+                        <span>
+                            <input type="radio" name="tannin" id="tannin1" value="1">
+                            <label for="tannin1">Low(낮음): 쓴맛이 거의 없어 부드럽고 매끄러운 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('tannin2').click();">
+                        <span>
+                            <input type="radio" name="tannin" id="tannin2" value="2">
+                            <label for="tannin2">Medium-Low(중간-낮음): 약간의 쓴맛이 있지만 전체적으로 부드러운 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('tannin3').click();">
+                        <span>                  
+                            <input type="radio" name="tannin" id="tannin3" value="3">
+                            <label for="tannin3">Medium-High(중간-높음): 쓴맛이 뚜렷해서 와인의 맛이 좀 더 강한 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('tannin4').click();">
+                        <span>
+                            <input type="radio" name="tannin" id="tannin4" value="4">
+                            <label for="tannin4">High(높음): 쓴맛이 강해 때로는 떫은 정도</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="taste_box" id="intensity_box">
+                    <h2 class="question">intensity</h2>
+                    <p class="explain">와인의 강도(맛과 향)에 대한 문항입니다</p>
+                    <div class="answer_box" onclick="document.getElementById('intensity1').click();">
+                        <span>
+                            <input type="radio" name="intensity" id="intensity1" value="1">
+                            <label for="intensity1">Light(가벼움): 맛과 향이 부드럽고 은은한 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('intensity2').click();">
+                        <span>
+                            <input type="radio" name="intensity" id="intensity2" value="2">
+                            <label for="intensity2">Medium-Light(중간-가벼움): 맛과 향이 적당히 강렬하고 부드러운 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('intensity3').click();">
+                        <span>
+                            <input type="radio" name="intensity" id="intensity3" value="3">
+                            <label for="intensity3">Medium-High(중간-강함): 맛과 향이 명확하게 느껴지며 뚜렷한 정도</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('intensity4').click();">
+                        <span>
+                            <input type="radio" name="intensity" id="intensity4" value="4">
+                            <label for="intensity4">Full(강함): 맛과 향이 매우 강렬하며 와인 만의 특성이 뚜렷하게 두드려지는 정도</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+                <h2 class="question">원하는 와인의 바디감(body)을 선택해 주세요</h2>
+                <p class="explain">
+                    body는 와인을 마셨을 때 입안에서 느껴지는 무게감과 밀도를 의미하며,<br>
+                    바디감은 주로 알코올 도수, taste, 포도의 원산지 등의 요소들에 의해 결정됩니다.
+                </p>
+                <div class="taste_box" id="body_box">
+                    <div class="answer_box" onclick="document.getElementById('body1').click();">
+                        <span>
+                            <input type="radio" name="body" id="body1" value="1">
+                            <label for="body1">Light-bodied: 가벼운 무게감과 섬세한 질감</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('body2').click();">
+                        <span>
+                            <input type="radio" name="body" id="body2" value="2">
+                            <label for="body2">Medium-bodied: 중간 정도의 무게감과 균형 잡힌 질감</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('body3').click();">
+                        <span>
+                            <input type="radio" name="body" id="body3" value="3">
+                            <label for="body3">Full-bodied: 무겁고 풍부한 무게감과 강렬한 질감</label>
+                        </span>
+                    </div>
+                    <div class="answer_box" onclick="document.getElementById('body4').click();">
+                        <span>
+                            <input type="radio" name="body" id="body4" value="4">
+                            <label for="body4">Very full-bodied: 가장 무거운 무게감과 두꺼운 질감</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <input type="button" class="pre_bt" value="이전으로" onclick="pre2()">
+            <input type="button" class="next_bt" value="다음으로" onclick="next3()">
+        </div>
+
+        <div class="profile_info">
+            <h1 class="chapter">about wine profile🍷</h1>
+            <div class="quest_box" id="alcohol_box">
+                <h2 class="question">희망하는 와인의 도수를 선택해 주세요</h2>
+                <div class="answer_box" onclick="document.getElementById('alcohol1').click();">
+                    <span>
+                        <input type="radio" name="alcohol" id="alcohol1" value="1">
+                        <label for="alcohol1">12.5% 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box" onclick="document.getElementById('alcohol2').click();">
+                    <span>
+                        <input type="radio" name="alcohol" id="alcohol2" value="2">
+                        <label for="alcohol2">12.5% 이상 14.0% 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box" onclick="document.getElementById('alcohol3').click();">
+                    <span>
+                        <input type="radio" name="alcohol" id="alcohol3" value="3">
+                        <label for="alcohol3">14.0%도 이상 16.0%도 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box" onclick="document.getElementById('alcohol4').click();">
+                    <span>
+                        <input type="radio" name="alcohol" id="alcohol4" value="4">
+                        <label for="alcohol4">16.0% 이상</label>
+                    </span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="quest_box" id="price_box">
+                <h2 class="question">희망하는 와인의 가격을 선택해 주세요</h1>
+                <div class="answer_box" onclick="document.getElementById('price1').click();">
+                    <span>
+                        <input type="radio" name="price" id="price1" value="1">
+                        <label for="price1">15,000원 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box" onclick="document.getElementById('price2').click();">
+                    <span>
+                        <input type="radio" name="price" id="price2" value="2">
+                        <label for="price2">15,000원 이상 25,000원 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box" onclick="document.getElementById('price3').click();">
+                    <span>
+                        <input type="radio" name="price" id="price3" value="3">
+                        <label for="price3">25,000원 이상 35,000원 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box" onclick="document.getElementById('price4').click();">
+                    <span>
+                        <input type="radio" name="price" id="price4" value="4">
+                        <label for="price4">35,000원 이상 60,000원 미만</label>
+                    </span>
+                </div>
+                <div class="answer_box" onclick="document.getElementById('price5').click();">
+                    <span>
+                        <input type="radio" name="price" id="price5" value="5">
+                        <label for="price5">60,000원 이상</label>
+                    </span>
+                </div>
+            </div>
+            <br>
+            <input type="button" class="pre_bt" value="이전으로" onclick="pre3()">
+            <button type="submit" class="next_bt" onclick="end()">결과 보기</button>
+
+        
+        </div>
+    </section>
+</form>
+    <section class="result">
+        <div class="result_content">
+
+        </div>
+        <br>
+        <input type="button" class="restart_bt" value="다시하기" onclick="location.href=`{% url 'recom' %}`;">
+    </section>
+<script src="{% static 'js/recom/wine_recommend.js' %}"></script>
+<script>
+document.getElementById('wine_recommend').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    const formData = new FormData(this);
+    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+    fetch(`{% url 'recom' %}`, {
+        method: 'post',
+        body: formData,
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest', 
+            'X-CSRFToken': csrfToken 
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const resultSection = document.querySelector('.result_content');
+        resultSection.innerHTML = ''; // 기존 내용을 모두 지웁니다.
+
+        if (data.recommendations && data.recommendations.length > 0) {
+            // 1. 상단에 한 번만 노출할 내용 추가 (추천 결과가 있을 때만)
+            if (!document.querySelector('.wineasy-title')) {
+                const titleSection = document.createElement('div');
+                titleSection.classList.add('wineasy-title');
+                titleSection.innerHTML = `
+                    <h1 class="chapter">try these Wine🍷</h1>
+                    <p class="question">와인이지(wineasy)가 추천하는 당신을 위한 와인</p>
+                    <p class="explain" style="width: 50%;">
+                        🍷 최대 5개의 와인을 추천 받으실 수 있으며,<br>와인 이미지를 클릭하시면 vivino 로 이동하실 수 있습니다<br>
+                        🍷 와인의 이미지와 가격, 평점은 vivino 기준으로 등록된 점을 알리는 바 입니다.
+                        <span style="font-size: 18px;">가격의 경우 9월 1일 환율 기준으로 계산되었으며, 실제 구매 가격과 다를 수 있습니다</span>
+                    </p>
+                `;
+                resultSection.insertAdjacentElement('beforebegin', titleSection); // 결과 섹션 상단에 삽입
+            }
+
+            // 2. 와인 추천 결과 표시
+            data.recommendations.forEach(wine => {
+                const wineElement = document.createElement('div');
+                wineElement.classList.add('result_box');
+                wineElement.innerHTML = `
+                    <div class="img_box">
+                        <a href="${wine.url}" target="_blank" title="vivino 로 이동하기">
+                            <img src="${wine.img}" alt="${wine.name}"/>
+                        </a>
+                    </div>
+                    <div class="info_box">
+                        <div class="type_info">
+                            <p class="type">${wine.type}</p>
+                        </div>
+                        <div class="basic_info">
+                            <div class="basic_a">
+                                <p class="result_brand" title="winery">${wine.brand_name}</p>
+                                <p class="result_name">${wine.name}</p>
+                                <p class="result_alcohol">${wine.alcohol} %</p>
+                            </div>
+                            <div class="basic_b">
+                                <p class="result_ratingExp">Vivino 평점</p>
+                                <p class="result_rating">${wine.rating_average}<span style="font-size: 25px; color: black">/5</span></p>
+                                <p class="result_ratingCount">${wine.rating_count} 명 참여</p>
+                            </div>
+                        </div>
+                        <div class="price_info">
+                            <p class="result_price">약 ${wine.price} 원</p>
+                        </div>
+                    </div>
+                `;
+                resultSection.appendChild(wineElement);
+            });
+
+            // 3. 하단에 추가할 설명 (추천 결과가 있을 때만)
+            if (!document.querySelector('.wine-type-explain')) {
+                const explanationSection = document.createElement('div');
+                explanationSection.classList.add('wine-type-explain');
+                explanationSection.innerHTML = `
+                    <br>
+                    <p class="question" style="font-size: 28px">와인 종류에 대한 정보는 아래를 참고해 주세요:)</p>
+                    <p class="explain" style="width: 50%; text-align: left;">
+                        레드 와인 : 껍질을 벗기지 않은 포도로 제작된 와인<br>
+                        화이트 와인 : 껍질을 벗긴 청포도의 주스로 제작된 와인<br>
+                        스파클링 와인 : 탄산이 포함된 와인<br>
+                        로제 와인 : 발효 시간을 줄인 가벼운 맛의 분홍색 와인<br>
+                        디저트 와인 : 주로 후식 때 마시는 달달한 와인<br>
+                        주정강화 와인 : 주정을 넣어 알코올 도수를 높인 와인<br>
+                    </p>
+                `;
+                resultSection.insertAdjacentElement('afterend', explanationSection); // 결과 섹션 하단에 삽입
+            }
+        } else {
+            // 추천 결과가 없는 경우
+            resultSection.innerHTML = `
+            <h1 class="chapter">Oops! 추천할 와인을 찾지 못했어요 😅</h1>
+            <p class="question" style="font-size: 28px;">
+                고객님의 소중한 취향을 반영하려 했으나, 현재 데이터로는 추천할 수 있는 와인이 없습니다.<br>
+                조금 다른 조건으로 다시 시도해 보시는 것은 어떠실까요?
+            </p>
+            <p class="explain" style="width: 60%;">
+            * 설문 답변 선택 시 유의사항<br>
+            와인의 바디감은 맛(taste)과 알코올 도수와 같은 요소에 의해 결정되는 것으로,<br>
+            이들은 서로 비례 관계를 가집니다.<br>
+            예를 들어, 가장 무거운 바디감을 선택한 후 가장 낮은 알코올 도수를 선택하시면,<br>
+            추천 결과가 나오지 않을 수 있습니다.<br>
+            </p>
+            <img src="/static/img/recom/result_img.jpg" alt="resultImage" class="resultImg"><br>
+            `;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+</script>
+</body>
+</html>

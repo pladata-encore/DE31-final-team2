@@ -1,0 +1,29 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - develop  
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    
+    steps:
+    - name: EC2 ssh connection test
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}			
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.AWS_PEM }}				
+        command_timeout: 3m						
+        script: |
+          source /home/wineasy/wineasy/venv/bin/activate
+          cd /home/wineasy/wineasy/DE31-final-team2/web/wineasy
+          git pull origin develop
+          sudo systemctl start gunicorn
+          sudo systemctl reload nginx  
