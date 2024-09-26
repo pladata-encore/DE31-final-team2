@@ -1,29 +1,24 @@
 # Wineasy 와인 추천 시스템
-> 역할 및 팀원 소개
->
-  > * 데이터 전처리 & 모델링 : 김소현, 김현지
-  > 
-  > * 프론트엔드 : 변수현
-  > 
-  > * 백엔드 : 신소영
-  > 
-  > * 환경 구축 : 조혜민
+💡 역할 및 팀원 소개
+* 데이터 전처리 & 모델링 : 김소현, 김현지
+* 프론트엔드 : 변수현
+* 백엔드 : 신소영
+* 환경 구축 : 조혜민
 
 💡 발표자료
-[와인이지_발표자료.pdf](https://drive.google.com/file/d/1mkyThgcnKNKWzb4b0cQCGyzXneD1jEyS/view?usp=drive_link)
-
-[와인이지_발표자료.pptx](https://docs.google.com/presentation/d/1lCfIPzbH39OI2GkRz-EvQbFJcJ66_Yl5/edit?usp=drive_link&ouid=107925533121739727031&rtpof=true&sd=true)
-
-[폰트 모음](https://drive.google.com/file/d/1qB-YEJvom2E5SMnBLiTFyy5bn6FR3vAj/view?usp=drive_link)
+* [와인이지_발표자료.pdf](https://drive.google.com/file/d/1iLT_pGrdw6z91M5YPm9zFL4Q93Ghqe4r/view?usp=sharing)
+* [와인이지_발표자료.pptx](https://docs.google.com/presentation/d/1YHly1-TU8zgHHkM-FyU_d4oE9weYjfka/edit?usp=sharing&ouid=107925533121739727031&rtpof=true&sd=true)
+* [발표자료 폰트 모음](https://drive.google.com/file/d/1qB-YEJvom2E5SMnBLiTFyy5bn6FR3vAj/view?usp=drive_link)
 
 💡 시연영상
-[시연영상 YouTube 링크](https://youtu.be/fjAC9qZIHiM)
+* [시연영상 YouTube 링크](https://youtu.be/fjAC9qZIHiM)
 
 💡 WBS 및 명세서
-[WBS 및 명세서 링크](https://docs.google.com/spreadsheets/d/1ZDyCFh3nbPvEzf64jL3QJB1gte7ibYC1JFk5hXatavI/edit?gid=856137190#gid=856137190)
+* [WBS 및 명세서 링크](https://docs.google.com/spreadsheets/d/1ZDyCFh3nbPvEzf64jL3QJB1gte7ibYC1JFk5hXatavI/edit?gid=856137190#gid=856137190)
 
 💡 AWS 배포 주소
-[http://43.203.67.102/wineasy/](http://43.203.67.102/wineasy/)
+* [http://43.203.67.102/wineasy/](http://43.203.67.102/wineasy/)
+
 
 
 ## 1. 주제 선정 배경
