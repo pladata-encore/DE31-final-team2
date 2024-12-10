@@ -5,11 +5,6 @@
 * 백엔드 : 신소영
 * 환경 구축 : 조혜민
 
-💡 발표자료
-* [와인이지_발표자료.pdf](https://drive.google.com/file/d/166YRFOOQ0DPblerwlXkzEvj7GAk1U3gC/view?usp=drive_link)
-* [와인이지_발표자료.pptx](https://docs.google.com/presentation/d/1YHly1-TU8zgHHkM-FyU_d4oE9weYjfka/edit?usp=sharing&ouid=107925533121739727031&rtpof=true&sd=true)
-* [발표자료 폰트 모음](https://drive.google.com/file/d/1qB-YEJvom2E5SMnBLiTFyy5bn6FR3vAj/view?usp=drive_link)
-
 💡 시연영상
 * [시연영상 YouTube 링크](https://youtu.be/fjAC9qZIHiM)
 * [와인이지_시연 영상.mp4](https://drive.google.com/file/d/1843zluTxv7-4VTHPazI4oPAL37tZxESS/view?usp=sharing)
